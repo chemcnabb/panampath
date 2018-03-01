@@ -1,0 +1,5 @@
+venv
+*.psd
+*.pdf
+*.zip
+.idea
