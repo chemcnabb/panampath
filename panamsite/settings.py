@@ -25,7 +25,7 @@ SECRET_KEY = '6$nd^z^&qer5ys4exz&x$d&n1j5&a6ql6@5j2n0*huhx*pylgq'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*',]
 
 SITE_ID = 1
 
@@ -87,10 +87,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'panampath',
-        'USER': 'panam',
-        'PASSWORD': 'panam',
-        'HOST': '',
-        'PORT': '5432',
+        'USER': 'panampath',
+        'PASSWORD': 'p@n@mp@th',
+        'HOST': 'mysql.panamdev.xyz',
+        'PORT': '',
     }
 }
 
@@ -127,12 +127,12 @@ USE_L10N = True
 
 USE_TZ = False
 
-ZINNIA_UPLOAD_TO = "static/uploads"
+ZINNIA_UPLOAD_TO = "public/static/uploads"
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
-STATIC_ROOT = os.path.join(BASE_DIR, "media")
+STATIC_ROOT = os.path.join(BASE_DIR, "public/media")
 STATICFILES_DIRS = [
-os.path.join(BASE_DIR, "static"),
+os.path.join(BASE_DIR, "public/static"),
 
 
 ]
