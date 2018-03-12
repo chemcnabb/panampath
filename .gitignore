@@ -3,3 +3,5 @@ venv
 *.pdf
 *.zip
 .idea
+**/**/*.psd
+.DS_Store

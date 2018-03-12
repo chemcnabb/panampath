@@ -1,1 +1,29 @@
 {%  extends "base.html" %}
+{% load i18n staticfiles %}
+
+{% block landing %}
+    <div class="intro cover-container d-flex h-100 p-3 mx-auto flex-column" id="intro">
+
+
+			<div class="col-md-12">
+				<div class="intro-section" style="transform: translateY(0px); opacity: 1;">
+
+					<!-- begin logo intro section -->
+					<img src="{% static "panam/site/img/logo.svg" %}" alt="logo" class="company-logo">
+					<!-- end logo intro section -->
+					<h1 class="main-color">welcome to the panampath</h1>
+
+
+					<div class="arrow text-center"></div>
+
+				</div>
+			</div>
+
+
+
+
+
+</div>
+
+
+{% endblock landing %}

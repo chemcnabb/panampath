@@ -1,91 +1,214 @@
-{% load i18n %}
-{% load staticfiles %}
+{% load i18n staticfiles zinnia %}
 <!doctype html>
 <html lang="{{ LANGUAGE_CODE }}">
-  <head>
+<head>
     <meta charset="utf-8">
-    <title>{% block title %}{% endblock title %}{% block title-page %}{% endblock title-page %} - Zinnia's Weblog</title>
-    <meta name="robots" content="follow, all" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="{% block meta-description %}{% trans "Just another Zinnia weblog." %}{% endblock meta-description %}{% block meta-description-page %}{% endblock meta-description-page %}" />
-    <meta name="keywords" content="{% block meta-keywords %}django, blog, weblog, zinnia{% endblock meta-keywords %}" />
-    <meta name="author" content="Fantomas42" />
+    <title>Zinnia's Weblog -
+        {% block title %}{% endblock title %}{% block title-page %}{% endblock title-page %}</title>
+    <meta name="robots" content="follow, all"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="
+            {% block meta-description %}{% trans "Just another Zinnia weblog." %}{% endblock meta-description %}{% block meta-description-page %}{% endblock meta-description-page %}"/>
+    <meta name="keywords" content="{% block meta-keywords %}django, blog, weblog, zinnia{% endblock meta-keywords %}"/>
+
     {% block meta %}{% endblock meta %}
-    <link rel="pingback" href="/xmlrpc/" />
-    <link rel="shortcut icon" href="{% static "zinnia/theme/img/favicon.ico" %}" />
-    <link rel="home" href="{% url 'zinnia:entry_archive_index' %}" />
-    <link rel="stylesheet" type="text/css" media="screen, projection" href="{% static "zinnia/theme/css/screen.css" %}" />
-    <link rel="stylesheet" type="text/css" media="print" href="{% static "zinnia/theme/css/print.css" %}" />
-    <!--[if lt IE 8]>
-        <link rel="stylesheet" type="text/css" media="screen, projection" href="{% static "zinnia/theme/css/ie.css" %}" />
+    <link rel="pingback" href="/xmlrpc/"/>
+    <link rel="home" href="{% url 'zinnia:entry_archive_index' %}"/>
+    {##}
+    {##}
+    {#    <!-- Stylesheets -->#}
+    {#    <link rel="stylesheet" href="{% static "panam/site/css/bootstrap.min.css" %}">#}
+    {#    <link rel="stylesheet" href="{% static "panam/site/css/font-awesome.min.css" %}">#}
+    {#    <link rel="stylesheet" href="{% static "panam/site/css/owl.theme.css" %}">#}
+    {#    <link rel="stylesheet" href="{% static "panam/site/css/owl.carousel.css" %}">#}
+    {#    <link rel="stylesheet" href="{% static "panam/site/css/nivo-theme.css" %}">#}
+    {#    <link rel="stylesheet" href="{% static "panam/site/css/nivo-lightbox.css" %}">#}
+    {#    <link rel="stylesheet" href="{% static "panam/site/css/animate.css" %}">#}
+    {##}
+    {#    <!-- Main Stylsheets -->#}
+    {#    <link rel="stylesheet" href="{% static "panam/site/css/style.css" %}">#}
+    {#    <link rel="stylesheet" href="{% static "panam/site/css/panampath.css" %}">#}
+    {#    <link rel="stylesheet" href="{% static "panam/site/css/responsive.css" %}">#}
+
+    <!-- Color Sheme CSS -->
+    <link rel="stylesheet" href="{% static "panam/site/css/panampath.css" %}">
+
+    <!-- Google Font -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <link rel="shortcut icon" href="{% static "zinnia/theme/img/favicon.ico" %}"/>
+    <link rel="apple-touch-icon-precomposed" sizes="144x144"
+          href="{% static "panam/site/assets/ico/apple-touch-icon-144-precomposed.png" %}"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114"
+          href="{% static "panam/site/assets/ico/apple-touch-icon-114-precomposed.png" %}"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72"
+          href="{% static "panam/site/assets/ico/apple-touch-icon-72-precomposed.png" %}"/>
+    <link rel="apple-touch-icon-precomposed"
+          href="{% static "panam/site/assets/ico/apple-touch-icon-57-precomposed.png" %}"/>
     {% block link %}{% endblock link %}
     {% block script %}{% endblock script %}
-  </head>
-  <body class="zinnia {% block theme-class %}default{% endblock theme-class %} {% block color-class %}bold{% endblock color-class %} {% block sidebar-class %}right-sidebar{% endblock sidebar-class %} {% block body-class %}{% endblock body-class %}">
-    <div class="container">
-      <header id="header" role="banner">
-        <nav>
-          <ul class="top-navigation">
-            <li>
-              <a href="{% url 'zinnia:sitemap' %}" title="{% trans "Sitemap" %}" class="sitemap" rel="sitemap">
-                {% trans "Sitemap" %}
-              </a>
-            </li>
-            <li>
-              <a href="{% url 'zinnia:entry_feed' %}" title="{% trans "RSS feed of last entries" %}" class="feeds">
-                {% trans "RSS feed" %}
-              </a>
-            </li>
-          </ul>
-        </nav>
-        <form method="get" action="{% url 'zinnia:entry_search' %}">
-          <p>
-            <input type="text" name="pattern" placeholder="{% trans "Keywords..." %}" {% if pattern %}value="{{ pattern }}"{% endif %} />
-            <input type="submit" class="submitbutton" value="OK" />
-          </p>
-        </form>
-        <h1>
-          <a href="{% url 'zinnia:entry_archive_index' %}" title="Zinnia's Weblog" rel="home">
-            Zinnia's Weblog
-          </a>
-        </h1>
-        <blockquote>
-          <p>{% trans "Just another Zinnia weblog." %}</p>
-        </blockquote>
-        {% block breadcrumbs %}{% endblock breadcrumbs %}
-      </header>
-      {% block slider %}{% endblock slider %}
-      <div id="content" class="hfeed" role="main">
-        {% block content %}
-        <div class="links">
-          <h2>{% trans "Useful links" %}</h2>
-          <ul>
-            <li>
-              <a href="{% url 'zinnia:entry_archive_index' %}" title="{% trans "Weblog index" %}">
-                {% trans "Weblog index" %}
-              </a>
-            </li>
-            <li>
-              <a href="{% url 'zinnia:sitemap' %}" title="{% trans "Sitemap" %}">
-                {% trans "Sitemap" %}
-              </a>
-            </li>
-          </ul>
+</head>
+<body class="zinnia {% block body-class %}{% endblock body-class %}">
+
+
+<!-- begin preloader -->
+<div class="preloader">
+    <div class="preloader-content-wrapper">
+        <div class="preloader-content">
+            <i class="fa fa-cog fa-3x fa-spin"></i>
         </div>
-        <div class="search">
-          <h2>{% trans "Search" %}</h2>
-          {% include "zinnia/tags/search_form.html" %}
-        </div>
-        {% endblock content %}
-      </div>
-      <div id="sidebar" role="complementary">
-        {% block sidebar %}
-        {% endblock sidebar %}
-      </div>
-      <footer id="footer" role="contentinfo">
-        <p>{% blocktrans %}Powered by <a href="http://www.djangoproject.com">Django</a> and <a href="https://github.com/Fantomas42/django-blog-zinnia">Zinnia {{ ZINNIA_VERSION }}</a>.{% endblocktrans %}</p>
-      </footer>
     </div>
-  </body>
+</div>
+<!-- end preloader -->
+
+<nav class="navbar navbar-expand-xs navbar-dark fixed-top bg-dark" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+        </div>
+    <a href="/" title="Pan Am Path" class="navbar-brand" rel="home">
+                <img src="{% static "panam/site/img/logo.svg" %}" class="pull-left nav-logo" alt="Pan Am Path"/>
+            </a>
+
+    
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav navbar-left">
+                {% url 'zinnia:category_list' as category_list_url %}
+                <li {% if category_list_url in request.path %}class="active"{% endif %}>
+                    <a href="{{ category_list_url }}" title="{% trans "Category list" %}">
+                        {% trans "Categories" %}
+                    </a>
+                </li>
+                {% url 'zinnia:author_list' as author_list_url %}
+                <li {% if author_list_url in request.path %}class="active"{% endif %}>
+                    <a href="{{ author_list_url }}" title="{% trans "Author list" %}">
+                        {% trans "Authors" %}
+                    </a>
+                </li>
+                {% url 'zinnia:tag_list' as tag_list_url %}
+                <li {% if tag_list_url in request.path %}class="active"{% endif %}>
+                    <a href="{{ tag_list_url }}" title="{% trans "Tag list" %}">
+                        {% trans "Tags" %}
+                    </a>
+                </li>
+                <li class="divider-vertical"></li>
+
+                <li>
+                    <form method="get" action="{% url 'zinnia:entry_search' %}" class="navbar-form navbar-left">
+                        <div class="form-group">
+                            <input type="text" class="search-query form-control" placeholder="{% trans 'Search' %}"
+                                   name="pattern" value="{{ pattern }}"/>
+                        </div>
+                        <button type="submit" name="submit" class="btn btn-default btn-sm">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    </form>
+                </li>
+
+                {% url 'zinnia:sitemap' as sitemap_url %}
+                <li {% if sitemap in request.path %}class="active"{% endif %}>
+                <li>
+                    <a href="{{ sitemap_url }}" title="{% trans "Sitemap" %}" class="sitemap">
+                        {% trans "Sitemap" %}
+                    </a>
+                </li>
+                <li class="divider-vertical"></li>
+                <li>
+                    <a href="{% url 'zinnia:entry_feed' %}" title="{% trans "RSS Feed of latest entries" %}"
+                       class="feeds">
+                        {% trans "RSS Feed" %}
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+{#<nav class="navbar navbar-expand-xs navbar-dark fixed-top bg-dark">#}
+{#      <a class="navbar-brand" href="#">Fixed navbar</a>#}
+{#      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">#}
+{#        <span class="navbar-toggler-icon"></span>#}
+{#      </button>#}
+{#      <div class="collapse navbar-collapse" id="navbarCollapse">#}
+{#        <ul class="navbar-nav mr-auto">#}
+{#          <li class="nav-item active">#}
+{#            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>#}
+{#          </li>#}
+{#          {% url 'zinnia:category_list' as category_list_url %}#}
+{#            <li {% if category_list_url in request.path %}class="active"{% endif %}>#}
+{#              <a href="{{ category_list_url }}" title="{% trans "Category list" %}">#}
+{#                {% trans "Categories" %}#}
+{#              </a>#}
+{#            </li>#}
+{#        </ul>#}
+{#        <form class="form-inline mt-2 mt-md-0">#}
+{#          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">#}
+{#          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>#}
+{#        </form>#}
+{#      </div>#}
+{#    </nav>#}
+
+<div class="container-fluid">
+    {% block landing %}{% endblock %}
+</div>
+{% block slider %}{% endblock %}
+<div class="container-fluid">
+    <div class="row no-gutter">
+        <section>
+            {% block breadcrumbs %}{% endblock %}
+            {% block content %}
+                {% get_featured_entries %}
+                {#          <div class="links">#}
+                {#            <h3>{% trans "Useful links" %}</h3>#}
+                {#            <ul>#}
+                {#              <li>#}
+                {#                <a href="{% url 'zinnia:entry_archive_index' %}" title="{% trans "Weblog index" %}">#}
+                {#                  {% trans "Weblog index" %}#}
+                {#                </a>#}
+                {#              </li>#}
+                {#              <li>#}
+                {#                <a href="{% url 'zinnia:sitemap' %}" title="{% trans "Sitemap" %}">#}
+                {#                  {% trans "Sitemap" %}#}
+                {#                </a>#}
+                {#              </li>#}
+                {#            </ul>#}
+                {#          </div>#}
+                {#          <div class="search">#}
+                {#            <h3>{% trans "Search" %}</h3>#}
+                {#            {% include "zinnia/tags/search_form.html" %}#}
+                {#          </div>#}
+            {% endblock content %}
+        </section>
+        {#        <div id="sidebar" class="col-xs-12 col-sm-4 col-md-4 col-lg-4">#}
+        {#          {% block sidebar %}#}
+        {#          {% endblock sidebar %}#}
+        {#        </div>#}
+    </div>
+</div>
+<footer class="container-fluid">
+    <p>{% blocktrans %}Powered by <a href="http://www.djangoproject.com">Django</a> and
+        <a href="https://github.com/Fantomas42/django-blog-zinnia">Zinnia {{ ZINNIA_VERSION }}</a>.{% endblocktrans %}
+    </p>
+</footer>
+<script type="text/javascript" src="{% static "panam/site/assets/js/jquery.js" %}"></script>
+<script type="text/javascript" src="{% static "panam/site/js/bootstrap.min.js" %}"></script>
+<script type="text/javascript" src="{% static "panam/site/js/owl.carousel.min.js" %}"></script>
+<script type="text/javascript" src="{% static "panam/site/js/jquery.fitvids.js" %}"></script>
+<script type="text/javascript" src="{% static "panam/site/js/smoothScroll.js" %}"></script>
+<script type="text/javascript" src="{% static "panam/site/js/nivo-lightbox.min.js" %}"></script>
+<script type="text/javascript" src="{% static "panam/site/js/jquery.scrollTo.js" %}"></script>
+<script type="text/javascript" src="{% static "panam/site/js/jquery.nav.js" %}"></script>
+<script type="text/javascript" src="{% static "panam/site/js/wow.min.js" %}"></script>
+<script type="text/javascript" src="{% static "panam/site/js/main.js" %}"></script>
+</body>
 </html>

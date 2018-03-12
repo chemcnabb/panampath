@@ -1,20 +1,18 @@
 {% load i18n %}
-<ul class="{% if not comments %}no-{% endif %}comments-recent">
+<ul class="list-group">
   {% for comment in comments %}
-  <li>
+  <li class="list-group-item">
     {% with entry=comment.content_object %}
-    {% blocktrans with comment_author=comment.name comment_pk=comment.pk comment_author_slug=comment.user_name|slugify entry_url=entry.get_absolute_url entry_title=entry.title trimmed %}
-    {{ comment_author }} in
-    <a href="{{ entry_url }}#comment-{{ comment_pk }}-by-{{ comment_author_slug }}"
-       title="Comment on {{ entry_title }}">
-      {{ entry_title }}
+    <a href="{{ entry.get_absolute_url }}#comment-{{ comment.pk }}-by-{{ comment.user_name|slugify }}"
+       title="{% trans "Comment on" %} {{ entry.title }}">
+      {{ comment.user_name }} {% trans "in" %}
+      {{ entry.title }}
     </a>
-    {% endblocktrans %}
     {% endwith %}
   </li>
   {% empty %}
-  <li>
-    {% trans "No comments yet." %}
+  <li class="list-group-item">
+    <a href="#">{% trans "No comments yet." %}</a>
   </li>
   {% endfor %}
 </ul>

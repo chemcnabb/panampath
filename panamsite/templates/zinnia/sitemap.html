@@ -1,12 +1,5 @@
-{% extends "zinnia/base.html" %}
-{% load i18n %}
-{% load zinnia %}
-
-{% block title %}{% trans "Sitemap" %}{% endblock title %}
-
-{% block meta-description %}{% trans "Sitemap of the weblog" %}{% endblock meta-description %}
-
-{% block body-class %}sitemap{% endblock body-class %}
+{% extends "zinnia/sitemap.html" %}
+{% load i18n zinnia mptt_tags %}
 
 {% block content %}
 <h1>{% trans "Sitemap" %}</h1>
@@ -15,18 +8,18 @@
   <h2>{% trans "Entries per categories" %}</h2>
   {% for category in categories %}
   <h3>{{ category }}</h3>
-  <ul>
+  <ul class="list-group">
     {% for entry in category.entries_published.all %}
-    <li>
+    <li class="list-group-item">
       <a href="{{ entry.get_absolute_url }}" title="{{ entry.title }}" rel="bookmark">{{ entry.title }}</a>
-      {% with comment_count=entry.comment_count %}
-      {% if comment_count %}
-      - {{ comment_count }} {% trans "comment" %}{{ comment_count|pluralize }}
-      {% endif %}
+      {% with comment_count=entry.comments.count %}
+      <span class="badge">
+        {{ comment_count }} {% trans "comment" %}{{ comment_count|pluralize }}
+      </span>
       {% endwith %}
     </li>
     {% empty %}
-    <li>
+    <li class="list-group-item">
       {% trans "No entries yet." %}
     </li>
     {% endfor %}

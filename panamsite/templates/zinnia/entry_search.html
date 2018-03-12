@@ -1,35 +1,22 @@
-{% extends "zinnia/entry_list.html" %}
-{% load i18n %}
-{% load zinnia %}
-
-{% block title %}{% blocktrans %}Search results for '{{ pattern }}'{% endblocktrans %}{% endblock title %}
-
-{% block meta-description %}{% blocktrans %}Search results for '{{ pattern }}'{% endblocktrans %}{% endblock meta-description %}
-
-{% block link %}
-  {{ block.super }}
-  {% if not error %}
-  <link rel="alternate" type="application/rss+xml" title="{% blocktrans %}RSS feed of search results for '{{ pattern }}'{% endblocktrans %}" href="{% url 'zinnia:entry_search_feed' %}?pattern={{ pattern }}" />
-  {% endif %}
-{% endblock link %}
-
-{% block body-class %}{{ block.super }} search {% if error %}search-error{% elif object_list %}search-results{% else %}search-no-results{% endif %}{% endblock body-class %}
+{% extends "zinnia/entry_search.html" %}
+{% load i18n zinnia %}
 
 {% block content-title %}
 <h1>{% blocktrans %}Search results for '{{ pattern }}'{% endblocktrans %}</h1>
 
 {% if error %}
-<p class="error">{{ error }}</p>
+<p class="alert alert-error">{{ error }}</p>
 {% else %}
 <p class="feed">
-  <a href="{% url 'zinnia:entry_search_feed' %}?pattern={{ pattern }}" title="{% blocktrans %}RSS feed of search results for '{{ pattern }}'{% endblocktrans %}">
+  <span class="glyphicon glyphicon-list-alt"></span>
+  <a href="{% url 'entry_search_feed' %}?pattern={{ pattern }}" title="{% blocktrans %}RSS feed of search results for '{{ pattern }}'{% endblocktrans %}">
     {% blocktrans %}RSS feed of search results for '{{ pattern }}'{% endblocktrans %}
   </a>
 </p>
 {% endif %}
 
 {% if object_list %}
-<p class="success">
+<p class="alert alert-success">
   {% blocktrans count entry_count=paginator.count %}{{ entry_count }} entry found{% plural %}{{ entry_count }} entries found{% endblocktrans %}
 </p>
 {% endif %}
@@ -42,13 +29,7 @@
   {% zinnia_loop_template object.content_template as template %}
   {% include template with object_content=object.html_preview continue_reading=1 %}
 {% empty %}
-<p class="info">{% trans "Nothing found." %}</p>
+<p class="alert alert-info">{% trans "Nothing found." %}</p>
 {% endfor %}
 {% endif %}
 {% endblock content-loop %}
-
-{% block content-related %}
-<div class="search">
-  {% include "zinnia/tags/search_form.html" %}
-</div>
-{% endblock content-related %}
