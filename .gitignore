@@ -5,3 +5,4 @@ venv
 .idea
 **/**/*.psd
 .DS_Store
+dev_docs
