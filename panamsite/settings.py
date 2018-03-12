@@ -137,3 +137,9 @@ os.path.join(BASE_DIR, "public/static"),
 
 ]
 STATIC_URL = '/static/'
+
+try:
+    from local_settings import *
+    no_local = False
+except ImportError:
+    no_local = True

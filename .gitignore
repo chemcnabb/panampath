@@ -6,3 +6,5 @@ venv
 **/**/*.psd
 .DS_Store
 dev_docs
+*.pyc
+local_settings.py
