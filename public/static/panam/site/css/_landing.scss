@@ -1,7 +1,6 @@
 /* Lamap App Landing Page Light version Stylesheet
 ====================================================== */
 
-
 body {
   background-color: $background-white;
   font-family: $font-stack;
@@ -17,7 +16,6 @@ footer, header, hgroup, menu, nav, section {
   display: block;
 }
 
-
 section.entry {
   position: relative;
 
@@ -25,55 +23,38 @@ section.entry {
   background-size: cover;
   text-align: left;
   box-shadow: inset 0 0 0 2000px rgba(45, 56, 68, 0.7);
-.cover-wrapper-wrapper{
-  position: absolute;
+  .date-posted {
+    border: 1px solid white;
+    width: 75px;
+    height: 100px;
+    background-color: white;
+    color: $main-color;
 
-  bottom:0;
-  .cover-wrapper {
-position:relative;
+    //left:15px;
+    //margin-right:15px;
+  }
+  .entry-cover {
 
-
-
-
-    .date-posted{
-      border: 1px solid white;
-      width: 75px;
-      height: 100%;
-      background-color:white;
-      color:$main-color;
-
-      //left:15px;
-      //margin-right:15px;
-
-      p {
-            width: 100%;
-  text-align: center;
-  padding: 26px 0px 15px 0px;
-  font-size: 12px;
-  font-weight: bold;
-      }
+    p {
+      width: 100%;
+      text-align: center;
+      padding: 26px 0px 15px 0px;
+      font-size: 12px;
+      font-weight: bold;
     }
-
-    .entry-cover {
-
-//margin-right:-15px;
-      a {
-        text-transform: capitalize;
-        color: #fff;
-        margin-bottom: 8px;
-        display: block;
-font-size:18px;
-      }
-
-      .category {
-        border-top: 2px solid $main-color;
-        padding-top: 8px;
-        //margin: 0 auto;
-        color: #fff;
-      }
-
+    a {
+      text-transform: capitalize;
+      color: #fff;
+      margin-bottom: 8px;
+      display: block;
+      font-size: 18px;
     }
   }
+  .category {
+    border-top: 2px solid $main-color;
+    padding-top: 8px;
+    //margin: 0 auto;
+    color: #fff;
   }
 
 }
