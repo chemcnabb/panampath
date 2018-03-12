@@ -6520,6 +6520,8 @@ section.entry {
     height: 100px;
     background-color: white;
     color: #f15e2a; }
+    section.entry .date-posted p {
+      font-weight: bold; }
   section.entry .entry-cover p {
     width: 100%;
     text-align: center;
@@ -6533,7 +6535,7 @@ section.entry {
     display: block;
     font-size: 18px; }
   section.entry .category {
-    border-top: 2px solid #f15e2a;
+    border-top: 1px solid #f15e2a;
     padding-top: 8px;
     color: #fff; }
 

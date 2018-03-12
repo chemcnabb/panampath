@@ -44,17 +44,17 @@ console.log("loaded");
 	// 	'scrollOffset': 500
 	// });
 }
-// else
-// 	{
-//         $('.navbar').addClass('fixednav');
-//         // Initiat onepageNav.js
-//         $('.nav').onePageNav({
-//             currentClass: 'current',
-//             'scrollOffset': 0
-//         });
-//
-//         $('.container-fluid').eq(1).addClass('nav-offset');
-// }
+else
+	{
+        $('.navbar').addClass('fixednav');
+        // Initiat onepageNav.js
+        // $('.nav').onePageNav({
+        //     currentClass: 'current',
+        //     'scrollOffset': 0
+        // });
+
+        $('.container-fluid').eq(1).addClass('nav-offset');
+}
 
 
 

@@ -17,11 +17,31 @@
     <!-- Header with Background Image -->
     <header class="business-header">
       <div class="container">
-
-          <div class="w-100">
-            <h1 class="display-3 text-center text-white mt-4">Business Name or Tagline</h1>
+      <div class="w-100">
+            <h1 class="display-3 text-center mt-4">{{ object.title }}</h1>
 
         </div>
+    {% block entry-image %}
+    {% if object.image %}
+    <div class="entry-image">
+      <p>
+        {% if continue_reading %}
+        <a href="{{ object.get_absolute_url }}" title="{{ object.title }}" rel="bookmark">
+          {% endif %}
+      {% with "/"|add:object.image.url as IMAGE_URL %}
+
+
+          <img src="{{ IMAGE_URL }}" alt="{{ object.title }}" class="img-responsive" />
+          {% endwith %}
+          {% if continue_reading %}
+        </a>
+        {% endif %}
+      </p>
+    </div>
+    {% endif %}
+    {% endblock entry-image %}
+
+
       </div>
     </header>
 
@@ -30,7 +50,13 @@
 
       <div class="row">
         <div class="w-8">
-          <h2 class="mt-4">What We Do</h2>
+              <h2 class="entry-title mt-4">
+                {% block entry-title %}
+                  <a href="{{ object.get_absolute_url }}" title="{{ object.title }}" rel="bookmark">
+                    {{ object.title|widont }}
+                  </a>
+                {% endblock entry-title %}
+              </h2>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A deserunt neque tempore recusandae animi soluta quasi? Asperiores rem dolore eaque vel, porro, soluta unde debitis aliquam laboriosam. Repellat explicabo, maiores!</p>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis optio neque consectetur consequatur magni in nisi, natus beatae quidem quam odit commodi ducimus totam eum, alias, adipisci nesciunt voluptate. Voluptatum.</p>
           <p>

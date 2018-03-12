@@ -29,6 +29,9 @@ section.entry {
     height: 100px;
     background-color: white;
     color: $main-color;
+    p{
+      font-weight:bold;
+    }
 
     //left:15px;
     //margin-right:15px;
@@ -51,7 +54,7 @@ section.entry {
     }
   }
   .category {
-    border-top: 2px solid $main-color;
+    border-top: 1px solid $main-color;
     padding-top: 8px;
     //margin: 0 auto;
     color: #fff;
