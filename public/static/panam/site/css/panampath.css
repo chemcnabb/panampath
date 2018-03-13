@@ -10,6 +10,7 @@
 @import url(nivo-theme.css);
 @import url(nivo-lightbox.css);
 @import url(animate.css);
+@import url(blog-stories-post.css);
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
@@ -6787,8 +6788,7 @@ h4 {
   max-height: 80px; }
 
 .nav-offset {
-  padding-top: 80px;
-  margin-top: 25px; }
+  padding-top: 80px; }
 
 .navbar.fixednav {
   animation-name: slideDown;

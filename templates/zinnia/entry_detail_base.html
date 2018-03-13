@@ -1,210 +1,96 @@
-{% extends "zinnia/entry_detail_base.html" %}
-{% load i18n zinnia %}
+{% extends "zinnia/base.html" %}
+{% load comments i18n zinnia staticfiles %}
+{% block content %}
 
-{% block entry-widgets %}
-<aside class="entry-widgets" role="complementary">
-  {% block entry-related-entries %}
-  {% with entry_related=object.related_published %}
-  {% if entry_related %}
-  <div class="entry-related panel panel-default">
-    <div class="panel-heading">
-      {% trans "Related entries" %}
-    </div>
-    <ul class="list-group">
-      {% for entry in entry_related %}
-      <li class="list-group-item">
-	<a href="{{ entry.get_absolute_url }}" title="{{ entry.title }}" rel="bookmark">{{ entry.title }}</a>
-      </li>
-      {% endfor %}
-    </ul>
-  </div>
-  {% endif %}
-  {% endwith %}
-  {% endblock entry-related-entries %}
-  {% block entry-similar-entries %}
-  <div class="entry-similar panel panel-default">
-    <div class="panel-heading">
-      {% trans "Similar entries" %}
-    </div>
-    {% get_similar_entries %}
-  </div>
-  {% endblock entry-similar-entries %}
-  {% block entry-previous-next-entries %}
-  <div class="entry-prev-next">
-    <ul class="pager">
-      {% with next_entry=object.next_entry %}
-      {% if next_entry %}
-      <li class="next">
-        <a href="{{ next_entry.get_absolute_url }}" title="{{ next_entry.title }}" rel="next">
-          {{ next_entry.title }} &rarr;
-        </a>
-      </li>
-      {% endif %}
-      {% endwith %}
-      {% with previous_entry=object.previous_entry %}
-      {% if previous_entry %}
-      <li class="previous">
-        <a href="{{ previous_entry.get_absolute_url }}" title="{{ previous_entry.title }}" rel="prev">
-          &larr; {{ previous_entry.title }}
-        </a>
-      </li>
-      {% endif %}
-      {% endwith %}
-    </ul>
-  </div>
-  {% endblock entry-previous-next-entries %}
-</aside>
-{% endblock entry-widgets %}
 
-{% block entry-pingbacks %}
-{% if object.pingback_count %}
-<section id="pingbacks" class="panel panel-info">
-  <div class="panel-heading">
-    {% trans "Pingbacks" %}
-  </div>
-  {% with pingback_list=object.pingbacks %}
-  {% block pingbacks-loop %}
-  <ol id="pingback-list" class="list-group">
-    {% for pingback in pingback_list %}
-    <li id="pingback-{{ pingback.pk }}" class="pingback vcard list-group-item {% cycle "box1" "box2" %}">
-      {% block pingback-info %}
-      <p class="pingback-info">
-	<a href="{{ pingback.url }}" rel="external nofollow"
-           class="fn url org">{{ pingback.name }}</a>
-	{% trans "on" context "on date" %}
-        <abbr class="pingback-published" title="{{ pingback.submit_date|date:"c" }}">
-          {{ pingback.submit_date|date:"SHORT_DATETIME_FORMAT" }}
-        </abbr>
-        <a href="#pingback-{{ pingback.pk }}"
-           id="c{{ pingback.pk }}" class="anchor-link"
-           title="{% trans "Direct link to this pingback" %}">#</a>
-      </p>
-      {% endblock pingback-info %}
-      {% block pingback-content %}
-      <p class="pingback-content">
-	{{ pingback.comment }}
-      </p>
-      {% endblock pingback-content %}
-    </li>
-    {% endfor %}
-  </ol>
-  {% endblock pingbacks-loop %}
-  {% endwith %}
-</section>
-{% endif %}
-{% block pingbacks-status %}
-{% if object.pingbacks_are_open %}
-<p>{% trans "Pingbacks are open." %}</p>
-{% else %}
-<p>{% trans "Pingbacks are closed." %}</p>
-{% endif %}
-{% endblock pingbacks-status %}
-{% endblock entry-pingbacks %}
+    <!-- Page Content -->
 
-{% block entry-trackbacks %}
-{% if object.trackback_count %}
-<section id="trackbacks" class="panel panel-info">
-  <div class="panel-heading">
-    {% trans "Trackbacks" %}
-  </div>
-  {% with trackback_list=object.trackbacks %}
-  {% block trackbacks-loop %}
-  <ol id="trackback-list" class="list-group">
-    {% for trackback in trackback_list %}
-    <li id="trackback-{{ trackback.pk }}" class="trackback vcard list-group-item {% cycle "box1" "box2" %}">
-      {% block trackback-info %}
-      <p class="trackback-info">
-	<a href="{{ trackback.url }}" rel="external nofollow"
-           class="fn url org">{{ trackback.name }}</a>
-	{% trans "on" context "on date" %}
-        <abbr class="trackback-published" title="{{ trackback.submit_date|date:"c" }}">
-          {{ trackback.submit_date|date:"SHORT_DATETIME_FORMAT" }}
-        </abbr>
-        <a href="#trackback-{{ trackback.pk }}"
-           id="c{{ trackback.pk }}" class="anchor-link"
-           title="{% trans "Direct link to this trackback" %}">#</a>
-      </p>
-      {% endblock trackback-info %}
-      {% block trackback-content %}
-      <p class="trackback-content">
-	{{ trackback.comment }}
-      </p>
-      {% endblock trackback-content %}
-    </li>
-    {% endfor %}
-  </ol>
-  {% endblock trackbacks-loop %}
-  {% endwith %}
-</section>
-{% endif %}
-{% block trackbacks-status %}
-{#{% if object.trackbacks_are_open %}#}
-{#<p>#}
-{#  <a href="{% url 'entry_trackback' object.pk %}" rel="trackback">#}
-{#    {% trans "Trackback URL" %}</a>#}
-{#</p>#}
-{#{% endif %}#}
-{% endblock trackbacks-status %}
-{% endblock entry-trackbacks %}
 
-{% block entry-comments %}
-{% if object.comment_count %}
-<section id="comments" class="panel panel-info">
-  <div class="panel-heading">
-    {% trans "Comments" %}
-  </div>
-  {% with comment_list=object.comments %}
-  {% block comments-loop %}
-  <ol id="comment-list" class="list-group">
-    {% for comment in comment_list %}
-    <li id="comment-{{ comment.pk }}-by-{{ comment.user_name|slugify }}"
-        class="comment vcard list-group-item {% cycle "box1" "box2" %}{% if comment.user %} authenticated-comment{% if comment.user.is_staff %} staff-comment{% endif %}{% if comment.user.is_superuser %} superuser-comment{% endif %}{% endif %}">
-      {% block comment-info %}
-      <p class="comment-info">
-      {% block comment-image %}
-      <img src="{% get_gravatar comment.email 60 "G" %}"
-           class="gravatar photo img-thumbnail" alt="{{ comment.name }}" />
-      {% endblock comment-image %}
-	{% if comment.url %}
-	<a href="{{ comment.url }}" rel="external nofollow"
-           class="fn url">{{ comment.name }}</a>
-	{% else %}
-	<span class="fn">{{ comment.name }}</span>
-	{% endif %}
-	{% trans "on" context "on date" %}
-        <abbr class="comment-published" title="{{ comment.submit_date|date:"c" }}">
-          {{ comment.submit_date|date:"SHORT_DATETIME_FORMAT" }}
-        </abbr>
-        <a href="#comment-{{ comment.pk }}-by-{{ comment.user_name|slugify }}"
-           id="c{{ comment.pk }}" class="anchor-link"
-           title="{% trans "Direct link to this comment" %}">#</a>
-      </p>
-      {% endblock comment-info %}
-      {% block comment-content %}
-      {{ comment.comment|linebreaks }}
-      {% endblock comment-content %}
-    </li>
-    {% endfor %}
-  </ol>
-  {% endblock comments-loop %}
-  {% endwith %}
-</section>
-{% else %}
-{% if object.comments_are_open %}
-<p>{% trans "No comments yet." %}</p>
-{% else %}
-<p>{% trans "Comments are closed." %}</p>
-{% endif %}
-{% endif %}
-{% endblock entry-comments %}
+    {% with "/"|add:object.image.url as IMAGE_URL %}
 
-{% block admin-tools %}
-{% if perms.zinnia.change_entry %}
-<li class="list-group-item">
-  <a href="{% url 'admin:zinnia_entry_change' object.pk %}" title="{% trans "Edit the entry" %}">
-    <span class="glyphicon glyphicon-edit"></span>
-    {% trans "Edit the entry" %}
-  </a>
-</li>
-{% endif %}
-{% endblock admin-tools %}
+
+        <div style="background-image:url('{{ IMAGE_URL }}');" alt="{{ object.title }}"
+             class="img-responsive header-image"></div>
+    {% endwith %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h2 class="mt-4"><a href="{{ object.get_absolute_url }}" title="{{ object.title }}"
+                                            rel="bookmark">
+                            {{ object.title|widont }}
+                        </a></h2>
+
+                        <small class="entry-info">
+                            {% block entry-authors %}
+                                {% with authors=object.authors.all %}
+                                    {% if authors|length %}
+                                        {% trans "Written by" %}
+                                        {% for author in authors %}
+                                            <span class="vcard author">
+          <a href="{{ author.get_absolute_url }}" class="fn url{% if not author.get_full_name %} nickname{% endif %}"
+             rel="author"
+             title="{% blocktrans %}Show all {{ author }}'s entries{% endblocktrans %}">{{ author }}</a></span>
+                                            {% if not forloop.last %}, {% endif %}
+                                        {% endfor %}
+                                        {% trans "on" context "on date" %}
+                                    {% else %}
+                                        {% trans "Written on" %}
+                                    {% endif %}
+                                {% endwith %}
+                            {% endblock entry-authors %}
+                            {% block entry-published %}
+                                <time class="published" datetime="{{ object.publication_date|date:"c" }}"
+                                      pubdate="pubdate">{{ object.publication_date|date:"DATE_FORMAT" }}</time>
+                            {% endblock entry-published %}
+                            {% block entry-categories %}
+                                {% with categories=object.categories.all %}
+                                    {% if categories|length %}
+                                        {% trans "in" %}
+                                        {% for category in categories %}
+                                            <a href="{{ category.get_absolute_url }}"
+                                               title="{% blocktrans %}Show all entries in {{ category }}{% endblocktrans %}"
+                                               rel="tag category">{{ category }}</a>{% if not forloop.last %},
+                                        {% endif %}{% endfor %}{% endif %}.
+                                {% endwith %}
+                            {% endblock entry-categories %}
+                        </small>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        {% block entry-content %}
+                            {{ object.content }}
+                            {#  {% include object.content_template with object_content=object.html_content %}#}
+                        {% endblock entry-content %}
+                    </div>
+
+
+                </div>
+                </div>
+                <div class="col-sm-4">
+                    <h2 class="mt-4">Contact Us</h2>
+                    <address>
+                        <strong>Start Bootstrap</strong>
+                        <br>3481 Melrose Place
+                        <br>Beverly Hills, CA 90210
+                        <br>
+                    </address>
+                    <address>
+                        <abbr title="Phone">P:</abbr>
+                        (123) 456-7890
+                        <br>
+                        <abbr title="Email">E:</abbr>
+                        <a href="mailto:#">name@example.com</a>
+                    </address>
+                </div>
+            </div>
+            <!-- /.row -->
+
+
+        </div>
+{% endblock content %}
