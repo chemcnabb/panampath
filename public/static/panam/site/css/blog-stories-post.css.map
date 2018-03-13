@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAAA,aAAa;EACX,UAAU,EAAC,KAAK;EAChB,MAAM,EAAC,KAAK;EACZ,KAAK,EAAC,IAAI",
-"sources": ["blog-stories-post.scss"],
-"names": [],
-"file": "blog-stories-post.css"
-}

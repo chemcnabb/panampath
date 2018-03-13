@@ -10,7 +10,6 @@
 @import url(nivo-theme.css);
 @import url(nivo-lightbox.css);
 @import url(animate.css);
-@import url(blog-stories-post.css);
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
@@ -6497,6 +6496,23 @@ a.text-dark:hover, a.text-dark:focus {
   .table-bordered th,
   .table-bordered td {
     border: 1px solid #ddd !important; } }
+.header-image {
+  max-height: 580px;
+  height: 580px;
+  width: 100%; }
+
+.events-widget {
+  border: 1px solid #f68d5d;
+  padding: 0;
+  margin-top: 25px; }
+  .events-widget h2 {
+    padding: 10px;
+    width: 100%;
+    font-size: 18px;
+    background-color: #f68d5d; }
+  .events-widget aside {
+    padding: 10px; }
+
 /* Lamap App Landing Page Light version Stylesheet
 ====================================================== */
 body {

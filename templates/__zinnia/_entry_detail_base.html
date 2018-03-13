@@ -10,7 +10,13 @@
       </a>
     </h2>
     {% endblock entry-title %}
-    {% block entry-info %}
+
+
+
+
+
+
+      {% block entry-info %}
     <p class="entry-info">
       {% block entry-authors %}
       {% with authors=object.authors.all %}
@@ -42,16 +48,40 @@
       {% endblock entry-categories %}
     </p>
     {% endblock entry-info %}
+
+
+
+
+
+
+
     {% block entry-last-update %}
     <p class="entry-last-update">
       {% trans "Last update on" %} <time class="updated" datetime="{{ object.last_update|date:"c" }}" itemprop="dateModified">{{ object.last_update|date:"DATE_FORMAT" }}</time>.
     </p>
     {% endblock entry-last-update %}
+
+
+
+
+
+
     {% block entry-creation-date %}
     <meta itemprop="dateCreated" content="{{ object.creation_date|date:"c" }}" />
     {% endblock entry-creation-date %}
+
+
+
+
   </header>
   {% endblock entry-header %}
+
+
+
+
+
+
+
 
   {% block entry-body %}
   <div class="entry-body">
