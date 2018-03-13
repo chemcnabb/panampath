@@ -3,11 +3,12 @@
 <html lang="{{ LANGUAGE_CODE }}">
 <head>
     <meta charset="utf-8">
-    <title>Zinnia's Weblog -
+    <title>Pan Am Path -
         {% block title %}{% endblock title %}{% block title-page %}{% endblock title-page %}</title>
     <meta name="robots" content="follow, all"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content="
+
             {% block meta-description %}{% trans "Just another Zinnia weblog." %}{% endblock meta-description %}{% block meta-description-page %}{% endblock meta-description-page %}"/>
     <meta name="keywords" content="{% block meta-keywords %}django, blog, weblog, zinnia{% endblock meta-keywords %}"/>
 
@@ -66,73 +67,51 @@
 </div>
 <!-- end preloader -->
 
-<nav class="navbar navbar-expand-xs navbar-dark fixed-top bg-dark" role="navigation">
-    <div class="container-fluid">
-        <div class="navbar-header">
+<nav class="navbar navbar-dark fixed-top bg-dark" role="navigation">
 
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
-                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
 
-        </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+
     <a href="/" title="Pan Am Path" class="navbar-brand" rel="home">
-                <img src="{% static "panam/site/img/logo.svg" %}" class="pull-left nav-logo" alt="Pan Am Path"/>
-            </a>
+        <img src="{% static "panam/site/img/logo.svg" %}" class="pull-left nav-logo" alt="Pan Am Path"/>
+    </a>
 
 
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
-            <ul class="nav navbar-nav navbar-left">
-                {% url 'zinnia:category_list' as category_list_url %}
-                <li {% if category_list_url in request.path %}class="active"{% endif %}>
-                    <a href="{{ category_list_url }}" title="{% trans "Category list" %}">
-                        {% trans "Categories" %}
-                    </a>
-                </li>
-                {% url 'zinnia:author_list' as author_list_url %}
-                <li {% if author_list_url in request.path %}class="active"{% endif %}>
-                    <a href="{{ author_list_url }}" title="{% trans "Author list" %}">
-                        {% trans "Authors" %}
-                    </a>
-                </li>
-                {% url 'zinnia:tag_list' as tag_list_url %}
-                <li {% if tag_list_url in request.path %}class="active"{% endif %}>
-                    <a href="{{ tag_list_url }}" title="{% trans "Tag list" %}">
-                        {% trans "Tags" %}
-                    </a>
-                </li>
-                <li class="divider-vertical"></li>
 
-                <li>
-                    <form method="get" action="{% url 'zinnia:entry_search' %}" class="navbar-form navbar-left">
-                        <div class="form-group">
-                            <input type="text" class="search-query form-control" placeholder="{% trans 'Search' %}"
-                                   name="pattern" value="{{ pattern }}"/>
-                        </div>
-                        <button type="submit" name="submit" class="btn btn-default btn-sm">
-                            <span class="glyphicon glyphicon-search"></span>
-                        </button>
-                    </form>
-                </li>
-
-                {% url 'zinnia:sitemap' as sitemap_url %}
-                <li {% if sitemap in request.path %}class="active"{% endif %}>
-                <li>
-                    <a href="{{ sitemap_url }}" title="{% trans "Sitemap" %}" class="sitemap">
-                        {% trans "Sitemap" %}
-                    </a>
-                </li>
-                <li class="divider-vertical"></li>
-                <li>
-                    <a href="{% url 'zinnia:entry_feed' %}" title="{% trans "RSS Feed of latest entries" %}"
-                       class="feeds">
-                        {% trans "RSS Feed" %}
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
 </nav>
+<div class="collapse navbar-collapse" id="navbarCollapse">
+<div class="container">
+<div class="row no-gutter">
+    <div class="col-12">
+        <div class="navbar-nav navbar-left">
+            <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="#">Features</a>
+            <a class="nav-item nav-link" href="#">Pricing</a>
+            <a class="nav-item nav-link disabled" href="#">Disabled</a>
+        </div>
+        </div>
+        </div>
+        </div>
+
+    </div>
+{#<nav class="navbar navbar-dark fixed-top bg-dark" role="navigation">#}
+{#  <a class="navbar-brand" href="#">Navbar</a>#}
+{#  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">#}
+{#    <span class="navbar-toggler-icon"></span>#}
+{#  </button>#}
+{#  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">#}
+{#    <div class="navbar-nav">#}
+{#      <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>#}
+{#      <a class="nav-item nav-link" href="#">Features</a>#}
+{#      <a class="nav-item nav-link" href="#">Pricing</a>#}
+{#      <a class="nav-item nav-link disabled" href="#">Disabled</a>#}
+{#    </div>#}
+{#  </div>#}
+{#</nav>#}
 
 {#<nav class="navbar navbar-expand-xs navbar-dark fixed-top bg-dark">#}
 {#      <a class="navbar-brand" href="#">Fixed navbar</a>#}
@@ -165,29 +144,29 @@
 <div class="container-fluid">
     <div class="row no-gutter">
 
-            {% block breadcrumbs %}{% endblock %}
-            {% block content %}
-                {% get_featured_entries %}
-                {#          <div class="links">#}
-                {#            <h3>{% trans "Useful links" %}</h3>#}
-                {#            <ul>#}
-                {#              <li>#}
-                {#                <a href="{% url 'zinnia:entry_archive_index' %}" title="{% trans "Weblog index" %}">#}
-                {#                  {% trans "Weblog index" %}#}
-                {#                </a>#}
-                {#              </li>#}
-                {#              <li>#}
-                {#                <a href="{% url 'zinnia:sitemap' %}" title="{% trans "Sitemap" %}">#}
-                {#                  {% trans "Sitemap" %}#}
-                {#                </a>#}
-                {#              </li>#}
-                {#            </ul>#}
-                {#          </div>#}
-                {#          <div class="search">#}
-                {#            <h3>{% trans "Search" %}</h3>#}
-                {#            {% include "zinnia/tags/search_form.html" %}#}
-                {#          </div>#}
-            {% endblock content %}
+        {% block breadcrumbs %}{% endblock %}
+        {% block content %}
+            {% get_featured_entries %}
+            {#          <div class="links">#}
+            {#            <h3>{% trans "Useful links" %}</h3>#}
+            {#            <ul>#}
+            {#              <li>#}
+            {#                <a href="{% url 'zinnia:entry_archive_index' %}" title="{% trans "Weblog index" %}">#}
+            {#                  {% trans "Weblog index" %}#}
+            {#                </a>#}
+            {#              </li>#}
+            {#              <li>#}
+            {#                <a href="{% url 'zinnia:sitemap' %}" title="{% trans "Sitemap" %}">#}
+            {#                  {% trans "Sitemap" %}#}
+            {#                </a>#}
+            {#              </li>#}
+            {#            </ul>#}
+            {#          </div>#}
+            {#          <div class="search">#}
+            {#            <h3>{% trans "Search" %}</h3>#}
+            {#            {% include "zinnia/tags/search_form.html" %}#}
+            {#          </div>#}
+        {% endblock content %}
 
         {#        <div id="sidebar" class="col-xs-12 col-sm-4 col-md-4 col-lg-4">#}
         {#          {% block sidebar %}#}
@@ -202,13 +181,14 @@
 </footer>
 <script type="text/javascript" src="{% static "panam/site/assets/js/jquery.js" %}"></script>
 <script type="text/javascript" src="{% static "panam/site/js/bootstrap.min.js" %}"></script>
-<script type="text/javascript" src="{% static "panam/site/js/owl.carousel.min.js" %}"></script>
-<script type="text/javascript" src="{% static "panam/site/js/jquery.fitvids.js" %}"></script>
-<script type="text/javascript" src="{% static "panam/site/js/smoothScroll.js" %}"></script>
-<script type="text/javascript" src="{% static "panam/site/js/nivo-lightbox.min.js" %}"></script>
-<script type="text/javascript" src="{% static "panam/site/js/jquery.scrollTo.js" %}"></script>
-<script type="text/javascript" src="{% static "panam/site/js/jquery.nav.js" %}"></script>
-<script type="text/javascript" src="{% static "panam/site/js/wow.min.js" %}"></script>
+{#<script type="text/javascript" src="{% static "panam/site/js/owl.carousel.min.js" %}"></script>#}
+{#<script type="text/javascript" src="{% static "panam/site/js/jquery.fitvids.js" %}"></script>#}
+{#<script type="text/javascript" src="{% static "panam/site/js/smoothScroll.js" %}"></script>#}
+{#<script type="text/javascript" src="{% static "panam/site/js/nivo-lightbox.min.js" %}"></script>#}
+{#<script type="text/javascript" src="{% static "panam/site/js/jquery.scrollTo.js" %}"></script>#}
+{#<script type="text/javascript" src="{% static "panam/site/js/jquery.nav.js" %}"></script>#}
+{#<script type="text/javascript" src="{% static "panam/site/js/wow.min.js" %}"></script>#}
 <script type="text/javascript" src="{% static "panam/site/js/main.js" %}"></script>
+
 </body>
 </html>

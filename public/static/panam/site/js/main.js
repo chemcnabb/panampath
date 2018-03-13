@@ -75,10 +75,10 @@ else
 	// return false;
 	// });
 
-	$('.btn-custom-border, a.mouse').click(function () {
-		$.scrollTo('.features', 1000);
-	return false;
-	});
+	// $('.btn-custom-border, a.mouse').click(function () {
+	// 	$.scrollTo('.features', 1000);
+	// return false;
+	// });
 
 	// Screenshot carousel
 	// $(".screens").owlCarousel({

@@ -6815,61 +6815,24 @@ h4 {
   z-index: 9999;
   margin-top: 0px; }
 
-.navbar-default .navbar-nav > li > a {
-  font-size: 14px;
-  font-weight: bold;
-  color: #282828;
-  padding-top: 30px;
-  padding-bottom: 30px; }
-
 .nav-logo {
   max-height: 80px;
-  position: absolute;
+  width: 70px;
   padding: 15px;
-  left: -7px; }
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  transform: translateX(-50%); }
 
-.navbar-header {
-  float: none; }
-
-.navbar-left, .navbar-right {
-  float: none !important; }
-
-.navbar-toggle {
-  display: block;
-  position: relative;
-  float: left;
-  padding: 10px 10px;
-  margin-top: 21px;
-  margin-left: 21px;
-  margin-bottom: 8px;
-  background-color: transparent;
-  border: none; }
+.navbar-collapse {
+  background-color: #2d3844;
+  position: fixed;
+  width: 100%;
+  margin-top: 80px; }
 
 .navbar-fixed-top {
   top: 0;
   border-width: 0 0 1px; }
-
-.navbar-collapse.collapse {
-  display: none !important; }
-
-.navbar-nav {
-  float: none !important;
-  margin-top: 14px;
-  background-color: black;
-  margin-right: -15px; }
-
-.navbar-nav > li {
-  float: none; }
-
-.navbar-nav > li > a {
-  padding-top: 10px;
-  padding-bottom: 10px; }
-
-.collapse.in {
-  display: block !important; }
-
-.navbar-inverse .navbar-toggle:hover {
-  background-color: #f15e2a; }
 
 /* Intro Section */
 .intro {
@@ -6879,9 +6842,8 @@ h4 {
   height: 100vh; }
 
 .intro .intro-section {
-  max-width: 675px;
   padding: 130px 0 0;
-  margin: 0 auto;
+  margin: auto;
   text-align: center; }
 
 .intro .intro-section h1 {
