@@ -137,7 +137,7 @@ os.path.join(BASE_DIR, "public/static"),
 
 ]
 STATIC_URL = '/static/'
-MEDIA_URL = '/static/'
+MEDIA_URL = '/media/'
 try:
     from local_settings import *
     no_local = False
