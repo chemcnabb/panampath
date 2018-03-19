@@ -137,6 +137,7 @@ os.path.join(BASE_DIR, "public/static"),
 
 ]
 STATIC_URL = '/static/'
+MEDIA_ROOT = "public/static/uploads"
 MEDIA_URL = '/media/'
 try:
     from local_settings import *

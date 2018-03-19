@@ -1,8 +1,8 @@
-{% load i18n zinnia %}
+{% load i18n zinnia staticfiles %}
 
 {#<ul class="{% if not entries %}no-{% endif %}entries-featured">#}
 {% for entry in entries %}
-    <section class="entry col-sm-6" style="background-image:url('{{ entry.image.url }}');">
+    <section class="entry col-sm-6" style="background-image:url('{% static entry.image.url %}');">
 
         <div class="row align-items-end h-100">
             <div class="date-posted col-2 text-center  align-self-end"><p class="d-flex justify-content-center align-items-center h-100">{{ entry.publication_date|date:"d/m" }}</p></div>
