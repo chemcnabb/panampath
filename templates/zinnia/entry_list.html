@@ -56,38 +56,38 @@
 {% block body-class %}entry-list{% if page_obj %} paginated page-{{ page_obj.number }}{% endif %}{% if category %} category category-{{ category.slug }}{% endif %}{% if tag %} tag tag-{{ tag|slugify }}{% endif %}{% if author %} author author-{{ author|slugify }}{% endif %}{% endblock body-class %}
 
 {% block content %}
-{WHERES STUFF
-{% block content-title %}
-{% if category %}
-<h1>{% blocktrans %}Category archives: {{ category }}{% endblocktrans %}</h1>
-{% if category.description %}
-<p>{{ category.description|striptags|safe }}</p>
-{% endif %}
-<p class="feed">
-  <a href="{% url 'zinnia:category_feed' category.tree_path %}" title="{% blocktrans with object=category %}RSS feed of {{ object }}{% endblocktrans %}">
-    {% blocktrans with object=category %}RSS feed of {{ object }}{% endblocktrans %}
-  </a>
-</p>
-{% endif %}
 
-{% if tag %}
-<h1>{% blocktrans %}Tag archives: {{ tag }}{% endblocktrans %}</h1>
-<p class="feed">
-  <a href="{% url 'zinnia:tag_feed' tag.name %}" title="{% blocktrans with object=tag %}RSS feed of {{ object }}{% endblocktrans %}">
-    {% blocktrans with object=tag %}RSS feed of {{ object }}{% endblocktrans %}
-  </a>
-</p>
-{% endif %}
-
-{% if author %}
-<h1>{% blocktrans %}Author archives: {{ author }}{% endblocktrans %}</h1>
-<p class="feed">
-  <a href="{% url 'zinnia:author_feed' author.get_username %}" title="{% blocktrans with object=author %}RSS feed of {{ object }}{% endblocktrans %}">
-    {% blocktrans with object=author %}RSS feed of {{ object }}{% endblocktrans %}
-  </a>
-</p>
-{% endif %}
-{% endblock content-title %}
+{#{% block content-title %}#}
+{#{% if category %}#}
+{#<h1>{% blocktrans %}Category archives: {{ category }}{% endblocktrans %}</h1>#}
+{#{% if category.description %}#}
+{#<p>{{ category.description|striptags|safe }}</p>#}
+{#{% endif %}#}
+{#<p class="feed">#}
+{#  <a href="{% url 'zinnia:category_feed' category.tree_path %}" title="{% blocktrans with object=category %}RSS feed of {{ object }}{% endblocktrans %}">#}
+{#    {% blocktrans with object=category %}RSS feed of {{ object }}{% endblocktrans %}#}
+{#  </a>#}
+{#</p>#}
+{#{% endif %}#}
+{##}
+{#{% if tag %}#}
+{#<h1>{% blocktrans %}Tag archives: {{ tag }}{% endblocktrans %}</h1>#}
+{#<p class="feed">#}
+{#  <a href="{% url 'zinnia:tag_feed' tag.name %}" title="{% blocktrans with object=tag %}RSS feed of {{ object }}{% endblocktrans %}">#}
+{#    {% blocktrans with object=tag %}RSS feed of {{ object }}{% endblocktrans %}#}
+{#  </a>#}
+{#</p>#}
+{#{% endif %}#}
+{##}
+{#{% if author %}#}
+{#<h1>{% blocktrans %}Author archives: {{ author }}{% endblocktrans %}</h1>#}
+{#<p class="feed">#}
+{#  <a href="{% url 'zinnia:author_feed' author.get_username %}" title="{% blocktrans with object=author %}RSS feed of {{ object }}{% endblocktrans %}">#}
+{#    {% blocktrans with object=author %}RSS feed of {{ object }}{% endblocktrans %}#}
+{#  </a>#}
+{#</p>#}
+{#{% endif %}#}
+{#{% endblock content-title %}#}
 
 {% block content-loop %}
 {% for object in object_list %}

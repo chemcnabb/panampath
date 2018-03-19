@@ -403,7 +403,19 @@ top:0px;
 
 }
 
+.navbar-nav{
+    padding: 25px;
 
+  a:link {
+    color: $accent-color;
+  }
+  a:visited {
+    color: $accent-color;
+  }
+  a:hover {
+    color: $main-color;
+  }
+}
 
 .navbar-fixed-top {
   top: 0;

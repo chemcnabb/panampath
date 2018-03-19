@@ -6830,6 +6830,15 @@ h4 {
   width: 100%;
   margin-top: 80px; }
 
+.navbar-nav {
+  padding: 25px; }
+  .navbar-nav a:link {
+    color: #f68d5d; }
+  .navbar-nav a:visited {
+    color: #f68d5d; }
+  .navbar-nav a:hover {
+    color: #f15e2a; }
+
 .navbar-fixed-top {
   top: 0;
   border-width: 0 0 1px; }
