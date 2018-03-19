@@ -6,12 +6,12 @@
     <!-- Page Content -->
 
 
-    {% with "/"|add:object.image.url as IMAGE_URL %}
 
 
-        <div style="background-image:url('{{ IMAGE_URL }}');" alt="{{ object.title }}"
+
+        <div style="background-image:url('{{ object.image.url }}');" alt="{{ object.title }}"
              class="img-responsive header-image"></div>
-    {% endwith %}
+
 
     <div class="container">
         <div class="row">
