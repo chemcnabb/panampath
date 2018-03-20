@@ -42,7 +42,10 @@ INSTALLED_APPS = [
     'django_comments',
     'mptt',
     'tagging',
+    'ckeditor',
     'zinnia',
+    'zinnia_ckeditor',
+    'ckeditor_uploader',
     'home',
     'storytellingmap',
 ]
@@ -127,7 +130,10 @@ USE_L10N = True
 
 USE_TZ = False
 
-ZINNIA_UPLOAD_TO = "public/static/uploads"
+CKEDITOR_IMAGE_BACKEND = 'pillow'
+
+CKEDITOR_UPLOAD_PATH = ""
+ZINNIA_UPLOAD_TO = "../public/static/uploads"
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 STATIC_ROOT = os.path.join(BASE_DIR, "public/media")
@@ -137,7 +143,7 @@ os.path.join(BASE_DIR, "public/static"),
 
 ]
 STATIC_URL = '/static/'
-MEDIA_ROOT = "public/static/uploads"
+MEDIA_ROOT = "../public/static/uploads"
 MEDIA_URL = '/media/'
 try:
     from local_settings import *

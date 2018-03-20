@@ -8,3 +8,4 @@ venv
 dev_docs
 *.pyc
 local_settings.*
+public/*
