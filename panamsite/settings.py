@@ -136,8 +136,8 @@ CKEDITOR_IMAGE_BACKEND = 'pillow'
 CKEDITOR_UPLOAD_PATH = ""
 
 
-ZINNIA_ENTRY_BASE_MODEL = 'zinnia_gallery.models.EntryGallery'
-MIGRATION_MODULES = {'zinnia': 'zinnia_gallery.migrations'}
+#ZINNIA_ENTRY_BASE_MODEL = 'zinnia_gallery.models.EntryGallery'
+#MIGRATION_MODULES = {'zinnia': 'zinnia_gallery.migrations'}
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
