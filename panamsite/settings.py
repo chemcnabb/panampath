@@ -43,9 +43,10 @@ INSTALLED_APPS = [
     'mptt',
     'tagging',
     'ckeditor',
+    'zinnia_extend',
     'zinnia',
     'zinnia_ckeditor',
-    # 'zinnia_gallery',
+
     'ckeditor_uploader',
     'home',
     'storytellingmap',
@@ -136,20 +137,20 @@ CKEDITOR_IMAGE_BACKEND = 'pillow'
 CKEDITOR_UPLOAD_PATH = ""
 
 
-#ZINNIA_ENTRY_BASE_MODEL = 'zinnia_gallery.models.EntryGallery'
-#MIGRATION_MODULES = {'zinnia': 'zinnia_gallery.migrations'}
+ZINNIA_ENTRY_BASE_MODEL = 'zinnia_extend.models.EntryExtend'
+MIGRATION_MODULES = {'zinnia': 'zinnia_extend.migrations_zinnia'}
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
-STATIC_ROOT = os.path.join(BASE_DIR, "public/media")
+#STATIC_ROOT = os.path.join(BASE_DIR, "public/media")
 STATICFILES_DIRS = [
 os.path.join(BASE_DIR, "public/static"),
 
 
 ]
 STATIC_URL = '/static/'
-ZINNIA_UPLOAD_TO = "public/static/uploads"
-MEDIA_ROOT = "public/static/uploads"
+ZINNIA_UPLOAD_TO = "uploads"
+MEDIA_ROOT = os.path.join(BASE_DIR, "public/media")
 MEDIA_URL = '/media/'
 try:
     from local_settings import *
