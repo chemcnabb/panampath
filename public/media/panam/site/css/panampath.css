@@ -7305,6 +7305,7 @@ pre {
   perspective: 1000px; }
 
 .carousel-image {
-  width: 100vw; }
+  width: 100vw;
+  max-height: 100%; }
 
 /*# sourceMappingURL=panampath.css.map */
