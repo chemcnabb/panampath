@@ -885,7 +885,17 @@ ul.extra-features i {
 .footer h4 {
   margin-bottom: 5px;
 }
+#video-background {
+/*  making the video fullscreen  */
 
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 178vh;
+  width: auto;
+  height: 100vh;
+  z-index: -100;
+}
 //#content{
 //  padding-right:0 !important;
 //}

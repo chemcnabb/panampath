@@ -26,6 +26,7 @@ console.log("loaded");
 			$('.intro-section').css('transform','translateY('+Math.floor(windowScroll*0.16)+'px)');
 			$('.intro-section').css('-webkit-transform','translateY('+Math.floor(windowScroll*0.16)+'px)');
 			$('.intro-section').css('opacity',contentOpacity.toFixed(2));
+			$('#video-background').css('top', -windowScroll*.15);
 		// }
 	});
 
