@@ -65,3 +65,28 @@ pre {
   border:none;
 }
 
+.entry-base{
+  width:70%;
+}
+.carousel{
+  margin-top: 80px;
+  background-color: #80808061;
+}
+.carousel-item {
+  position: relative;
+  display: none;
+  align-items: center;
+  width: 100vw;
+  height:80vh;
+  text-align:center;
+  transition: transform 0.6s ease;
+  backface-visibility: hidden;
+  perspective: 1000px;
+
+
+}
+
+
+.carousel-image{
+  height:100%;
+}
