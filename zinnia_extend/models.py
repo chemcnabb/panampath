@@ -16,7 +16,7 @@ class Gallery(models.Model):
         return self.title
 
 class EntryExtend(AbstractEntry):
-    gallery = models.ForeignKey(Gallery)
+    gallery = models.ForeignKey(Gallery, null=True, blank=True)
 
     def __str__(self):
         return 'EntryExtend %s' % self.title
