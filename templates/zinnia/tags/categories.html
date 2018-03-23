@@ -4,9 +4,9 @@
   <li class={% if category.slug == context_category.slug %} current{% endif %}">
     <a href="{{ category.get_absolute_url }}"
        title="{% blocktrans %}Show all entries in {{ category }}{% endblocktrans %}">{{ category }}
-      <span class="label label-info">
+
         {% blocktrans count entry_count=category.count_entries_published %}{{ entry_count }} entry{% plural %}{{ entry_count }} entries{% endblocktrans %}
-      </span>
+
     </a>
   </li>
   {% empty %}
