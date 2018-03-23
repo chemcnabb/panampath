@@ -148,10 +148,10 @@ os.path.join(BASE_DIR, "public/media"),
 
 
 ]
-STATIC_URL = '/media/'
+STATIC_URL = '/static/'
 ZINNIA_UPLOAD_TO = "uploads"
 MEDIA_ROOT = os.path.join(BASE_DIR, "public/media")
-MEDIA_URL = '/static/'
+MEDIA_URL = '/media/'
 try:
     from local_settings import *
     no_local = False
