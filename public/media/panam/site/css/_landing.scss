@@ -904,7 +904,7 @@ position: fixed;
   min-height: 100vh;
   min-width: 177.77vh; /* Given a 16:9 aspect ratio, 16/9*100 = 177.77 */
   position: absolute;
-  top: 50%;
+  //top: 50%;
   left: 50%;
   transform: translate(-50%, 0);
 }
