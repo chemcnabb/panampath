@@ -91,7 +91,7 @@ WSGI_APPLICATION = 'panamsite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'panampath',
+        'NAME': 'panampath2',
         'USER': 'panampath',
         'PASSWORD': 'p@n@mp@th',
         'HOST': 'mysql.panamdev.xyz',
