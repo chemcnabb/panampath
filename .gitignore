@@ -8,4 +8,5 @@ venv
 dev_docs
 *.pyc
 local_settings.*
-public/*
+public/static/*
+public/media/uploads/*

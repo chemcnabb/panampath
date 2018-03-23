@@ -6,12 +6,19 @@ from zinnia_extend.models import Picture, Gallery
 from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
 
+
+class ImageInline(admin.StackedInline):
+    model = Picture
+
+class GalleryAdmin(admin.ModelAdmin):
+    inlines = [ ImageInline, ]
+admin.site.register(Gallery, GalleryAdmin)
+
 class PictureAdmin(admin.ModelAdmin):
     pass
 admin.site.register(Picture, PictureAdmin)
-class GalleryAdmin(admin.ModelAdmin):
-    pass
-admin.site.register(Gallery, GalleryAdmin)
+
+
 
 class EntryExtendAdmin(EntryAdminCKEditor):
     fieldsets = (

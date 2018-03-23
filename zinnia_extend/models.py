@@ -4,13 +4,14 @@ from zinnia.models_bases.entry import AbstractEntry
 class Picture(models.Model):
     title = models.CharField(max_length=50)
     image = models.ImageField(upload_to='gallery')
+    gallery = models.ForeignKey("Gallery", null=True, blank=True)
 
     def __unicode__(self):
         return self.title
 
 class Gallery(models.Model):
     title = models.CharField(max_length=50)
-    pictures = models.ManyToManyField(Picture)
+
 
     def __unicode__(self):
         return self.title
