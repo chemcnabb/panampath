@@ -142,9 +142,9 @@ MIGRATION_MODULES = {'zinnia': 'zinnia_extend.migrations_zinnia'}
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
-#STATIC_ROOT = os.path.join(BASE_DIR, "public/media")
+STATIC_ROOT = os.path.join(BASE_DIR, "public/static")
 STATICFILES_DIRS = [
-os.path.join(BASE_DIR, "public/static"),
+os.path.join(BASE_DIR, "public/media"),
 
 
 ]
