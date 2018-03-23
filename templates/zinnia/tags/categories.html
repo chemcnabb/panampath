@@ -1,9 +1,8 @@
 {% load i18n %}
 <ul class="category-root">
   {% for category in categories %}
-  <li class={% if category.slug == context_category.slug %} current{% endif %}">
-    <a href="{{ category.get_absolute_url }}"
-       title="{% blocktrans %}Show all entries in {{ category }}{% endblocktrans %}">{{ category }}
+  <li class="{% if category.slug == context_category.slug %} current{% endif %}">
+    <a href="{{ category.get_absolute_url }}" title="{% blocktrans %}Show all entries in {{ category }}{% endblocktrans %}">{{ category }}
 
         {% blocktrans count entry_count=category.count_entries_published %}{{ entry_count }} entry{% plural %}{{ entry_count }} entries{% endblocktrans %}
 
