@@ -21,7 +21,7 @@
   <div class="carousel-inner">
       {% for obj_image in object.gallery.picture_set.all %}
     <div class="carousel-item {% if forloop.first %}active{% endif %}">
-      <img class="carousel-image" src="/static/{{ obj_image.image }}" alt="{{ obj_image.title }}">
+      <img class="carousel-image" src="/media/{{ obj_image.image }}" alt="{{ obj_image.title }}">
     </div>
       {% endfor %}
 

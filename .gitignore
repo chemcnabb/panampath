@@ -10,3 +10,4 @@ dev_docs
 local_settings.*
 public/static/*
 public/media/uploads/*
+public/media/gallery/*

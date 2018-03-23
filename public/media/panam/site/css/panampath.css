@@ -7217,7 +7217,7 @@ ul.extra-features i {
   max-height: 30vh; }
 
 .intro {
-  background-image: url("/static/panam/site/img/landing.jpg");
+  background-image: url("/media/panam/site/img/landing.jpg");
   box-shadow: inset 0 0 0 2000px rgba(45, 56, 68, 0.7); }
 
 .main-color {
