@@ -6828,7 +6828,9 @@ h4 {
   background-color: #2d3844;
   position: fixed;
   width: 100%;
-  margin-top: 80px; }
+  margin-top: 85px;
+  margin-left: -16px;
+  z-index: 100; }
 
 .navbar-nav {
   padding: 25px; }

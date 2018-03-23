@@ -32,7 +32,7 @@ console.log("loaded");
 	// Fixed navigation
 	$(window).scroll(function() {
 
-	    if ($(window).scrollTop() > 500) {
+	    if ($(window).scrollTop() > 150) {
 	        $('.navbar').addClass('fixednav');
 	    } else {
 	    	$('.navbar').removeClass('fixednav');
