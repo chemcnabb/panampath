@@ -1,5 +1,6 @@
 {% extends "zinnia/base.html" %}
 {% load comments i18n zinnia staticfiles %}
+{% block is-main-content %}main-content{% endblock is-main-content %}
 {% block content %}
 
 
@@ -36,9 +37,11 @@
   </a>
 
 </div>
+{% elif not object.gallery.picture_set.all and not object.image %}
+    <div style="display:block;width:100%;height: 125px;position:relative;"></div>
 {% else %}
-        <div style="background-image:url('{{ object.image.url }}');" alt="{{ object.title }}"
-             class="img-responsive header-image"></div>
+    <div style="background-image:url('{{ object.image.url }}');" alt="{{ object.title }}"
+         class="img-responsive header-image"></div>
 
 {% endif %}
     <div class="container entry-base">

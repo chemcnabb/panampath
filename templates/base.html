@@ -137,7 +137,7 @@
 {% block landing %}{% endblock %}
 
 {% block slider %}{% endblock %}
-<div class="container-fluid">
+<div class="container-fluid {% block is-main-content %}{% endblock is-main-content %}">
     <div class="row no-gutter">
 
         {% block breadcrumbs %}{% endblock %}
@@ -170,7 +170,7 @@
         {#        </div>#}
     </div>
 </div>
-<footer class="container-fluid">
+<footer class="">
     <p>{% blocktrans %}Powered by <a href="http://www.djangoproject.com">Django</a> and
         <a href="https://github.com/Fantomas42/django-blog-zinnia">Zinnia {{ ZINNIA_VERSION }}</a>.{% endblocktrans %}
     </p>
