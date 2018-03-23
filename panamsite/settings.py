@@ -142,7 +142,7 @@ MIGRATION_MODULES = {'zinnia': 'zinnia_extend.migrations_zinnia'}
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
-STATIC_ROOT = os.path.join(BASE_DIR, "public/static")
+STATIC_ROOT = os.path.join(BASE_DIR, "public/media")
 STATICFILES_DIRS = [
 os.path.join(BASE_DIR, "public/media"),
 
@@ -150,7 +150,7 @@ os.path.join(BASE_DIR, "public/media"),
 ]
 STATIC_URL = '/static/'
 ZINNIA_UPLOAD_TO = "uploads"
-MEDIA_ROOT = os.path.join(BASE_DIR, "public/media")
+MEDIA_ROOT = os.path.join(BASE_DIR, "public/static")
 MEDIA_URL = '/media/'
 try:
     from local_settings import *
