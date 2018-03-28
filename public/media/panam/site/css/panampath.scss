@@ -6,121 +6,146 @@
 @import "nivo-theme.css";
 @import "nivo-lightbox.css";
 @import "animate.css";
-
 @import "blog-stories-post";
 @import "landing";
 @import "widgets";
 
-$footer-height: 180px;
-
+$footer-height: 200px;
 
 html {
   position: relative;
   min-height: 100%;
 }
+
 body {
   /* Margin bottom by footer height */
   margin-bottom: $footer-height;
 }
-.main-content{
-  padding-bottom:25px;
-}
-footer {
 
+.main-content {
+  padding-bottom: 25px;
+}
+
+footer {
+  padding-top:15px;
   position: absolute;
   bottom: 0;
   width: 100%;
   /* Set the fixed height of the footer here */
   height: $footer-height;
-  line-height: 60px; /* Vertically center the text there */
+  //line-height: 60px; /* Vertically center the text there */
   background-color: $background-dark;
+  a {
+    font-size: 12px;
+  }
+  p {
+    font-size: 12px;
+    color:#fff;
+  }
+
+  .footer-container {
+    width: 70%;
+  }
 }
+
 a:link {
-    color: $accent-color;
-  }
-  a:visited {
-    color: $accent-color;
-  }
-  a:hover {
-    color: $main-color;
-  }
+  color: $accent-color;
+}
+
+a:visited {
+  color: $accent-color;
+}
+
+a:hover {
+  color: $main-color;
+}
+
 h1 {
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-size: 24px;
-	font-style: normal;
-	font-variant: normal;
-	font-weight: 300;
-	line-height: 26.4px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 300;
+  line-height: 26.4px;
 }
+
 h3 {
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-size: 14px;
-	font-style: normal;
-	font-variant: normal;
-	font-weight: 500;
-	line-height: 15.4px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 500;
+  line-height: 15.4px;
 }
+
 p {
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-size: 14px;
-	font-style: normal;
-	font-variant: normal;
-	font-weight: 400;
-	line-height: 20px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 20px;
 }
+
 blockquote {
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-size: 21px;
-	font-style: normal;
-	font-variant: normal;
-	font-weight: 400;
-	line-height: 30px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 21px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 30px;
 }
+
 pre {
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-size: 13px;
-	font-style: normal;
-	font-variant: normal;
-	font-weight: 400;
-	line-height: 18.5714px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 18.5714px;
 }
-.feature-date{
+
+.feature-date {
   font-size: 20px;
 }
 
 .header-image {
-  background-repeat:no-repeat;
-	  background-size: cover;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
+
 .navbar-toggler {
 
-  border:none;
+  border: none;
 }
 
-.entry-base{
-  width:70%;
+.entry-base {
+  width: 70%;
 }
-.carousel{
+
+.carousel {
   margin-top: 80px;
   background-color: #80808061;
-  width:100%;
+  width: 100%;
 }
+
 .carousel-item {
   position: relative;
   display: none;
   align-items: center;
 
-  text-align:center;
+  text-align: center;
   transition: transform 0.6s ease;
   backface-visibility: hidden;
   perspective: 1000px;
 
+}
 
+.bg-white {
+  background-color: white;
 }
-.bg-white{
-  background-color:white;
-}
-.carousel-image{
-  width:100%;
-    max-height: 100%;
+
+.carousel-image {
+  width: 100%;
+  max-height: 100%;
 }
