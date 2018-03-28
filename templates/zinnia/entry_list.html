@@ -54,7 +54,7 @@
 {% endblock link %}
 
 {% block body-class %}entry-list{% if page_obj %} paginated page-{{ page_obj.number }}{% endif %}{% if category %} category category-{{ category.slug }}{% endif %}{% if tag %} tag tag-{{ tag|slugify }}{% endif %}{% if author %} author author-{{ author|slugify }}{% endif %}{% endblock body-class %}
-
+{% block is-main-content %}nav-offset{% endblock %}
 {% block content %}
 
 {#{% block content-title %}#}
