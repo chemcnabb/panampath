@@ -187,8 +187,8 @@
             <div class="date-posted col-2 text-center  align-self-end"><p class="d-flex justify-content-center align-items-center h-100">{{ object.publication_date|date:"d/m" }}</p></div>
             <div class="entry-cover col-10 align-self-end">
 
-                <a href="{{ object.get_absolute_url }}" title="{{ object.title }}" rel="bookmark">{{ object.title }}</a>
-                <p class="category">{{ object.categories.first }}</p>
+                <a class="post-heading" href="{{ object.get_absolute_url }}" title="{{ object.title }}" rel="bookmark">{{ object.title }}</a>
+                <a href="{{ object.categories.first.get_absolute_url }}" class="category">{{ object.categories.first }}</a>
 
 
             </div>

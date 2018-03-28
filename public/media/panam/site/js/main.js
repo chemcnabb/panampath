@@ -54,7 +54,7 @@ else
         //     'scrollOffset': 0
         // });
 
-        $('.container-fluid').eq(1).addClass('nav-offset');
+        // $('.container-fluid').eq(1).addClass('nav-offset');
 }
 
 

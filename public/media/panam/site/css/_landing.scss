@@ -46,19 +46,26 @@ section.entry {
         /* font-weight: bold; */
   font-style: italic;
     }
-    a {
-      text-transform: capitalize;
+    .post-heading{
+
+        text-transform: capitalize;
       color: #fff;
       margin-bottom: 15px;
       display: block;
       font-size: 18px;
+
+
     }
   }
   .category {
     border-top: 1px solid $main-color;
-    padding-top: 8px;
-    //margin: 0 auto;
-    color: #fff;
+display:block;
+    width: 100%;
+      //text-align: center;
+      padding: 15px 0px 15px 0px;
+      font-size: 12px;
+        /* font-weight: bold; */
+  font-style: italic;
   }
 
 }
