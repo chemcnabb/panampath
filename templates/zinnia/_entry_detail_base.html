@@ -181,7 +181,7 @@
 {#</article>#}
 
 
-    <section class="entry col-sm-6" style="background-image:url('{{ object.image.url }}');">
+    <section class="entry col-sm-6" style="background-image:url('{% if object.image %}{{ object.image.url }}{% endif %}');">
 
         <div class="row align-items-end h-100">
             <div class="date-posted col-2 text-center  align-self-end"><p class="d-flex justify-content-center align-items-center h-100">{{ object.publication_date|date:"d/m" }}</p></div>
