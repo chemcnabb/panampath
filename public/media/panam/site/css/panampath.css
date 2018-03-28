@@ -6546,11 +6546,12 @@ section.entry {
     /* font-weight: bold; */
     font-style: italic; }
   section.entry .entry-cover .post-heading {
+    font-size: 14px;
+    font-weight: 400;
     text-transform: capitalize;
     color: #fff;
     margin-bottom: 15px;
-    display: block;
-    font-size: 18px; }
+    display: block; }
   section.entry .category {
     border-top: 1px solid #f15e2a;
     display: block;

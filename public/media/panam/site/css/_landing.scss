@@ -29,8 +29,8 @@ section.entry {
     height: 100px;
     background-color: white;
     color: $main-color;
-    p{
-      font-weight:bold;
+    p {
+      font-weight: bold;
     }
 
     //left:15px;
@@ -43,29 +43,29 @@ section.entry {
       //text-align: center;
       padding: 15px 0px 15px 0px;
       font-size: 12px;
-        /* font-weight: bold; */
-  font-style: italic;
+      /* font-weight: bold; */
+      font-style: italic;
     }
-    .post-heading{
-
-        text-transform: capitalize;
+    .post-heading {
+        font-size: 14px;
+  font-weight: 400;
+      text-transform: capitalize;
       color: #fff;
       margin-bottom: 15px;
       display: block;
-      font-size: 18px;
-
+      
 
     }
   }
   .category {
     border-top: 1px solid $main-color;
-display:block;
+    display: block;
     width: 100%;
-      //text-align: center;
-      padding: 15px 0px 15px 0px;
-      font-size: 12px;
-        /* font-weight: bold; */
-  font-style: italic;
+    //text-align: center;
+    padding: 15px 0px 15px 0px;
+    font-size: 12px;
+    /* font-weight: bold; */
+    font-style: italic;
   }
 
 }
@@ -388,21 +388,18 @@ h4 {
   margin-top: 0px;
 }
 
-
-
 .nav-logo {
   max-height: 80px;
-  width:70px;
+  width: 70px;
   padding: 15px;
   position: absolute;
-top:0px;
-    left: 50%;
-    transform: translateX(-50%);
+  top: 0px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-
 .navbar-collapse {
-  background-color:$background-dark;
+  background-color: $background-dark;
 
   position: fixed;
   width: 100%;
@@ -412,8 +409,8 @@ top:0px;
 
 }
 
-.navbar-nav{
-    padding: 25px;
+.navbar-nav {
+  padding: 25px;
 
   a:link {
     color: $accent-color;
@@ -430,9 +427,6 @@ top:0px;
   top: 0;
   border-width: 0 0 1px;
 }
-
-
-
 
 /* Intro Section */
 
@@ -893,8 +887,8 @@ ul.extra-features i {
   margin-bottom: 5px;
 }
 
-.video-wrapper{
-position: fixed;
+.video-wrapper {
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -903,8 +897,9 @@ position: fixed;
   pointer-events: none;
   overflow: hidden;
 }
+
 #video-background {
-/*  making the video fullscreen  */
+  /*  making the video fullscreen  */
 
   width: 100vw;
   height: 56.25vw; /* Given a 16:9 aspect ratio, 9/16*100 = 56.25 */
@@ -915,6 +910,7 @@ position: fixed;
   left: 50%;
   transform: translate(-50%, 0);
 }
+
 //#content{
 //  padding-right:0 !important;
 //}
