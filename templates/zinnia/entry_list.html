@@ -101,19 +101,21 @@
     {#{% endblock content-title %}#}
 
     {% block content-loop %}
-        {% for object in object_list %}
-
-            {% if 'Events' == object.categories.first.title %}
+            {% if 'Events' == object_list.0.categories.first.title %}
                 {% include "zinnia/tags/event_list.html" %}
             {% else %}
+        {% for object in object_list %}
+
+
                 {% zinnia_loop_template object.content_template as template %}
                 {% include template with object_content=object.html_preview continue_reading=1 %}
-            {% endif %}
+
         {% empty %}
             <p class="info">
                 <a href="{% url 'admin:zinnia_entry_add' %}">{% trans "No entries yet." %}</a>
             </p>
         {% endfor %}
+        {% endif %}
     {% endblock content-loop %}
 
     {% block content-pagination %}
