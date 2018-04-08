@@ -13,20 +13,19 @@
 {% block content %}
            {% for object in object_list %}
 
-        <section class="event-section col-sm-6" style="background-image:url('{% if object.image %}{{ object.image.url }}{% endif %}');">
+        <section class="col-sm-6" style="background-image:url('{% if object.image %}{{ object.image.url }}{% endif %}');">
 
-        <div class="event">
-            <div class="event-date">
+        <div class="row">
+            <div class="col align-self-center">
                 <p class="_301">{{ day|date:"m/d" }}</p>
             </div>
-            <div class="event-title">
-                <p class="event-name--title">
-                    <span class="text29">{{ object.title }}<br></span>
-                    <span class="text30"><br></span>
-                    <span class="text31">Location<br>Date &amp; Time<br></span>
-                    <span class="text32">{{ object.content }}</span>
-                </p>
-                <div class="shape"></div>
+            <div class="col">
+
+                <h2 class="text29"><a href="{{ object.get_absolute_url }}">{{ object.title }}</a><br></h2>
+                <span class="text30"><br></span>
+                <span class="text31">Location<br>Date &amp; Time<br></span>
+                <span class="text32">{% autoescape off %}{{ object.content }}{% endautoescape %}</span>
+
             </div>
         </div>
 

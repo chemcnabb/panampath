@@ -6811,7 +6811,7 @@ h4 {
   padding-top: 80px; }
 
 .nav-offset-120 {
-  padding-top: 80px; }
+  padding-top: 120px; }
 
 .navbar.fixednav {
   animation-name: slideDown;
@@ -7435,6 +7435,8 @@ pre {
 
 .entry-base {
   width: 70%; }
+  .entry-base img {
+    max-width: 500px; }
 
 .carousel {
   margin-top: 80px;
