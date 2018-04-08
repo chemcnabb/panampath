@@ -1,0 +1,14 @@
+<section class="entry col-sm-6" style="background-image:url('{% if entry.image %}{{ entry.image.url }}{% endif %}');">
+
+        <div class="row align-items-end h-100">
+            <div class="date-posted col-2 text-center  align-self-end"><p class="d-flex justify-content-center align-items-center h-100 feature-date">{{ entry.publication_date|date:"d/m" }}</p></div>
+            <div class="entry-cover col-10 align-self-end">
+
+                <a class="post-heading" href="{{ entry.get_absolute_url }}" title="{{ entry.title }}" rel="bookmark">{{ entry.title }}</a>
+                <a class="category" href="{{ entry.categories.first.get_absolute_url }}">{{ entry.categories.first }}</a>
+
+
+            </div>
+        </div>
+
+    </section>

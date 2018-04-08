@@ -2,6 +2,8 @@
 
 {#<ul class="{% if not entries %}no-{% endif %}entries-featured">#}
 {% for entry in entries %}
+
+    {% if 'Events' != entry.categories.first.title %}
     <section class="entry col-sm-6" style="background-image:url('{% if entry.image %}{{ entry.image.url }}{% endif %}');">
 
         <div class="row align-items-end h-100">
@@ -16,9 +18,20 @@
         </div>
 
     </section>
+    {% endif %}
 {% empty %}
     <li>
         {% trans "No entries yet." %}
     </li>
 {% endfor %}
-{#</ul>#}
+{##}
+{% for entry in entries %}
+    {% if 'Events' == entry.categories.first.title %}
+        {% include "zinnia/tags/event_featured.html" %}
+    {% endif %}
+{% empty %}
+    <li>
+        {% trans "No entries yet." %}
+    </li>
+{% endfor %}
+

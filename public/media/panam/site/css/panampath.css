@@ -6810,6 +6810,9 @@ h4 {
 .nav-offset {
   padding-top: 80px; }
 
+.nav-offset-120 {
+  padding-top: 80px; }
+
 .navbar.fixednav {
   animation-name: slideDown;
   -webkit-animation-name: slideDown;
@@ -7262,6 +7265,87 @@ ul.extra-features i {
 .entry-image {
   width: 100vw;
   position: absolute; }
+
+.event {
+  position: relative;
+  display: inline-block; }
+
+.event-date {
+  position: relative;
+  display: inline-block; }
+
+.event-title {
+  position: relative;
+  display: inline-block; }
+
+._301 {
+  position: relative;
+  white-space: nowrap;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 0.8;
+  color: #f15d29;
+  text-align: center;
+  direction: ltr;
+  margin-right: auto;
+  margin-left: auto;
+  display: block;
+  left: 3px;
+  height: 38px; }
+
+.event-name--title {
+  position: relative;
+  text-align: left;
+  direction: ltr;
+  margin-right: auto;
+  margin-left: auto;
+  display: block;
+  left: -5px;
+  height: 158px; }
+
+.event-date {
+  position: relative;
+  width: 165px;
+  z-index: 20;
+  background-image: url("images/layer-4.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+  display: inline-block;
+  padding-top: 82px;
+  left: -8px;
+  padding-bottom: 80px; }
+
+.event-title {
+  position: relative;
+  width: 370.5px;
+  z-index: 10;
+  display: inline-block;
+  left: 8px;
+  margin-left: 16px; }
+
+.event {
+  position: relative;
+  width: 567.5px;
+  z-index: 10;
+  display: inline-block;
+  left: 10px;
+  margin-left: 20px; }
+
+.event-section {
+  width: 100%;
+  left: 0px;
+  position: relative;
+  overflow: visible; }
+
+.event-section {
+  z-index: 100;
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  padding-top: 40px;
+  margin-top: 0px;
+  padding-bottom: 30px; }
 
 html {
   position: relative;
