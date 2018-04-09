@@ -6502,14 +6502,14 @@ a.text-dark:hover, a.text-dark:focus {
   width: 100%; }
 
 .events-widget {
-  border: 1px solid #f68d5d;
+  border: 1px solid #f15e2a;
   padding: 0;
   margin-top: 25px; }
   .events-widget h2 {
     padding: 10px;
     width: 100%;
     font-size: 18px;
-    background-color: #f68d5d; }
+    background-color: #f15e2a; }
   .events-widget aside {
     padding: 10px; }
 
