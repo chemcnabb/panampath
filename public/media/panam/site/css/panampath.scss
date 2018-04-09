@@ -51,15 +51,15 @@ footer {
 }
 
 a:link {
-  color: $accent-color;
+  color: $main-color;
 }
 
 a:visited {
-  color: $accent-color;
+  color: $main-color;
 }
 
 a:hover {
-  color: $main-color;
+  color: $accent-color;
 }
 
 h1 {
