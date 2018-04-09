@@ -24,3 +24,4 @@ class EntryExtend(AbstractEntry):
 
     class Meta(AbstractEntry.Meta):
         abstract = True
+        ordering = ['publication_date']
