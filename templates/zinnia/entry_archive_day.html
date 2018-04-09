@@ -12,7 +12,7 @@
     <h1>{% trans "Archives" %} {{ day|date:"DATE_FORMAT" }}</h1>
 {% endblock content-title %}
 {% block content %}
-    entry_archive_day
+
     {% get_calendar_entries %}
     {% for object in object_list %}
 
