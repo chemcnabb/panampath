@@ -1,12 +1,24 @@
 {% load i18n %}
+{#<ul class="category-root">#}
+{#  {% for category in categories %}#}
+{#  <li class="{% if category.slug == context_category.slug %} current{% endif %}">#}
+{#    <a href="{{ category.get_absolute_url }}" title="{% blocktrans %}Show all entries in {{ category }}{% endblocktrans %}">{{ category }}#}
+{##}
+{#        {% blocktrans count entry_count=category.count_entries_published %}{{ entry_count }} entry{% plural %}{{ entry_count }} entries{% endblocktrans %}#}
+{##}
+{#    </a>#}
+{#  </li>#}
+{#  {% empty %}#}
+{#  <li class="">#}
+{#    <a href="#">{% trans "No categories yet." %}</a>#}
+{#  </li>#}
+{#  {% endfor %}#}
+{#</ul>#}
+{% load i18n %}
 <ul class="category-root">
   {% for category in categories %}
   <li class="{% if category.slug == context_category.slug %} current{% endif %}">
-    <a href="{{ category.get_absolute_url }}" title="{% blocktrans %}Show all entries in {{ category }}{% endblocktrans %}">{{ category }}
-
-        {% blocktrans count entry_count=category.count_entries_published %}{{ entry_count }} entry{% plural %}{{ entry_count }} entries{% endblocktrans %}
-
-    </a>
+    <a href="{{ category.get_absolute_url }}" title="{% blocktrans %}Show all entries in {{ category }}{% endblocktrans %}">{{ category }}</a>
   </li>
   {% empty %}
   <li class="">
