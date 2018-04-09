@@ -87,14 +87,14 @@
 
                 </div>
             </div>
-            <div class="col-sm-4 events-widget">
-                <h2>upcoming events</h2>
+            <div class="col-sm-4 events-widget text-centered">
+                <h2>Upcoming Events</h2>
                 <aside role="complementary" class="entry-widgets">
                     {% block entry-next-entry %}
                         {% with next_entry=object.next_entry %}
                             {% if next_entry %}
                                 <div class="entry-next">
-                                    <h3>{% trans "Next entry" %}</h3>
+                                    <h3>{% trans "Next" %}</h3>
                                     <p>
                                         <a href="{{ next_entry.get_absolute_url }}" title="{{ next_entry.title }}"
                                            rel="next">
@@ -109,7 +109,7 @@
                         {% with previous_entry=object.previous_entry %}
                             {% if previous_entry %}
                                 <div class="entry-previous">
-                                    <h3>{% trans "Previous entry" %}</h3>
+                                    <h3>{% trans "Previous" %}</h3>
                                     <p>
                                         <a href="{{ previous_entry.get_absolute_url }}"
                                            title="{{ previous_entry.title }}" rel="prev">
@@ -130,12 +130,12 @@
 
 
 
-                    {% block entry-similar-entries %}
-                        <div class="entry-similar">
-                            <h3>{% trans "Similar entries" %}</h3>
-                            {% get_categories %}
-                        </div>
-                    {% endblock entry-similar-entries %}
+{#                    {% block entry-similar-entries %}#}
+{#                        <div class="entry-similar">#}
+{#                            <h3>{% trans "Similar entries" %}</h3>#}
+{#                            {% get_categories %}#}
+{#                        </div>#}
+{#                    {% endblock entry-similar-entries %}#}
                 </aside>
             </div>
         </div>
