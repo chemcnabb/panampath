@@ -1,6 +1,7 @@
 {% extends "zinnia/base.html" %}
 {% load i18n %}
 {% load zinnia %}
+{% load calendar_override %}
 
 {% block meta-description %}{% trans "Archives" %} {{ day|date:"DATE_FORMAT" }}{% endblock meta-description %}
 
@@ -8,71 +9,80 @@
 {% block is-main-content %}nav-offset-120{% endblock %}
 
 {% block content-title %}
-<h1>{% trans "Archives" %} {{ day|date:"DATE_FORMAT" }}</h1>
+    <h1>{% trans "Archives" %} {{ day|date:"DATE_FORMAT" }}</h1>
 {% endblock content-title %}
 {% block content %}
-           {% for object in object_list %}
+    entry_archive_day
+    {% get_calendar_entries %}
+    {% for object in object_list %}
 
-        <section class="col-sm-6" style="background-image:url('{% if object.image %}{{ object.image.url }}{% endif %}');">
+        <section class="col-sm-6"
+                 style="background-image:url('{% if object.image %}{{ object.image.url }}{% endif %}');">
 
-        <div class="row">
-            <div class="col align-self-center">
-                <p class="_301">{{ day|date:"m/d" }}</p>
+            <div class="row">
+                <div class="col align-self-center">
+                    <p class="_301">{{ day|date:"m/d" }}</p>
+                </div>
+                <div class="col">
+
+                    <h2 class="text29"><a href="{{ object.get_absolute_url }}">{{ object.title }}</a><br></h2>
+                    <span class="text30"><br></span>
+                    <span class="text31">Location<br>Date &amp; Time<br></span>
+                    <span class="text32">{% autoescape off %}{{ object.content }}{% endautoescape %}</span>
+
+                </div>
             </div>
-            <div class="col">
 
-                <h2 class="text29"><a href="{{ object.get_absolute_url }}">{{ object.title }}</a><br></h2>
-                <span class="text30"><br></span>
-                <span class="text31">Location<br>Date &amp; Time<br></span>
-                <span class="text32">{% autoescape off %}{{ object.content }}{% endautoescape %}</span>
+        </section>
+    {% empty %}
+        <p class="info">
+            <a href="{% url 'admin:zinnia_entry_add' %}">{% trans "No entries yet." %}</a>
+        </p>
+    {% endfor %}
 
-            </div>
-        </div>
-
-    </section>
-        {% empty %}
-            <p class="info">
-                <a href="{% url 'admin:zinnia_entry_add' %}">{% trans "No entries yet." %}</a>
-            </p>
-        {% endfor %}
-
-        {% endblock content %}
+{% endblock content %}
 {% block content-related %}
-{% if previous_day %}
-<h3>{% trans "Previous day" %}</h3>
-<p>
-  <a href="{% url 'zinnia:entry_archive_day' previous_day|date:"Y" previous_day|date:"m" previous_day|date:"d" %}" rel="archives">{{ previous_day|date:"DATE_FORMAT" }}</a>
-</p>
-{% endif %}
-{% if next_day %}
-<h3>{% trans "Next day" %}</h3>
-<p>
-  <a href="{% url 'zinnia:entry_archive_day' next_day|date:"Y" next_day|date:"m" next_day|date:"d" %}" rel="archives">{{ next_day|date:"DATE_FORMAT" }}</a>
-</p>
-{% endif %}
+    {% if previous_day %}
+        <h3>{% trans "Previous day" %}</h3>
+        <p>
+            <a href="{% url 'zinnia:entry_archive_day' previous_day|date:"Y" previous_day|date:"m" previous_day|date:"d" %}"
+               rel="archives">{{ previous_day|date:"DATE_FORMAT" }}</a>
+        </p>
+    {% endif %}
+    {% if next_day %}
+        <h3>{% trans "Next day" %}</h3>
+        <p>
+            <a href="{% url 'zinnia:entry_archive_day' next_day|date:"Y" next_day|date:"m" next_day|date:"d" %}"
+               rel="archives">{{ next_day|date:"DATE_FORMAT" }}</a>
+        </p>
+    {% endif %}
 
-<h3>{% trans "Archives" %}</h3>
-<ul>
-  <li>
-    <a href="{% url 'zinnia:entry_archive_year' day|date:"Y" %}" rel="archives">{{ day|date:"Y" }}</a>
-  </li>
-  <li>
-    <a href="{% url 'zinnia:entry_archive_week' day|date:"Y" day|week_number %}" rel="archives">
-      {% blocktrans with year=day|date:"Y" week_number=day|week_number %}Week {{ week_number }} of {{ year }}{% endblocktrans %}
-    </a>
-  </li>
-  {% if previous_month %}
-  <li>
-    <a href="{% url 'zinnia:entry_archive_month' previous_month|date:"Y" previous_month|date:"m" %}" rel="archives">{{ previous_month|date:"YEAR_MONTH_FORMAT" }}</a>
-  </li>
-  {% endif %}
-  <li>
-    <a href="{% url 'zinnia:entry_archive_month' day|date:"Y" day|date:"m" %}" rel="archives">{{ day|date:"YEAR_MONTH_FORMAT" }}</a>
-  </li>
-  {% if next_month %}
-  <li>
-    <a href="{% url 'zinnia:entry_archive_month' next_month|date:"Y" next_month|date:"m" %}" rel="archives">{{ next_month|date:"YEAR_MONTH_FORMAT" }}</a>
-  </li>
-  {% endif %}
-</ul>
+    <h3>{% trans "Archives" %}</h3>
+    <ul>
+        <li>
+            <a href="{% url 'zinnia:entry_archive_year' day|date:"Y" %}" rel="archives">{{ day|date:"Y" }}</a>
+        </li>
+        <li>
+            <a href="{% url 'zinnia:entry_archive_week' day|date:"Y" day|week_number %}" rel="archives">
+                {% blocktrans with year=day|date:"Y" week_number=day|week_number %}Week {{ week_number }} of
+                    {{ year }}{% endblocktrans %}
+            </a>
+        </li>
+        {% if previous_month %}
+            <li>
+                <a href="{% url 'zinnia:entry_archive_month' previous_month|date:"Y" previous_month|date:"m" %}"
+                   rel="archives">{{ previous_month|date:"YEAR_MONTH_FORMAT" }}</a>
+            </li>
+        {% endif %}
+        <li>
+            <a href="{% url 'zinnia:entry_archive_month' day|date:"Y" day|date:"m" %}"
+               rel="archives">{{ day|date:"YEAR_MONTH_FORMAT" }}</a>
+        </li>
+        {% if next_month %}
+            <li>
+                <a href="{% url 'zinnia:entry_archive_month' next_month|date:"Y" next_month|date:"m" %}"
+                   rel="archives">{{ next_month|date:"YEAR_MONTH_FORMAT" }}</a>
+            </li>
+        {% endif %}
+    </ul>
 {% endblock content-related %}

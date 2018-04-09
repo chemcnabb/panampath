@@ -4,14 +4,14 @@
 {% block meta-description %}{% trans "Archives" %} {{ month|date:"YEAR_MONTH_FORMAT" }}{% endblock meta-description %}
 
 {% block title %}{% trans "Archives" %} {{ month|date:"YEAR_MONTH_FORMAT" }}{% endblock title %}
-
-{% block body-class %}{{ block.super }} archive date month year-{{ month|date:"Y" }} month-{{ month|date:"m" }}{% endblock body-class %}
+{% block body-class %}nav-offset-120 h-100{% endblock body-class %}
 
 {% block content-title %}
 <h1>{% trans "Archives" %} {{ month|date:"YEAR_MONTH_FORMAT" }}</h1>
 {% endblock content-title %}
 
-{% block content-related %}
+{% block content %}
+    entry_list_archive_month
 {% if date_list %}
 <h2>{% trans "Daily archives" %}</h2>
 <ul>
@@ -40,4 +40,4 @@
     <a href="{% url 'zinnia:entry_archive_year' month|date:"Y" %}" rel="archives">{{ month|date:"Y" }}</a>
   </li>
 </ul>
-{% endblock content-related %}
+{% endblock content %}
