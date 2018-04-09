@@ -7438,6 +7438,9 @@ pre {
 .entry-base {
   width: 70%; }
 
+.event-list-date {
+  height: 250px; }
+
 .carousel {
   margin-top: 80px;
   background-color: #80808061;
