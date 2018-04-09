@@ -5,8 +5,11 @@
 }
 
 .events-widget{
+  aside {
+      border: 1px solid $main-color;
+  margin-top: -9px;
+  }
 
-  border: 1px solid $main-color;
   padding: 0;
   margin-top: 25px;
 

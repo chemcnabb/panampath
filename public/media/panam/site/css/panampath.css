@@ -6502,9 +6502,11 @@ a.text-dark:hover, a.text-dark:focus {
   width: 100%; }
 
 .events-widget {
-  border: 1px solid #f15e2a;
   padding: 0;
   margin-top: 25px; }
+  .events-widget aside {
+    border: 1px solid #f15e2a;
+    margin-top: -9px; }
   .events-widget h2 {
     padding: 10px;
     width: 100%;
