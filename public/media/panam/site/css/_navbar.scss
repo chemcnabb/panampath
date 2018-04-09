@@ -292,6 +292,7 @@
   .navbar-toggler {
     color: $navbar-dark-color;
     border-color: $navbar-dark-toggler-border-color;
+    outline:none;
   }
 
   .navbar-toggler-icon {
