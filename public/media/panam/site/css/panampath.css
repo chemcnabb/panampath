@@ -7281,7 +7281,8 @@ ul.extra-features i {
   display: inline-block; }
 
 .bottom-border {
-  border-bottom: 1px solid #f68d5d; }
+  border-bottom: 1px solid #f68d5d;
+  max-width: 62%; }
 
 ._301 {
   position: relative;
