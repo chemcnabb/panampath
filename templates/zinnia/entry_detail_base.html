@@ -1,5 +1,6 @@
 {% extends "zinnia/base.html" %}
 {% load comments i18n zinnia staticfiles %}
+{% load calendar_override %}
 {% block is-main-content %}main-content{% endblock is-main-content %}
 {% block content %}
 
@@ -7,43 +8,45 @@
     <!-- Page Content -->
 
 
-{% if object.gallery.picture_set.all %}
+    {% if object.gallery.picture_set.all %}
 
-<div id="demo" class="carousel slide img-responsive" data-ride="carousel">
+        <div id="demo" class="carousel slide img-responsive" data-ride="carousel">
 
-  <!-- Indicators -->
-  <ul class="carousel-indicators">
-      {% for tmp_image in object.gallery.picture_set.all %}
-    <li data-target="#demo" data-slide-to="{{ forloop.counter0 }}" class="{% if forloop.first %}active{% endif %}"></li>
-      {% endfor %}
-  </ul>
+            <!-- Indicators -->
+            <ul class="carousel-indicators">
+                {% for tmp_image in object.gallery.picture_set.all %}
+                    <li data-target="#demo" data-slide-to="{{ forloop.counter0 }}"
+                        class="{% if forloop.first %}active{% endif %}"></li>
+                {% endfor %}
+            </ul>
 
-  <!-- The slideshow -->
-  <div class="carousel-inner">
-      {% for obj_image in object.gallery.picture_set.all %}
-    <div class="carousel-item {% if forloop.first %}active{% endif %}">
-      <img class="carousel-image" src="/media/{{ obj_image.image }}" alt="{{ obj_image.title }}">
-    </div>
-      {% endfor %}
+            <!-- The slideshow -->
+            <div class="carousel-inner">
+                {% for obj_image in object.gallery.picture_set.all %}
+                    <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                        <img class="carousel-image" src="/media/{{ obj_image.image }}" alt="{{ obj_image.title }}">
+                    </div>
+                {% endfor %}
 
-  </div>
+            </div>
 
-  <!-- Left and right controls -->
-  <a class="carousel-control-prev" href="#demo" data-slide="prev">
-    <span class="carousel-control-prev-icon"></span>
-  </a>
-  <a class="carousel-control-next" href="#demo" data-slide="next">
-    <span class="carousel-control-next-icon"></span>
-  </a>
+            <!-- Left and right controls -->
+            <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#demo" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </a>
 
-</div>
-{% elif not object.gallery.picture_set.all and not object.image %}
-    <div style="display:block;width:100%;height: 125px;position:relative;"></div>
-{% else %}
-    <div style="background-image:url('{% if object.image %}{{ object.image.url }}{% endif %}');" alt="{{ object.title }}"
-         class="img-responsive header-image"></div>
+        </div>
+    {% elif not object.gallery.picture_set.all and not object.image %}
+        <div style="display:block;width:100%;height: 125px;position:relative;"></div>
+    {% else %}
+        <div style="background-image:url('{% if object.image %}{{ object.image.url }}{% endif %}');"
+             alt="{{ object.title }}"
+             class="img-responsive header-image"></div>
 
-{% endif %}
+    {% endif %}
     <div class="container entry-base">
         <div class="row">
             <div class="col-sm-8">
@@ -88,8 +91,14 @@
                 </div>
             </div>
             <div class="col-sm-4 events-widget text-centered">
-                <h2>Upcoming Events</h2>
+                <h2 class="text-center">Upcoming Events</h2>
                 <aside role="complementary" class="entry-widgets">
+
+{% get_event_entries %}
+
+
+
+
                     {% block entry-next-entry %}
                         {% with next_entry=object.next_entry %}
                             {% if next_entry %}
@@ -130,12 +139,12 @@
 
 
 
-{#                    {% block entry-similar-entries %}#}
-{#                        <div class="entry-similar">#}
-{#                            <h3>{% trans "Similar entries" %}</h3>#}
-{#                            {% get_categories %}#}
-{#                        </div>#}
-{#                    {% endblock entry-similar-entries %}#}
+                    {#                    {% block entry-similar-entries %}#}
+                    {#                        <div class="entry-similar">#}
+                    {#                            <h3>{% trans "Similar entries" %}</h3>#}
+                    {#                            {% get_categories %}#}
+                    {#                        </div>#}
+                    {#                    {% endblock entry-similar-entries %}#}
                 </aside>
             </div>
         </div>
