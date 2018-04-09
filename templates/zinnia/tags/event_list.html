@@ -1,5 +1,24 @@
-{% load calendar_override  %}
+{% load calendar_override %}
 
 
-{% get_calendar_entries %}
+{#{% get_calendar_entries %}#}
+{% for object in object_list %}
+    <section class="col-sm-6"
+             style="background-image:url('{% if object.image %}{{ object.image.url }}{% endif %}');">
 
+        <div class="row">
+            <div class="col align-self-center">
+                <p class="_301">{{ object.publication_date|date:"m/d" }}</p>
+            </div>
+            <div class="col">
+
+                <h2 class="text29"><a href="{{ object.get_absolute_url }}">{{ object.title }}</a><br></h2>
+                <span class="text30"><br></span>
+                <span class="text31">Location<br>Date &amp; Time<br></span>
+                <span class="text32">{% autoescape off %}{{ object.content }}{% endautoescape %}</span>
+
+            </div>
+        </div>
+
+    </section>
+{% endfor %}
