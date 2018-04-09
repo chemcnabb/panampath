@@ -13,11 +13,15 @@
     display: inline-block;
 }
 
+.bottom-border{
+    border-bottom:1px solid $accent-color;
+}
+
 ._301 {
     position: relative;
     white-space: nowrap;
     font-weight: 700;
-    font-size: 48px;
+    font-size: 35px;
     line-height: 0.8;
     color: rgb(241, 93, 41);
     text-align: right;

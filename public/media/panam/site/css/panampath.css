@@ -7280,11 +7280,14 @@ ul.extra-features i {
   position: relative;
   display: inline-block; }
 
+.bottom-border {
+  border-bottom: 1px solid #f68d5d; }
+
 ._301 {
   position: relative;
   white-space: nowrap;
   font-weight: 700;
-  font-size: 48px;
+  font-size: 35px;
   line-height: 0.8;
   color: #f15d29;
   text-align: right;
