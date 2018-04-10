@@ -3,11 +3,9 @@
 {% load zinnia %}
 {% block body-class %}nav-offset-120{% endblock body-class %}
 {% block content %}
-    <div class="container-fuild footer-container">
-        <div class="row">
+
             <div class="col-10">
                 {% autoescape off %}{{ flatpage.content }}{% endautoescape %}
             </div>
-        </div>
-    </div>
+
 {% endblock %}
