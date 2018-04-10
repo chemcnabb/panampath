@@ -44,11 +44,10 @@ INSTALLED_APPS = [
     'mptt',
     'tagging',
     'ckeditor',
+'ckeditor_uploader',
     'zinnia_extend',
     'zinnia',
     'zinnia_ckeditor',
-
-    'ckeditor_uploader',
     'home',
     'storytellingmap',
 ]
