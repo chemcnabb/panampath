@@ -3,5 +3,11 @@
 {% load zinnia %}
 {% block body-class %}nav-offset{% endblock body-class %}
 {% block content %}
-    {{ flatpage.content }}
+    <div class="container entry-base">
+        <div class="row">
+            <div class="col-sm-8">
+                {% autoescape off %}{{ flatpage.content }}{% endautoescape %}
+            </div>
+        </div>
+    </div>
 {% endblock %}
