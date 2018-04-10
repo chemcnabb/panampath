@@ -1,11 +1,11 @@
 {% extends "zinnia/base.html" %}
 {% load i18n %}
 {% load zinnia %}
-{% block body-class %}nav-offset{% endblock body-class %}
+{% block body-class %}nav-offset-120{% endblock body-class %}
 {% block content %}
-    <div class="container entry-base">
+    <div class="container">
         <div class="row">
-            <div class="col-sm-8">
+            <div class="col-12">
                 {% autoescape off %}{{ flatpage.content }}{% endautoescape %}
             </div>
         </div>
