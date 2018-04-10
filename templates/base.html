@@ -12,6 +12,9 @@
 
 
 
+
+
+
             {% block meta-description %}{% trans "Just another Zinnia weblog." %}{% endblock meta-description %}{% block meta-description-page %}{% endblock meta-description-page %}"/>
     <meta name="keywords" content="{% block meta-keywords %}django, blog, weblog, zinnia{% endblock meta-keywords %}"/>
 
@@ -88,54 +91,10 @@
 
         <div class="navbar-nav navbar-left">
             {% get_categories %}
-            {#            <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>#}
-            {#            <a class="nav-item nav-link" href="#">Features</a>#}
-            {#            <a class="nav-item nav-link" href="#">Pricing</a>#}
-            {#            <a class="nav-item nav-link disabled" href="#">Disabled</a>#}
         </div>
 
     </div>
 </nav>
-
-{#<nav class="navbar navbar-dark fixed-top bg-dark" role="navigation">#}
-{#  <a class="navbar-brand" href="#">Navbar</a>#}
-{#  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">#}
-{#    <span class="navbar-toggler-icon"></span>#}
-{#  </button>#}
-{#  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">#}
-{#    <div class="navbar-nav">#}
-{#      <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>#}
-{#      <a class="nav-item nav-link" href="#">Features</a>#}
-{#      <a class="nav-item nav-link" href="#">Pricing</a>#}
-{#      <a class="nav-item nav-link disabled" href="#">Disabled</a>#}
-{#    </div>#}
-{#  </div>#}
-{#</nav>#}
-
-{#<nav class="navbar navbar-expand-xs navbar-dark fixed-top bg-dark">#}
-{#      <a class="navbar-brand" href="#">Fixed navbar</a>#}
-{#      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">#}
-{#        <span class="navbar-toggler-icon"></span>#}
-{#      </button>#}
-{#      <div class="collapse navbar-collapse" id="navbarCollapse">#}
-{#        <ul class="navbar-nav mr-auto">#}
-{#          <li class="nav-item active">#}
-{#            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>#}
-{#          </li>#}
-{#          {% url 'zinnia:category_list' as category_list_url %}#}
-{#            <li {% if category_list_url in request.path %}class="active"{% endif %}>#}
-{#              <a href="{{ category_list_url }}" title="{% trans "Category list" %}">#}
-{#                {% trans "Categories" %}#}
-{#              </a>#}
-{#            </li>#}
-{#        </ul>#}
-{#        <form class="form-inline mt-2 mt-md-0">#}
-{#          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">#}
-{#          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>#}
-{#        </form>#}
-{#      </div>#}
-{#    </nav>#}
-
 
 {% block landing %}{% endblock %}
 
@@ -146,55 +105,46 @@
         {% block breadcrumbs %}{% endblock %}
         {% block content %}
             {% get_featured_entries None %}
-            {#          <div class="links">#}
-            {#            <h3>{% trans "Useful links" %}</h3>#}
-            {#            <ul>#}
-            {#              <li>#}
-            {#                <a href="{% url 'zinnia:entry_archive_index' %}" title="{% trans "Weblog index" %}">#}
-            {#                  {% trans "Weblog index" %}#}
-            {#                </a>#}
-            {#              </li>#}
-            {#              <li>#}
-            {#                <a href="{% url 'zinnia:sitemap' %}" title="{% trans "Sitemap" %}">#}
-            {#                  {% trans "Sitemap" %}#}
-            {#                </a>#}
-            {#              </li>#}
-            {#            </ul>#}
-            {#          </div>#}
-            {#          <div class="search">#}
-            {#            <h3>{% trans "Search" %}</h3>#}
-            {#            {% include "zinnia/tags/search_form.html" %}#}
-            {#          </div>#}
+            <div class="col-12" style="background-color: #f15e2a;margin-bottom:50px;">
+                <div class="col text-center" style="padding: 50px;"><h1 style="  font-weight: 700;
+  font-size: 48px;">MAP</h1></div>
+            </div>
+            {#            {% include "zinnia/panammap.html" %}#}
+
+
+            <div class="col-12" style="background-color: #f15e2a;margin-bottom:50px;">
+                <div class="col text-center" style="padding: 50px;"><h1 style="  font-weight: 700;
+  font-size: 48px;">NEWSLETTER</h1></div>
+            </div>
+            {#            {% include "zinnia/newsletter.html" %}#}
         {% endblock content %}
 
-        {#        <div id="sidebar" class="col-xs-12 col-sm-4 col-md-4 col-lg-4">#}
-        {#          {% block sidebar %}#}
-        {#          {% endblock sidebar %}#}
-        {#        </div>#}
+
     </div>
 </div>
 <footer>
-<div class="container-fluid footer-container">
-    <div class="row">
-        <div class="col-10">
-        <ul>
-            <li><a href="#">Privacy</a></li>
-            <li><a href="#">Legal</a></li>
-            <li><a href="#">Terms & Conditions</a></li>
-        </ul>
+    <div class="container-fluid footer-container">
+        <div class="row">
+            <div class="col-10">
+                <ul>
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Legal</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-10">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
- dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-aliquip ex ea commodo consequat.</p>
-        </div>
-        <div class="col-2">
+        <div class="row">
+            <div class="col-10">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et
+                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex ea commodo consequat.</p>
+            </div>
+            <div class="col-2">
 
+            </div>
         </div>
     </div>
-</div>
 </footer>
 <script type="text/javascript" src="/media/panam/site/assets/js/jquery.js"></script>
 <script type="text/javascript" src="/media/panam/site/js/bootstrap.min.js"></script>
