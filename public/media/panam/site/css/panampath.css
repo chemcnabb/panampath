@@ -7441,7 +7441,8 @@ pre {
   border: none; }
 
 .entry-base {
-  width: 70%; }
+  width: 70%;
+  margin-bottom: 50px; }
 
 .event-list-date {
   height: 250px; }
