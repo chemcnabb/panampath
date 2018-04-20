@@ -7247,7 +7247,8 @@ ul.extra-features i {
 
 .mission-content h1 {
   font-size: 14px;
-  font-weight: bold; }
+  font-weight: bold;
+  text-align: center; }
 
 .mission-content img {
   padding: 10%; }
