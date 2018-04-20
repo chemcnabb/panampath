@@ -918,3 +918,6 @@ ul.extra-features i {
 //#content{
 //  padding-right:0 !important;
 //}
+
+
+.mission-content p:has(> img) { padding:10%; }

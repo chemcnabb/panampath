@@ -7245,6 +7245,9 @@ ul.extra-features i {
   left: 50%;
   transform: translate(-50%, 0); }
 
+.mission-content p:has(> img) {
+  padding: 10%; }
+
 .company-logo {
   max-height: 30vh; }
 
