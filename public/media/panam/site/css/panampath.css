@@ -7245,7 +7245,7 @@ ul.extra-features i {
   left: 50%;
   transform: translate(-50%, 0); }
 
-.mission-content p:has(> img) {
+.mission-content img {
   padding: 10%; }
 
 .company-logo {
