@@ -122,7 +122,7 @@
             </div>
             {% get_flatpages '/misson/' as missionpages %}
             {% for missionpage in missionpages %}
-        <li><a href="{{ page.url }}">{{ page.title }}</a></li>
+        <li><a href="{{ missionpage.url }}">{{ missionpage.title }}</a></li>
     {% endfor %}
 
 
