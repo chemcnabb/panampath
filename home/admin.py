@@ -9,11 +9,11 @@ from django.contrib.flatpages.admin import FlatPageAdmin
 from django.contrib.flatpages.models import FlatPage
 from django.db import models
 
-from ckeditor.widgets import CKEditorWidget
+from ckeditor_uploader.widgets import CKEditorUploadingWidget
 
 class FlatPageCustom(FlatPageAdmin):
     formfield_overrides = {
-        models.TextField: {'widget': CKEditorWidget}
+        models.TextField: {'widget': CKEditorUploadingWidget}
     }
 
 admin.site.unregister(FlatPage)
