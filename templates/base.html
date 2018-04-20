@@ -127,14 +127,14 @@
 
 
             {% get_flatpages '/mission/' as missionpages %}
-<div class=" entry-base">
+
 
                                 {% for missionpage in missionpages %}
                                     <section class="col-4">
                                         {% autoescape off %}{{ missionpage.content }}{% endautoescape %}
                                     </section>
                                 {% endfor %}
-</div>
+
 
 
 
