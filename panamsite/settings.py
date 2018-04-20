@@ -131,7 +131,7 @@ USE_TZ = False
 
 CKEDITOR_IMAGE_BACKEND = 'pillow'
 
-CKEDITOR_UPLOAD_PATH = ""
+CKEDITOR_UPLOAD_PATH = "uploads"
 
 ZINNIA_ENTRY_BASE_MODEL = 'zinnia_extend.models.EntryExtend'
 MIGRATION_MODULES = {'zinnia': 'zinnia_extend.migrations_zinnia'}
