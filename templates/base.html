@@ -17,6 +17,7 @@
 
 
 
+
             {% block meta-description %}{% trans "Just another Zinnia weblog." %}{% endblock meta-description %}{% block meta-description-page %}{% endblock meta-description-page %}"/>
     <meta name="keywords" content="{% block meta-keywords %}django, blog, weblog, zinnia{% endblock meta-keywords %}"/>
 
@@ -120,10 +121,10 @@
                 <div class="col text-center" style="padding: 50px;"><h1 style="  font-weight: 700;
   font-size: 48px;">MISSION</h1></div>
             </div>
-            {% get_flatpages '/mission/' as missionpage %}
-
-            {{ missionpage }}
-
+            {% get_flatpages '/mission/' as missionpages %}
+            {% for missionpage in missionpages %}
+                {% autoescape off %}{{ missionpage.content }}{% endautoescape %}
+            {% endfor %}
 
 
 
