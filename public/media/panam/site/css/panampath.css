@@ -7245,6 +7245,10 @@ ul.extra-features i {
   left: 50%;
   transform: translate(-50%, 0); }
 
+.mission-content h1 {
+  font-size: 14px;
+  font-weight: bold; }
+
 .mission-content img {
   padding: 10%; }
 

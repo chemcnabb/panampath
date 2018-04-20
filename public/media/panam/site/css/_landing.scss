@@ -919,5 +919,12 @@ ul.extra-features i {
 //  padding-right:0 !important;
 //}
 
-
-.mission-content img { padding:10%; }
+.mission-content{
+  h1{
+    font-size:14px;
+    font-weight:bold;
+  }
+}
+.mission-content {
+  img { padding:10%; }
+}
