@@ -104,7 +104,7 @@
 
 {% block slider %}{% endblock %}
 <div class="container-fluid {% block is-main-content %}{% endblock is-main-content %} bg-white">
-    <div class="row no-gutter">
+    <section class="row no-gutter">
 
         {% block breadcrumbs %}{% endblock %}
         {% block content %}
@@ -127,21 +127,15 @@
 
 
             {% get_flatpages '/mission/' as missionpages %}
-            <div class="container entry-base">
-                <div class="row">
-                    <div class="col-sm-8">
-                        <div class="row">
-                            <div class="col-sm-12">
+
+
                                 {% for missionpage in missionpages %}
-                                    <section class="col-4">
+                                    <section class="entry col-sm-4">
                                         {% autoescape off %}{{ missionpage.content }}{% endautoescape %}
                                     </section>
                                 {% endfor %}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
+
 
 
 
