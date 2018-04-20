@@ -1,4 +1,4 @@
-{% load i18n staticfiles zinnia %}
+{% load i18n staticfiles zinnia flatpages %}
 <!doctype html>
 <html lang="{{ LANGUAGE_CODE }}">
 <head>
@@ -8,6 +8,7 @@
     <meta name="robots" content="follow, all"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content="
+
 
 
 
@@ -112,12 +113,31 @@
             {% include "story-home.html" %}
 
 
+
+
+
+            <div class="col-12" style="background-color: #f15e2a;">
+                <div class="col text-center" style="padding: 50px;"><h1 style="  font-weight: 700;
+  font-size: 48px;">MISSION</h1></div>
+            </div>
+            {% get_flatpages '/misson/' as missionpages %}
+            {% for missionpage in missionpages %}
+        <li><a href="{{ page.url }}">{{ page.title }}</a></li>
+    {% endfor %}
+
+
+
+
+
+
             <div class="col-12" style="background-color: #f15e2a;">
                 <div class="col text-center" style="padding: 50px;"><h1 style="  font-weight: 700;
   font-size: 48px;">FEATURED</h1></div>
             </div>
+
             {% get_featured_entries None %}
-<div class="col-12">
+
+            <div class="col-12">
                 <div class="col text-center" style="padding: 25px;"></div>
             </div>
 
