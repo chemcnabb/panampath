@@ -128,14 +128,17 @@
 
 
             {% get_flatpages '/mission/' as missionpages %}
-     
 
+    <div class="container entry-base">
+        <div class="row">
+            <div class="col-12">
                 {% for missionpage in missionpages %}
 
                     <section class="{% if forloop.first %}col-12{% else %}col-4{% endif %}">
                         {% autoescape off %}{{ missionpage.content }}{% endautoescape %}
                     </section>
                 {% endfor %}
+            </div></div></div>
 
 
 
