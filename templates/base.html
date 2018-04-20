@@ -18,6 +18,7 @@
 
 
 
+
             {% block meta-description %}{% trans "Just another Zinnia weblog." %}{% endblock meta-description %}{% block meta-description-page %}{% endblock meta-description-page %}"/>
     <meta name="keywords" content="{% block meta-keywords %}django, blog, weblog, zinnia{% endblock meta-keywords %}"/>
 
@@ -127,16 +128,20 @@
 
             {% get_flatpages '/mission/' as missionpages %}
             <div class="container entry-base">
-        <div class="row">
-            <div class="col-sm-8">
                 <div class="row">
-                    <div class="col-sm-12">
-            {% for missionpage in missionpages %}
-             <section class="entry col-sm-6">
-                {% autoescape off %}{{ missionpage.content }}{% endautoescape %}
-            </section>
-            {% endfor %}
-                    </div></div></div></div></div>
+                    <div class="col-sm-8">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                {% for missionpage in missionpages %}
+                                    <section class="col-4">
+                                        {% autoescape off %}{{ missionpage.content }}{% endautoescape %}
+                                    </section>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 
 
