@@ -20,6 +20,9 @@
 
 
 
+
+
+
             {% block meta-description %}{% trans "Just another Zinnia weblog." %}{% endblock meta-description %}{% block meta-description-page %}{% endblock meta-description-page %}"/>
     <meta name="keywords" content="{% block meta-keywords %}django, blog, weblog, zinnia{% endblock meta-keywords %}"/>
 
@@ -116,35 +119,40 @@
             {% include "story-home.html" %}
 
 
-
-
-
             <div class="col-12" style="background-color: #f15e2a;">
                 <div class="col text-center" style="padding: 50px;"><h1 style="  font-weight: 700;
   font-size: 48px;">MISSION</h1></div>
             </div>
 
 
-
-
             {% get_flatpages '/mission/' as missionpages %}
 
-    <div class="container entry-base">
-        <div class="row">
-            <div class="col-12">
-                {% for missionpage in missionpages %}
+            <div class="container entry-base">
+                <div class="row">
+                    <div class="col-12">
+                        {% for missionpage in missionpages %}
+                            {% if forloop.first %}
+                                <div class="row">
+                                <section class="col-12">
+                            {% else %}
+                                <section class="col-4">
+                            {% endif %}
 
-                    <section class="{% if forloop.first %}col-12{% else %}col-4{% endif %}">
-                        {% autoescape off %}{{ missionpage.content }}{% endautoescape %}
-                    </section>
-                {% endfor %}
-            </div></div></div>
+                            {% autoescape off %}{{ missionpage.content }}{% endautoescape %}
+
+                            {% if forloop.first %}
+                                </section>
+                                </div>
+                      
+                            {% else %}
+                                </section>
+                            {% endif %}
 
 
-
-
-
-
+                        {% endfor %}
+            </div>
+            </div>
+            </div>
 
 
             <div class="col-12" style="background-color: #f15e2a;">
