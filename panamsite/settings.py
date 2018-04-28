@@ -153,6 +153,8 @@ LEAFLET_CONFIG = {
 ZINNIA_ENTRY_BASE_MODEL = 'zinnia_extend.models.EntryExtend'
 MIGRATION_MODULES = {'zinnia': 'zinnia_extend.migrations_zinnia'}
 
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 STATIC_ROOT = os.path.join(BASE_DIR, "public/static")
@@ -170,3 +172,4 @@ try:
     no_local = False
 except ImportError:
     no_local = True
+    GDAL_LIBRARY_PATH = os.path.join(BASE_DIR, '../usr/local/lib/libgdal.so')
