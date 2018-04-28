@@ -1,4 +1,5 @@
 {% load i18n staticfiles zinnia flatpages %}
+{% load leaflet_tags %}
 <!doctype html>
 <html lang="{{ LANGUAGE_CODE }}">
 <head>
@@ -55,6 +56,8 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    {% leaflet_js %}
+    {% leaflet_css %}
 
     <link rel="shortcut icon" href="/media/zinnia/theme/img/favicon.ico"/>
     <link rel="apple-touch-icon-precomposed" sizes="144x144"
@@ -116,9 +119,9 @@
                 <div class="col text-center" style="padding: 50px;"><h1 style="  font-weight: 700;
   font-size: 48px;">MAP</h1></div>
             </div>
-            {% include "story-home.html" %}
+{#            {% include "story-home.html" %}#}
 
-
+{% leaflet_map "yourmap" %}
             <div class="col-12" style="background-color: #f15e2a;margin-bottom:50px;">
                 <div class="col text-center" style="padding: 50px;"><h1 style="  font-weight: 700;
   font-size: 48px;">MISSION</h1></div>

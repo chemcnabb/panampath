@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-'mapwidgets',
+    'leaflet',
+    'djgeojson',
+    'panampath',
     'django.contrib.flatpages',
     'django_comments',
     'mptt',
@@ -133,6 +135,20 @@ USE_TZ = False
 CKEDITOR_IMAGE_BACKEND = 'pillow'
 
 CKEDITOR_UPLOAD_PATH = "uploads"
+
+LEAFLET_CONFIG = {
+    'DEFAULT_CENTER': [43.655699, -79.346583],
+    'DEFAULT_ZOOM': 11,
+    'RESET_VIEW': False,
+    'PLUGINS': {
+        'leaflet-routing-machine': {
+            'css': ['https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css'],
+            'js': 'https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js',
+            'auto-include': True,
+        },
+
+    },
+}
 
 ZINNIA_ENTRY_BASE_MODEL = 'zinnia_extend.models.EntryExtend'
 MIGRATION_MODULES = {'zinnia': 'zinnia_extend.migrations_zinnia'}

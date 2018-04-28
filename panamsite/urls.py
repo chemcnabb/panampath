@@ -19,6 +19,9 @@ from home.views import IndexView
 from django.views.generic import TemplateView
 from django.conf import settings
 from django.conf.urls.static import static
+from djgeojson.views import GeoJSONLayerView
+
+from panampath.models import PathSegment
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -27,6 +30,8 @@ urlpatterns = [
     url(r'^blog/', include('zinnia.urls')),
     url(r'^comments/', include('django_comments.urls')),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
+    url(r'^data.geojson$', GeoJSONLayerView.as_view(model=PathSegment, properties=('title', 'description', 'picture_url')), name='data')
+
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
