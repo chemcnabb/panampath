@@ -172,4 +172,4 @@ try:
     no_local = False
 except ImportError:
     no_local = True
-    GDAL_LIBRARY_PATH = os.path.join(BASE_DIR, '../usr/local/lib/libgdal.so')
+    GDAL_LIBRARY_PATH = os.path.join(BASE_DIR, '../gdal/usr/local/lib/libgdal.so')
