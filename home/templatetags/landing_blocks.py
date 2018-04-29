@@ -19,7 +19,7 @@ def home_block(context, category, class_style=""):
     return_dict["coordinates"] = coords
     events = None
     if category.lower() == "events":
-        events = Category.published.filter(title__in=['Events'])
+        events = Category.published.filter(slug__in=['events'])
         if events:
             events = events[0].entries_published()
         return_dict["events"] = events

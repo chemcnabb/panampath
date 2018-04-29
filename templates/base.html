@@ -25,6 +25,7 @@
 
 
 
+
             {% block meta-description %}{% trans "Just another Zinnia weblog." %}{% endblock meta-description %}{% block meta-description-page %}{% endblock meta-description-page %}"/>
     <meta name="keywords" content="{% block meta-keywords %}django, blog, weblog, zinnia{% endblock meta-keywords %}"/>
 
@@ -120,12 +121,12 @@
 
 
 
-            {% home_block "map"  "container-fluid no-inline no-margin" %}
+            {% home_block "map" "container-fluid no-inline no-margin" %}
             {% home_block "mission" "entry-base container no-inline" %}
             {% home_block "featured" "container-fluid no-margin" %}
-            {% home_block "news" "container-fluid no-margin" %}
-            {% home_block "events" "container-fluid" %}
 
+            {% home_block "events" "container-fluid" %}
+            {% home_block "news" "container-fluid no-margin" %}
 
 
 
@@ -136,8 +137,23 @@
         {% endblock content %}
 
 
+        <div class="col-12" style="background-color: #f15e2a;">
+    
+        </div>
 
-        {% home_block "newsletter" "container entry-base no-margin" %}
+
+        <div class="container entery-base newsletter-content" style="margin-bottom:50px;">
+            <div class="row">
+                <div class="col-12">
+
+
+                    <div class="col text-center" style="padding: 50px;">{% include "zinnia/newsletter.html" %}</div>
+
+
+                </div>
+            </div>
+        </div>
+
 
     </div>
 </div>
