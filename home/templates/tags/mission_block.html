@@ -2,7 +2,7 @@
 
 {% get_flatpages '/mission/' as missionpages %}
 
-
+<div class="inline-flex">
 {% for missionpage in missionpages %}
 
 
@@ -11,20 +11,20 @@
         <div class="col-sm-6">
     {% else %}
 
-        <div class="col-12 text-center">
+        <div class="col-12 text-center" style="display:block">
     {% endif %}
 
 {% autoescape off %}{{ missionpage.content }}{% endautoescape %}
 
 {% if not forloop.first %}
-    
+    </div>
 {% else %}
     </div>
-    <div class="inline-flex">
 
 {% endif %}
-</div>
+
 
 
 
 {% endfor %}
+</div>
