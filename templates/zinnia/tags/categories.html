@@ -17,6 +17,8 @@
     {% endfor %}
     {% get_flatpages as flatpages %}
     {% for page in flatpages %}
+        {% if 'mission' not in page.slug %}
         <li><a href="{{ page.url }}">{{ page.title }}</a></li>
+        {% endif %}
     {% endfor %}
 </ul>
