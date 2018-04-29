@@ -3,7 +3,7 @@
 {#<ul class="{% if not entries %}no-{% endif %}entries-featured">#}
 {% for entry in entries %}
 
-    {% if 'Events' != entry.categories.first.title %}
+    {% if 'Events' != entry.categories.first.title and 'News' not in entry.categories.first.title  %}
         <section class="entry col-sm-6"
                  style="background-image:url('{% if entry.image %}{{ entry.image.url }}{% endif %}');">
 

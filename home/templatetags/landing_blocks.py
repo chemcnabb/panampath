@@ -20,6 +20,13 @@ def home_block(context, category, class_style=""):
     events = None
     if category.lower() == "events":
         events = Category.published.filter(title__in=['Events'])
-        events = events[0].entries_published()
+        if events:
+            events = events[0].entries_published()
         return_dict["events"] = events
+
+    if category.lower() == "news":
+        news = Category.published.filter(title__in=['News'])
+        if news:
+            news = news[0].entries_published()
+        return_dict["news"] = events
     return return_dict
