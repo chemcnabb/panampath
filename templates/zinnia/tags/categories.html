@@ -2,16 +2,20 @@
 {% load flatpages %}
 
 <ul class="category-root">
-  {% for category in categories %}
-  <li class="{% if category.slug == context_category.slug %} current{% endif %}">
-    <a href="{{ category.get_absolute_url }}" title="{% blocktrans %}Show all entries in {{ category }}{% endblocktrans %}">{{ category }}</a>
-  </li>
-  {% empty %}
-  <li class="">
-    <a href="#">{% trans "No categories yet." %}</a>
-  </li>
-  {% endfor %}
-{% get_flatpages as flatpages %}
+    {% for category in categories %}
+        {% if 'mission' != context_category.slug %}
+            <li class="{% if category.slug == context_category.slug %} current{% endif %}">
+                <a href="{{ category.get_absolute_url }}"
+                   title="{% blocktrans %}Show all entries in {{ category }}{% endblocktrans %}">{{ category }}</a>
+            </li>
+        {% endif %}
+    {% empty %}
+        <li class="">
+            <a href="#">{% trans "No categories yet." %}</a>
+        </li>
+
+    {% endfor %}
+    {% get_flatpages as flatpages %}
     {% for page in flatpages %}
         <li><a href="{{ page.url }}">{{ page.title }}</a></li>
     {% endfor %}
