@@ -47,13 +47,12 @@ section.entry {
       font-style: italic;
     }
     .post-heading {
-        font-size: 14px;
+      font-size: 14px;
 
       text-transform: capitalize;
       color: #fff;
       margin-bottom: 15px;
       display: block;
-
 
     }
   }
@@ -382,6 +381,7 @@ h4 {
   padding-top: 120px;
   //margin-top: 25px;
 }
+
 .navbar.fixednav {
   animation-name: slideDown;
   -webkit-animation-name: slideDown;
@@ -394,7 +394,7 @@ h4 {
 
 .nav-logo {
   max-height: 80px;
-  width: 70px;
+  //width: 70px;
   padding: 15px;
   position: absolute;
   top: 0px;
@@ -404,7 +404,7 @@ h4 {
 
 .navbar-collapse {
   background-color: $background-dark;
-position: fixed;
+  position: fixed;
   width: 100%;
   top: 55px;
   margin-left: -16px;
@@ -916,15 +916,16 @@ ul.extra-features i {
   transform: translate(-50%, 0);
 }
 
-
-
-.mission-content{
-  h1{
-    font-size:14px;
-    font-weight:bold;
-      text-align: center;
+.mission-content {
+  h1 {
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
   }
 }
+
 .mission-content {
-  img { padding:20%; }
+  img {
+    padding: 20%;
+  }
 }

@@ -1,34 +1,37 @@
-{%  extends "base.html" %}
+{% extends "base.html" %}
 {% load i18n staticfiles %}
 
 {% block landing %}
     <div class="container-fluid">
-    <div class="intro cover-container row no-gutter" id="intro">
+        <div class="intro cover-container row no-gutter" id="intro">
 
 
-			<div class="col-md-12 align-self-center">
-				<div class="intro-section" style="transform: translateY(0px); opacity: 1;">
+            <div class="col-md-12 align-self-center">
+                <div class="intro-section" style="transform: translateY(0px); opacity: 1;">
 
-					<!-- begin logo intro section -->
-{#					<img src="/media/panam/site/img/logo.svg" alt="logo" class="company-logo">#}
-					<!-- end logo intro section -->
-					<h1 class="main-color">welcome to the panampath</h1>
-
-
-					<div class="arrow text-center"></div>
-
-				</div>
-			</div>
-<div class="video-wrapper">
-<iframe id="video-background" src="https://player.vimeo.com/video/260990910?autoplay=1&loop=1&color=ffffff&title=0&byline=0&portrait=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-{#    <video autoplay loop id="video-background" muted plays-inline>#}
-{#  <source src="https://player.vimeo.com/video/260990910" type="video/mp4">#}
-{#</video>#}
+                    <!-- begin logo intro section -->
+                    {#					<img src="/media/panam/site/img/logo.svg" alt="logo" class="company-logo">#}
+                    <!-- end logo intro section -->
+                    <h1 class="main-color">welcome to the panampath</h1>
 
 
-</div>
-</div>
-</div>
+                    <div class="arrow text-center"></div>
+
+                </div>
+            </div>
+            <div class="video-wrapper">
+                <iframe id="video-background"
+                        src="https://player.vimeo.com/video/260990910?autoplay=1&loop=1&color=ffffff&title=0&byline=0&portrait=0"
+                        width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen
+                        allowfullscreen></iframe>
+                {#    <video autoplay loop id="video-background" muted plays-inline>#}
+                {#  <source src="https://player.vimeo.com/video/260990910" type="video/mp4">#}
+                {#</video>#}
+
+
+            </div>
+        </div>
+    </div>
 
 
 {% endblock landing %}
