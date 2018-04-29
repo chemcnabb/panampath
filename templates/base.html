@@ -26,6 +26,7 @@
 
 
 
+
             {% block meta-description %}{% trans "Just another Zinnia weblog." %}{% endblock meta-description %}{% block meta-description-page %}{% endblock meta-description-page %}"/>
     <meta name="keywords" content="{% block meta-keywords %}django, blog, weblog, zinnia{% endblock meta-keywords %}"/>
 
@@ -135,12 +136,12 @@
         {% endblock content %}
 
 
-        <div class="col-12" style="background-color: #f15e2a;">
+        <div class="col-12" style="background-color: #f15e2a;padding:3px;">
 
         </div>
 
 
-        <div class="container entery-base newsletter-content" style="margin-bottom:50px;">
+        <div class="container entry-base newsletter-content" style="margin-bottom:50px;">
             <div class="row">
                 <div class="col-12">
 
@@ -156,24 +157,22 @@
     </div>
 </div>
 <footer>
-    <div class="container-fluid footer-container">
-        <div class="row">
-            <div class="col-10">
-{#                <ul>#}
-{#                    <li><a href="#">Privacy</a></li>#}
-{#                    <li><a href="#">Legal</a></li>#}
-{#                    <li><a href="#">Terms & Conditions</a></li>#}
-{#                </ul>#}
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-10">
-                <p>**Friends of the Pan Am Path is an independent non-profit organization, responsible for art and community activations along the Pan Am Path**</p>
-            </div>
-            </div>
-        <div class="row">
-            <div class="col-10">
-                <p>**City of Toronto is the sole owner of the Physical Pan Am Path trail infrastructure, please contact 311 for trail inquiries**</p>
+    <div class="container-fluid footer-container h-100">
+
+        <div class="row d-flex h-100">
+            <div class="col align-self-center">
+                <div class="row">
+                    <div class="col-8 align-self-center">
+                        <p>Friends of the Pan Am Path is an independent non-profit organization, responsible for art and
+                            community activations along the Pan Am Path**</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-8 align-self-center">
+                        <p>City of Toronto is the sole owner of the Physical Pan Am Path trail infrastructure, please
+                            contact 311 for trail inquiries**</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
