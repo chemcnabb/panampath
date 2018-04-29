@@ -25,7 +25,7 @@ def home_block(context, category, class_style=""):
         return_dict["events"] = events
     news = None
     if category.lower() == "news":
-        news = Category.published.filter(title__in=['News'])
+        news = Category.published.filter(slug__in=['news'])
         if news:
             news = news[0].entries_published()
         return_dict["news"] = news
