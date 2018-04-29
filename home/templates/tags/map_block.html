@@ -2,5 +2,21 @@
 {% load leaflet_tags %}
 
 
+{% leaflet_map "homeblock" %}
+<script type="text/javascript">
+    window.addEventListener("map:init", function (e) {
+        let detail = e.detail;
+        let latlngs = {{ coordinates }};
+        detail.map.scrollWheelZoom.disable();
+        detail.map.touchZoom.disable();
+        detail.map.doubleClickZoom.disable();
+        detail.map.scrollWheelZoom.disable();
+        detail.map.boxZoom.disable();
+        detail.map.keyboard.disable();
+        $(".leaflet-control-zoom").css("visibility", "hidden");
+        let polygon = L.polyline(latlngs, {color: 'red'}).addTo(detail.map);
+// zoom the map to the polygon
+        detail.map.fitBounds(polygon.getBounds());
 
-{% leaflet_map "mymap" %}
+    }, false);
+</script>{% comment %}{% endcomment %}
