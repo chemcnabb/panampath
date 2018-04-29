@@ -113,16 +113,16 @@
 
 {% block slider %}{% endblock %}
 <div class="container-fluid {% block is-main-content %}{% endblock is-main-content %} bg-white">
-    <section class="row no-gutter">
+    <div class="row no-gutter">
 
         {% block breadcrumbs %}{% endblock %}
         {% block content %}
 
 
 
-            {% home_block "map" %}
-            {% home_block "mission" ".entry-base" %}
-            {% home_block "featured" %}
+            {% home_block "map"  "container" %}
+            {% home_block "mission" "entry-base" %}
+            {% home_block "featured" "container" %}
             {% home_block "events" %}
 
 
@@ -135,11 +135,7 @@
         {% endblock content %}
 
 
-    </section>
-</div>
 
-<div class="container-fluid bg-white">
-    <div class="row no-gutter">
         {% home_block "newsletter" %}
 
     </div>
