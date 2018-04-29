@@ -5,14 +5,25 @@
 
 {% for missionpage in missionpages %}
 
-    <div class="row">
+
+
+    {% if not forloop.first %}
+        <div class="col-sm-6">
+    {% else %}
+        <div class="row">
         <div class="col-12 text-center">
+    {% endif %}
 
+{% autoescape off %}{{ missionpage.content }}{% endautoescape %}
 
-            {% autoescape off %}{{ missionpage.content }}{% endautoescape %}
-
-        </div>
+{% if not forloop.first %}
     </div>
+{% else %}
+    </div>
+    </div>
+{% endif %}
+
+
 
 
 {% endfor %}
