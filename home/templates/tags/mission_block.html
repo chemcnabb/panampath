@@ -1,24 +1,19 @@
 {% load i18n staticfiles zinnia flatpages %}
 
 {% get_flatpages '/mission/' as missionpages %}
+
+
 {% for missionpage in missionpages %}
-    {% if forloop.first %}
-        <div class="row">
-        <section class="col-12 text-center">
-    {% else %}
-        <section class="col-sm-4">
-    {% endif %}
 
-{% autoescape off %}{{ missionpage.content }}{% endautoescape %}
-
-{% if forloop.first %}
-    </section>
-    </div>
     <div class="row">
-{% else %}
-    </section>
-{% endif %}
+        <div class="col-12 text-center">
+
+
+            {% autoescape off %}{{ missionpage.content }}{% endautoescape %}
+
+        </div>
+    </div>
 
 
 {% endfor %}
-{#</div>{% comment %}{% endcomment %}#}
+</div>
