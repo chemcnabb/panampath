@@ -17,7 +17,8 @@ footer, header, hgroup, menu, nav, section {
 }
 
 .inline-flex{
-  display:inline-flex;
+  display:flex;
+  flex-wrap:wrap;
 }
 
 section.entry {

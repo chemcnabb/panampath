@@ -6529,7 +6529,8 @@ footer, header, hgroup, menu, nav, section {
   display: block; }
 
 .inline-flex {
-  display: inline-flex; }
+  display: flex;
+  flex-wrap: wrap; }
 
 section.entry {
   position: relative;
