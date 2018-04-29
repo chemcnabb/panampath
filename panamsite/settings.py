@@ -30,6 +30,13 @@ SITE_ID = 2
 
 # Application definition
 
+try:
+    no_local = False
+except ImportError:
+    no_local = True
+    GDAL_LIBRARY_PATH = os.path.join(BASE_DIR, '../gdal/usr/local/lib/libgdal.so')
+    GEOS_LIBRARY_PATH = os.path.join(BASE_DIR, '../geos/usr/local/lib/libgeos_c.so')
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -168,8 +175,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "public/media")
 MEDIA_URL = '/media/'
 try:
     from local_settings import *
-
-    no_local = False
 except ImportError:
-    no_local = True
-    GDAL_LIBRARY_PATH = os.path.join(BASE_DIR, '../gdal/usr/local/lib/libgdal.so')
+    pass
+    #GDAL_LIBRARY_PATH = os.path.join(BASE_DIR, '../gdal/usr/local/lib/libgdal.so')
+    #GEOS_LIBRARY_PATH = os.path.join(BASE_DIR, '../gdal/usr/local/lib/libgeos.so')

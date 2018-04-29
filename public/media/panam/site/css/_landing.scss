@@ -15,7 +15,11 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block;
 }
-
+.map-content{
+  #homeblock{
+    height:75vh;
+  }
+}
 .inline-flex{
   display:flex;
   flex-wrap:wrap;
