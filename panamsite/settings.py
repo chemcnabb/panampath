@@ -178,4 +178,5 @@ try:
 except ImportError:
 
     GDAL_LIBRARY_PATH = os.path.join(BASE_DIR, '../gdal/usr/local/lib/libgdal.so')
-    GEOS_LIBRARY_PATH = os.path.join(BASE_DIR, '../geos/home/quietaskept/geos/lib/libgeos_c.so')
+    GEOS_LIBRARY_PATH = os.path.join(BASE_DIR, '../geos/lib/libgeos_c.so')
+
