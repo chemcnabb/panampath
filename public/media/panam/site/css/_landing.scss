@@ -404,12 +404,13 @@ h4 {
 
 .navbar-collapse {
   background-color: $background-dark;
-
-  position: fixed;
+position: fixed;
   width: 100%;
-  margin-top: 145px;
+  top: 55px;
   margin-left: -16px;
-  z-index: 100;
+  margin-right: -16px;
+  /* padding-right: 40px; */
+  z-index: -1;
 
 }
 
