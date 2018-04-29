@@ -8,7 +8,7 @@
 
 <div class="{{ class_style }} {{ category }}-content" style="margin-bottom:50px;">
     <div class="row">
-        <div class="col-12 inline-flex">
+        <div class="col-12 {% if 'no-inline' not in class_style %}inline-flex{% endif %}">
 
 
             {% with template_name=category|stringformat:"s"|add:"_block.html" %}
