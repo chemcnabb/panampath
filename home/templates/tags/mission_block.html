@@ -2,41 +2,47 @@
 
 {% get_flatpages '/mission/' as missionpages %}
 
-<div class="inline-flex">
-
-
-    {% for missionpage in missionpages %}
-        {% if forloop.first %}
-            <div class="row">
-                <div class="col-12 text-center" style="display:block">
-                    {% autoescape off %}{{ missionpage.content }}{% endautoescape %}
-                </div>
-            </div>
-            <div class="row">
-        {% endif %}
-    {% endfor %}
 
 
 
-    {% for missionpage in missionpages %}
-        {% if not forloop.first %}
-
-
-
-            <div class="col-sm-6">
-
-
+{% for missionpage in missionpages %}
+    {% if forloop.first %}
+        <div class="row">
+            <div class="col-12 text-center">
                 {% autoescape off %}{{ missionpage.content }}{% endautoescape %}
-
-
             </div>
+        </div>
+
+
+    {% endif %}
+{% endfor %}
 
 
 
+{% for missionpage in missionpages %}
+    {% if forloop.first %}
+        <div class="row inline-flex">
+    {% endif %}
+{% if not forloop.first %}
 
 
 
-        {% endif %}
-    {% endfor %}
+    <div class="col-sm-6">
+
+
+        {% autoescape off %}{{ missionpage.content }}{% endautoescape %}
+
+
     </div>
-</div>
+
+
+
+
+
+
+{% endif %}
+{% if forloop.last %}
+    </div>
+{% endif %}
+{% endfor %}
+
