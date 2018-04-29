@@ -6871,7 +6871,7 @@ h4 {
 .intro .intro-section h1 {
   color: #f15e2a;
   padding: 60px 0 0px;
-  text-transform: uppercase;
+  text-transform: capitalize;
   font-size: 18px;
   line-height: 1.3em; }
 
