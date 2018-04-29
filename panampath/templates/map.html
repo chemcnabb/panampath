@@ -1,0 +1,31 @@
+{% load leaflet_tags %}
+<html>
+<head>
+    {% leaflet_js %}
+    {% leaflet_css %}
+    <style>
+        .leaflet-container {
+            height: 100%;
+        }
+    </style>
+    <script type="text/javascript">
+        window.addEventListener("map:init", function (e) {
+            let detail = e.detail;
+            var latlngs = {{ coordinates }};
+
+            let polygon = L.polyline(latlngs, {color: 'red'}).addTo(detail.map);
+// zoom the map to the polygon
+            detail.map.fitBounds(polygon.getBounds());
+
+        }, false);
+    </script>
+</head>
+<body>
+<h1>PanAm Path</h1>
+
+{% leaflet_map "main" %}
+</body>
+<script type="text/javascript">
+
+</script>
+</html>
