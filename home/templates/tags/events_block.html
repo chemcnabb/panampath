@@ -1,0 +1,6 @@
+{% load i18n staticfiles zinnia flatpages %}
+
+
+{% for entry in events %}
+    {% include "zinnia/tags/event_featured.html" %}
+{% endfor %}

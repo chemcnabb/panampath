@@ -1,0 +1,21 @@
+{% load i18n staticfiles zinnia flatpages %}
+
+<div class="col-12" style="background-color: #f15e2a;margin-bottom:50px;">
+    <div class="col text-center" style="padding: 50px;"><h1 style="  font-weight: 700;
+  font-size: 48px;">{{ category|upper }}</h1></div>
+</div>
+
+
+<div class="container {{ class_style }} {{ category }}-content" style="margin-bottom:50px;">
+    <div class="row">
+        <div class="col-12">
+
+
+            {% with template_name=category|stringformat:"s"|add:"_block.html" %}
+                {% include "tags/"|add:template_name %}
+            {% endwith %}
+
+
+        </div>
+    </div>
+</div>
