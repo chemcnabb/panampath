@@ -34,8 +34,7 @@ try:
     no_local = False
 except ImportError:
     no_local = True
-    GDAL_LIBRARY_PATH = os.path.join(BASE_DIR, '../gdal/usr/local/lib/libgdal.so')
-    GEOS_LIBRARY_PATH = os.path.join(BASE_DIR, '../geos/usr/local/lib/libgeos_c.so')
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -176,6 +175,6 @@ MEDIA_URL = '/media/'
 try:
     from local_settings import *
 except ImportError:
-    pass
-    #GDAL_LIBRARY_PATH = os.path.join(BASE_DIR, '../gdal/usr/local/lib/libgdal.so')
-    #GEOS_LIBRARY_PATH = os.path.join(BASE_DIR, '../gdal/usr/local/lib/libgeos.so')
+
+    GDAL_LIBRARY_PATH = os.path.join(BASE_DIR, '../gdal/usr/local/lib/libgdal.so')
+    GEOS_LIBRARY_PATH = os.path.join(BASE_DIR, '../gdal/usr/local/lib/libgeos.so')
