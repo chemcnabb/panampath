@@ -6528,6 +6528,9 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block; }
 
+.inline-flex {
+  display: inline-flex; }
+
 section.entry {
   position: relative;
   height: 50vh;
