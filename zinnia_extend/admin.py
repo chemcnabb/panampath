@@ -5,7 +5,8 @@ from zinnia.models.entry import Entry
 from zinnia_extend.models import Picture, Gallery
 from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
-
+from ckeditor_uploader.widgets import CKEditorUploadingWidget
+from django.db import models
 
 class ImageInline(admin.StackedInline):
     model = Picture
@@ -21,6 +22,7 @@ admin.site.register(Picture, PictureAdmin)
 
 
 class EntryExtendAdmin(EntryAdminCKEditor):
+
     fieldsets = (
         (_('Content'), {
             'fields': (('title', 'status'), 'lead', 'content',)}),
@@ -28,5 +30,6 @@ class EntryExtendAdmin(EntryAdminCKEditor):
             'fields': ('image', 'gallery'),
             'classes': ('collapse', 'collapse-closed')}),) + \
     EntryAdminCKEditor.fieldsets[2:]
+
 
 admin.site.register(Entry, EntryExtendAdmin)

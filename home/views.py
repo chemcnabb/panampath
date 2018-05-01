@@ -4,7 +4,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.views.generic import TemplateView
 from panampath.models import PathSegment
-
+from pprint import pprint
 # Create your views here.
 class IndexView(TemplateView):
     template_name = 'main.html'
@@ -17,10 +17,12 @@ class IndexView(TemplateView):
         segments = PathSegment.objects.all()
         coords = []
         for segment in segments:
-            for member in segment.geom['coordinates']:
-                for item in member:
-                    coords.append(item[::-1])
-        # pprint(coords)
+            if segment.geom:
+                coords.append(segment.geom['coordinates'])
+            # for member in segment.geom['coordinates']:
+            #     for item in member:
+            #         coords.append(item[::-1])
+  
         context["segments"] = segments
         context["coordinates"] = coords
 
