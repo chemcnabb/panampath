@@ -1,28 +1,13 @@
 {% load calendar_override %}
 
 <div class="container">
-<div class="col-12">
-<div class="row">
-{#{% get_calendar_entries %}#}
-{% for object in object_list %}
-    <section class="col-sm-6"
-             style="margin-bottom:25px">
+    <div class="col-12">
+        <div class="row">
+            {#{% get_calendar_entries %}#}
+            {% for entry in object_list %}
 
-        <div class="row event-list-date">
-            <div class="col-sm-3">
-                <p class="_301">{{ object.publication_date|date:"m/d" }}</p>
-            </div>
-            <div class="col bottom-border">
-
-                <h2 class="text29"><a href="{{ object.get_absolute_url }}">{{ object.title }}</a><br></h2>
-
-                <span class="text32">{% autoescape off %}{{ object.lead }}{% endautoescape %}</span>
-
-            </div>
+                {% include "./event_featured.html" %}
+            {% endfor %}
         </div>
-
-    </section>
-{% endfor %}
-</div>
-</div>
+    </div>
 </div>
