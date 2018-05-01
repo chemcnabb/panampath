@@ -11,8 +11,12 @@
     <script type="text/javascript">
         window.addEventListener("map:init", function (e) {
             let detail = e.detail;
-            var latlngs = {{ coordinates }};
-
+            let latlngs = [];
+            {% for segment in segments %}
+                {% if "coordinates" in segment.geo %}
+                    latlngs.push({{ segment.geom.coordinates }});
+                {% endif %}
+            {% endfor %}
             let polygon = L.polyline(latlngs, {color: 'red'}).addTo(detail.map);
 // zoom the map to the polygon
             detail.map.fitBounds(polygon.getBounds());

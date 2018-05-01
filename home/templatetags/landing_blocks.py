@@ -12,9 +12,12 @@ def home_block(context, category, class_style=""):
     segments = PathSegment.objects.all()
     coords = []
     for segment in segments:
+
         for member in segment.geom['coordinates']:
+            new_segment = []
             for item in member:
-                coords.append(item[::-1])
+                new_segment.append(item[::-1])
+            coords.append(new_segment)
     # pprint(coords)
     return_dict["coordinates"] = coords
     events = None
