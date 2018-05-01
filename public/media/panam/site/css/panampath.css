@@ -7461,7 +7461,7 @@ pre {
   margin-bottom: 50px; }
 
 .event-list-date {
-  height: 150px; }
+  min-height: 150px; }
 
 .carousel {
   margin-top: 80px;

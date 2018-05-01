@@ -6,8 +6,8 @@
 {#                #}
 {#            </div>#}
             <div class="col bottom-border">
-
-                <h2 class="text29"><a href="{{ entry.get_absolute_url }}">{{ entry.title }} {{ entry.publication_date|date:"m/d" }}</a><br></h2>
+{#                {{ entry.publication_date|date:"m/d" }}#}
+                <h2 class="text29"><a href="{{ entry.get_absolute_url }}">{{ entry.title }} </a><br></h2>
 
                 <span class="text32" style="font-size:14px;">{% autoescape off %}{{ entry.lead }}{% endautoescape %}</span>
 
