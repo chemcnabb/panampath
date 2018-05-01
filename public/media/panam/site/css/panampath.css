@@ -7298,8 +7298,7 @@ ul.extra-features i {
   display: inline-block; }
 
 .bottom-border {
-  border-bottom: 1px solid #f68d5d;
-  max-width: 62%; }
+  border-bottom: 1px solid #f68d5d; }
 
 ._301 {
   position: relative;
@@ -7461,7 +7460,8 @@ pre {
   margin-bottom: 50px; }
 
 .event-list-date {
-  min-height: 150px; }
+  min-height: 150px;
+  height: 100%; }
 
 .carousel {
   margin-top: 80px;
