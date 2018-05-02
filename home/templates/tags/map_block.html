@@ -19,7 +19,7 @@
 
             {% for coord in coordinates %}
                 line = L.polyline({{ coord }}, {color: '#f15e2a', weight:'5'});
-                line.bindPopup("{% autoescape off %}{{ popups|get_value_at:forloop.counter0 }}{% endautoescape %}");
+                line.bindPopup("{% autoescape off %}{% spaceless %}{{ popups|get_value_at:forloop.counter0 }}{% endspaceless %}{% endautoescape %}");
                 line.addTo(detail.map);
                 detail.map.fitBounds(line.getBounds());
         {% endfor %}
