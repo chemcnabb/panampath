@@ -16,16 +16,16 @@
         $(".leaflet-control-zoom").css("visibility", "hidden");
 
 
-
+let group = new L.FeatureGroup().addTo(detail.map);
             {% for coord in coordinates %}
                 line = L.polyline({{ coord }}, {color: '#f15e2a', weight:'5'});
                 line.bindPopup("{% autoescape off %}{% spaceless %}{{ popups|get_value_at:forloop.counter0 }}{% endspaceless %}{% endautoescape %}");
-                line.addTo(detail.map);
+                line.addTo(group);
                 detail.map.fitBounds(line.getBounds());
         {% endfor %}
 
         // zoom the map to the polygon
-        //detail.map.fitBounds(lines.getBounds());
+        detail.map.fitBounds(group.getBounds());
 
     }, false);
 </script>{% comment %}{% endcomment %}
