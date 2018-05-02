@@ -1,5 +1,5 @@
 {% load i18n staticfiles %}
-{% load leaflet_tags %}
+{% load leaflet_tags landing_blocks %}
 
 
 {% leaflet_map "homeblock" %}
@@ -14,9 +14,19 @@
         detail.map.boxZoom.disable();
         detail.map.keyboard.disable();
         $(".leaflet-control-zoom").css("visibility", "hidden");
-        let polygon = L.polyline(latlngs, {color: '#f15e2a', weight:'5'}).addTo(detail.map);
-// zoom the map to the polygon
-        detail.map.fitBounds(polygon.getBounds());
+
+
+let lines = [];
+            {% for coord in coordinates %}
+                // {{ popups|get_value_at:forloop.counter0 }}
+                line = L.polyline({{ coord }}, {color: '#f15e2a', weight:'5'});
+                line.bindPopup("{% autoescape off %}{{ popups|get_value_at:forloop.counter0 }}{% endautoescape %}");
+                line.addTo(detail.map);
+                detail.map.fitBounds(line.getBounds());
+        {% endfor %}
+
+        // zoom the map to the polygon
+        //detail.map.fitBounds(lines.getBounds());
 
     }, false);
 </script>{% comment %}{% endcomment %}
