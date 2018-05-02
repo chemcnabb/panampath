@@ -16,9 +16,8 @@
         $(".leaflet-control-zoom").css("visibility", "hidden");
 
 
-let lines = [];
+
             {% for coord in coordinates %}
-                // {{ popups|get_value_at:forloop.counter0 }}
                 line = L.polyline({{ coord }}, {color: '#f15e2a', weight:'5'});
                 line.bindPopup("{% autoescape off %}{{ popups|get_value_at:forloop.counter0 }}{% endautoescape %}");
                 line.addTo(detail.map);
