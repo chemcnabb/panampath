@@ -20,7 +20,7 @@
         let group = new L.FeatureGroup().addTo(detail.map);
         {% for coord in coordinates %}
             line = L.polyline({{ coord }}, {color: '#f15e2a', weight: '5'});
-            line.bindPopup("{% autoescape off %}{% spaceless %}{{ popups|get_value_at:forloop.counter0 }}{% endspaceless %}{% endautoescape %}", {
+            line.bindPopup(`{% autoescape off %}{% spaceless %}{{ popups|get_value_at:forloop.counter0 }}{% endspaceless %}{% endautoescape %}`, {
                 maxHeight: 250,
                 closeOnClick: false,
                 keepInView: true
