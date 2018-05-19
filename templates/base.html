@@ -27,6 +27,7 @@
 
 
 
+
             {% block meta-description %}{% trans "Just another Zinnia weblog." %}{% endblock meta-description %}{% block meta-description-page %}{% endblock meta-description-page %}"/>
     <meta name="keywords" content="{% block meta-keywords %}django, blog, weblog, zinnia{% endblock meta-keywords %}"/>
 
@@ -157,20 +158,37 @@
     </div>
 </div>
 <footer>
-    <div class="container-fluid h-100">
+    <div class="container-fluid h-110">
 
-        <div class="row d-flex h-100 no-gutters">
+        <div class="row d-flex h-110 no-gutters">
             <div class="col align-self-center">
-                <div class="row no-gutters">
-                    <div class="col-sm-5 align-self-center">
+                <div class="row no-gutters text-center">
+                    <div class="col-sm-12 align-self-center">
                         <p>Friends of the Pan Am Path is an independent non-profit organization, responsible for art and
                             community activations along the Pan Am Path.</p>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-sm-5 align-self-center">
+                <div class="row text-center">
+                    <div class="col-sm-12 align-self-center">
                         <p>City of Toronto is the sole owner of the Physical Pan Am Path trail infrastructure, please
                             contact 311 for trail inquiries.</p>
+                    </div>
+                </div>
+                <div class="row text-center">
+                    <div class="col-sm-12 align-self-center">
+                        <p>Supported by:</p>
+                    </div>
+                </div>
+                <div class="row text-center justify-content-center">
+                    <div class="col-sm-8 align-self-center  align-items-center justify-content-center">
+                        <div class="row text-center  align-items-center justify-content-center">
+                            <div class="col-4  align-items-center"><img src="/media/panam/site/img/Q-eOne.png" class="align-middle img-fluid"
+                                                    alt="Responsive image"/></div>
+                            <div class="col-4  align-items-center"><img src="/media/panam/site/img/toronto-foundation-logo.svg"
+                                                    class="align-middle img-fluid" alt="Responsive image"/></div>
+                            <div class="col-4  align-items-center"><img src="/media/panam/site/img/trillium-logo.svg" class="align-middle img-fluid"
+                                                    alt="Responsive image"/></div>
+                        </div>
                     </div>
                 </div>
             </div>

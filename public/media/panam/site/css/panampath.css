@@ -7375,7 +7375,7 @@ html {
 
 body {
   /* Margin bottom by footer height */
-  margin-bottom: 200px; }
+  margin-bottom: 250px; }
 
 .main-content {
   padding-bottom: 25px; }
@@ -7386,7 +7386,7 @@ footer {
   bottom: 0;
   width: 100%;
   /* Set the fixed height of the footer here */
-  height: 200px;
+  height: 250px;
   background-color: #2d3844; }
   footer a {
     font-size: 12px; }
