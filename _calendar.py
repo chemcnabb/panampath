@@ -125,9 +125,10 @@ class Calendar(HTMLCalendar):
         a('\n')
         a(self.formatmonthname(theyear, themonth, withyear=withyear))
         a('\n')
-        a(self.formatweekheader())
-        a('\n')
         a(self.formatfooter(previous_month, next_month))
+        a('\n')
+        a(self.formatweekheader())
+
         # a('\n<tbody>\n')
         for week in self.monthdays2calendar(theyear, themonth):
             a(self.formatweek(week))
