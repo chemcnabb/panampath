@@ -7235,11 +7235,11 @@ ul.extra-features i {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
   height: 100%;
   z-index: -1;
   pointer-events: none;
-  overflow: hidden; }
+  overflow: hidden;
+  width: 100%; }
 
 #video-background {
   /*  making the video fullscreen  */
@@ -7391,7 +7391,7 @@ footer {
   footer a {
     font-size: 12px; }
   footer p {
-    font-size: 12px;
+    font-size: 10px;
     color: #fff; }
   footer .footer-container {
     width: 70%; }
