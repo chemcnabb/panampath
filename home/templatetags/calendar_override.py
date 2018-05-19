@@ -49,7 +49,7 @@ def get_calendar_entries(context, year=None, month=None,
 
     dates = list(map(
         lambda x: settings.USE_TZ and timezone.localtime(x).date() or x.date(),
-        Entry.published.datetimes('publication_date', 'month')))
+        Entry.published.datetimes('publication_date', 'month').filter(categories__title__contains="Events")))
 
     if current_month not in dates:
         dates.append(current_month)

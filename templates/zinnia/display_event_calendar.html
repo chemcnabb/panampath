@@ -1,0 +1,49 @@
+{% load calendar_override i18n %}
+
+<div class="container entry-base">
+    <div class="col-12">
+        <div class="row" style="margin-bottom:25px">
+
+            {% get_calendar_entries %}
+
+
+        </div>
+
+
+        <div class="row">
+            {% for object in object_list %}
+                {% if 'Events' in object.categories.first.title %}
+
+                    <div class="col-sm-6"
+                         style="margin-bottom:25px">
+
+                        <div class="event-list-date bottom-border">
+                            {#            <div class="col-sm-3">#}
+                            {#                #}
+                            {#            </div>#}
+
+                            {#                {{ entry.publication_date|date:"m/d" }}#}
+                            <h2 class="text29"><a href="{{ object.get_absolute_url }}">{{ object.title }} </a><br>
+                            </h2>
+
+                            <span class="text32" style="font-size:14px;">{% autoescape off %}
+                                {{ object.lead }}{% endautoescape %}</span>
+
+
+                        </div>
+
+                    </div>
+
+
+
+                {% endif %}
+
+
+            {% empty %}
+                <p class="info">
+                    <a href="{% url 'admin:zinnia_entry_add' %}">{% trans "No entries yet." %}</a>
+                </p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
