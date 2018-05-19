@@ -28,7 +28,7 @@
             line.addTo(group);
             detail.map.fitBounds(line.getBounds());
         {% endfor %}
-
+        L.tileLayer.grayscale('http://tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(detail.map);
         // zoom the map to the polygon
         detail.map.fitBounds(group.getBounds());
 
