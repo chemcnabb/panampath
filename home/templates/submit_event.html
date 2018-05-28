@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block stylesheet %}{% endblock %}
+{% block bodyclass %}dashboard{% endblock %}
+{% block coltype %}colMS{% endblock %}
+{% block is-main-content %}nav-offset-120 h-100{% endblock %}
+
+{#{% if not is_popup %}{% block breadcrumbs %}<div class="breadcrumbs"><a href="../">Home</a> &rsaquo; Send Email</div>{% endblock %}{% endif %}#}
+
+{% block content %}
+
+    <div class="container entry-base">
+        <div class="col-12">
+            <div class="row">
+
+                <div class="col-sm-12 text-center event-submit-form">
+                    {{ message }}
+                    {% if email_form %}
+
+                        <form method="POST" action="." enctype="multipart/form-data">
+                        {% csrf_token %}
+                            <br></br>
+                            {{ email_form.as_p }}
+
+                            <label>&nbsp;</label><label>&nbsp;</label><label>&nbsp;</label>
+                            <input type="submit" name="send" value="Send"/>
+                        </form>
+
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

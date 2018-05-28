@@ -20,7 +20,7 @@ from django.contrib import admin
 from django.views.generic import TemplateView
 from djgeojson.views import GeoJSONLayerView
 
-from .models import MushroomSpot
+# from .models import MushroomSpot
 
 
 urlpatterns = [

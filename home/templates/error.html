@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block stylesheet %}{% endblock %}
+{% block bodyclass %}dashboard{% endblock %}
+{% block coltype %}colMS{% endblock %}
+{% block is-main-content %}nav-offset-120 h-100{% endblock %}
+
+{#{% if not is_popup %}{% block breadcrumbs %}<div class="breadcrumbs"><a href="../">Home</a> &rsaquo; Send Email</div>{% endblock %}{% endif %}#}
+
+{% block content %}
+
+    <div class="container entry-base">
+        <div class="col-12">
+            <div class="row">
+
+                <div class="col-sm-12 text-center event-submit-form">
+                    {{ message }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
