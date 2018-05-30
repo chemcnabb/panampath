@@ -40,6 +40,7 @@ def send_email(request):
         return render(request, 'submit_event.html', {'email_form': form})
 
     form = EmailForm(request.POST, request.FILES)
+
     if form.is_valid():
         subject = form.cleaned_data['subject']
         message = form.cleaned_data['message']
@@ -53,7 +54,11 @@ def send_email(request):
         except Exception as e:
             return render(request, 'submit_event.html', {'message': e.message})
     else:
+        try:
+            return render(request, 'submit_event.html', {'message': form.message})
 
-        return render(request, 'submit_event.html', {'message': form.message})
+        except AttributeError:
+            return render(request, 'submit_event.html', {'message': "Please fill out all fields on the form.", "email_form":form})
+
 
     #return render(request, 'submit_event.html', {'message': 'Unable to send email. Please try again later'})
