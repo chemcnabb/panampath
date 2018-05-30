@@ -14,4 +14,5 @@ class PathSegment(models.Model):
 
     @property
     def picture_url(self):
-        return self.picture.url
+        if self.picture:
+            return self.picture.url

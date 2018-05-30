@@ -161,23 +161,34 @@ ZINNIA_ENTRY_BASE_MODEL = 'zinnia_extend.models.EntryExtend'
 MIGRATION_MODULES = {'zinnia': 'zinnia_extend.migrations_zinnia'}
 
 
-EMAIL_HOST = 'localhost'
-EMAIL_PORT = 1025
+
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 465
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 STATIC_ROOT = os.path.join(BASE_DIR, "public/static")
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "public/static_collect"),
-
 ]
 STATIC_URL = '/static/'
 ZINNIA_UPLOAD_TO = "uploads"
 MEDIA_ROOT = os.path.join(BASE_DIR, "public/media")
 MEDIA_URL = '/media/'
+
+try:
+    from local_mail import *
+except ImportError:
+    pass
+
+
+
 try:
     from local_settings import *
+
 except ImportError:
 
     GDAL_LIBRARY_PATH = os.path.join(BASE_DIR, '../gdal/usr/local/lib/libgdal.so')
