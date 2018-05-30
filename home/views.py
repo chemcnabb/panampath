@@ -48,12 +48,12 @@ def send_email(request):
         try:
             mail = EmailMessage(subject, message, settings.EMAIL_HOST_USER, [email])
             mail.attach(attach.name, attach.read(), attach.content_type)
-            mail.send()
-            return render(request, 'submit_event.html', {'message': 'Sent email to %s' % email})
+            response = mail.send()
+            return render(request, 'submit_event.html', {'message': 'Sent email to %s' % (email)})
         except Exception as e:
             return render(request, 'submit_event.html', {'message': e.message})
     else:
-        print("BAD FORM")
+
         return render(request, 'submit_event.html', {'message': form.message})
 
     #return render(request, 'submit_event.html', {'message': 'Unable to send email. Please try again later'})

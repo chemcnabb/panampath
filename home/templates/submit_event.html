@@ -10,20 +10,48 @@
 {% block content %}
 
     <div class="container entry-base">
-        <div class="col-12">
-            <div class="row">
+        <div class="col-sm-auto">
+            <div class="row align-items-center justify-content-center ">
 
-                <div class="col-sm-12 text-center event-submit-form">
-                    {{ message }}
+                <div class="col-sm-8 event-submit-form">
+                    <span style="display:block;text-align: center">{{ message }}</span>
                     {% if email_form %}
 
                         <form method="POST" action="." enctype="multipart/form-data">
-                        {% csrf_token %}
+                            {% csrf_token %}
                             <br/>
-                            {{ email_form.as_p }}
 
-                            <label>&nbsp;</label><label>&nbsp;</label><label>&nbsp;</label>
-                            <input type="submit" name="send" value="Send"/>
+
+                            <div class="form-group">
+                                <label for="id_email">From</label>
+                                <input type="email" class="form-control" id="email" name="email"
+                                       aria-describedby="emailHelp" placeholder="Enter your email">
+                                <small id="emailHelp" class="form-text text-muted">We'll never share your email with
+                                    anyone else.
+                                </small>
+                            </div>
+                            <div class="form-group">
+                                <label for="id_subject">Subject</label>
+                                <input type="text" class="form-control" name="subject" id="subject"
+                                       placeholder="Event name">
+                            </div>
+                            <div class="form-group">
+                                <label for="id_attach">Attach</label>
+                                <input type="file" class="form-control-file" name="attach" id="attach"
+                                       aria-describedby="fileHelp">
+                                <small id="fileHelp" class="form-text text-muted">Submit an image or pdf of your event.
+                                </small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="id_message">Message</label>
+                                <textarea class="form-control" name="message" id="message" rows="3"></textarea>
+                            </div>
+
+
+                            <button type="submit" style="background-color:#f15e2a; float:right" class="btn btn-secondary">Submit</button>
+
+
                         </form>
 
                     {% endif %}
