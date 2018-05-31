@@ -84,7 +84,7 @@
 
                     L.tileLayer.grayscale('http://tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
                     // zoom the map to the polygon
-                    map.fitBounds(group.getBounds());
+                    {#map.fitBounds(group.getBounds());#}
 
 
                     // add an OpenStreetMap tile layer
