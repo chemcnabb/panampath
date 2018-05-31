@@ -26,7 +26,7 @@ def home_block(context, category, class_style=""):
                 for item in member:
 
                     new_segment.append(item[::-1])
-                segment_popups.append(segment.description)
+                segment_popups.append("<br /><strong>{}</strong><br /> {}".format(segment.title, segment.description))
                 coords.append(new_segment)
     # pprint(coords)
     return_dict["coordinates"] = coords
