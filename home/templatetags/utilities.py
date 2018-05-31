@@ -11,4 +11,5 @@ register = template.Library()
 
 @register.filter(name='clean')
 def clean_word(word):
+    word = ''.join(ch for ch in word if ch.isalnum())
     return word.replace(" ", "").strip().lower()
