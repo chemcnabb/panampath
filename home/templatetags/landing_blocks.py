@@ -18,16 +18,18 @@ def home_block(context, category, class_style=""):
     coords = []
     segment_popups = []
     for segment in segments:
+        try:
+            if "coordinates" in segment.geom:
 
-        if "coordinates" in segment.geom:
+                for member in segment.geom['coordinates']:
+                    new_segment = []
+                    for item in member:
 
-            for member in segment.geom['coordinates']:
-                new_segment = []
-                for item in member:
-
-                    new_segment.append(item[::-1])
-                segment_popups.append("<br /><strong>{}</strong><br /> {}".format(segment.title, segment.description))
-                coords.append(new_segment)
+                        new_segment.append(item[::-1])
+                    segment_popups.append("<br /><strong>{}</strong><br /> {}".format(segment.title, segment.description))
+                    coords.append(new_segment)
+        except TypeError:
+            pass
     # pprint(coords)
     return_dict["coordinates"] = coords
     return_dict["popups"] = segment_popups
