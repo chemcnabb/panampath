@@ -48,21 +48,10 @@
             'use strict';
 
             // additional layers
-            var layers = {
-                'test': L.tileLayer.wms('http://limes.grid.unep.ch/geoserver/wms?', {
-                    layers: 'limes:Balkash_173_20140830_LC8_NDVI',
-                    tiled: true,
-                    format: 'image/png',
-                    transparent: true,
-                    maxZoom: 14,
-                    minZoom: 0,
-                    continuousWorld: true
-                })
-            };
 
             var markers = {% autoescape off %}{{ markers }}{% endautoescape %};
-            var original_markers = {
-                balkash: {lat: 44.9117998, lon: 74.1202449, zoom: 12, layer: layers['test']},
+            /*var original_markers = {
+                balkash: {lat: 44.9117998, lon: 74.1202449, zoom: 12},
                 oslo: {lat: 59.92173, lon: 10.75719, zoom: 7},
                 trondheim: {lat: 63.4319, lon: 10.3988, zoom: 7},
                 bergen: {lat: 60.3992, lon: 5.3227, zoom: 7},
@@ -70,7 +59,7 @@
                 kristiansand: {lat: 58.17993, lon: 8.12952, zoom: 7},
                 stavanger: {lat: 58.9694, lon: 5.73, zoom: 7},
                 bodo: {lat: 67.28319, lon: 14.38565, zoom: 7}
-            };
+            };*/
 
             $('.main').storymap({
                 markers: markers,
@@ -78,14 +67,14 @@
                 breakpointPos: '10%', //position of the breakpoint
                 createMap: function () { //function that creates a map
                     // create a map in the "map" div, set the view to a given place and zoom
-                    var map = L.map('map').setView({{ initial_marker }}, 5);
+                    var map = L.map('map').setView({{ initial_marker }}, 10);
 
                     let group = new L.FeatureGroup().addTo(map);
                     {% for coord in coordinates %}
                         var line = L.polyline({{ coord }}, {color: '#f68d5d', weight: '5'});
 
                         line.addTo(group);
-                        map.fitBounds(line.getBounds());
+                        {#map.fitBounds(line.getBounds());#}
                     {% endfor %}
 
                     L.tileLayer.grayscale('http://tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
