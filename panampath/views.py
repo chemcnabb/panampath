@@ -21,7 +21,7 @@ class MapView(TemplateView):
         for segment in segments:
 
             if "coordinates" in segment.geom:
-
+                count = 0
                 for member in segment.geom['coordinates']:
                     new_segment = []
                     for item in member:
@@ -30,8 +30,11 @@ class MapView(TemplateView):
                     segment_popups.append(segment.description)
                     lat = new_segment[(len(new_segment) - 1) / 2][0]
                     lon = new_segment[(len(new_segment) - 1) / 2][1]
+                    if count == 0:
+                        context["initial_marker"] = [lat, lon]
                     segment_dict[segment.title.replace(" ", "").strip().lower()] = {'lat':lat, 'lon':lon,'zoom':11}
                     coords.append(new_segment)
+                    count += 1
         # pprint(coords)
         context["segments"] = segments
         context["coordinates"] = coords

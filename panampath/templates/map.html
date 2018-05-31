@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load utilities  %}
-
+{% load leaflet_tags landing_blocks %}
 {% block is-main-content %}nav-offset-120 h-100{% endblock %}
 {% block script %}
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css"/>
@@ -16,7 +16,7 @@
 
                 <h1 class="page-header">Pan Am Path Map</h1>
 
-                <section>
+                <section data-place="{{ segments.0.title|clean }}">
                     <p>Introduction...</p>
                 </section>
                 {% for segment in segments %}
@@ -29,7 +29,7 @@
 
             </div>
 
-            <div id="map" class="col-sm-3 col-md-5 sidebar">
+            <div id="map" class="col-sm-3 col-md-5 sidebar" style="z-index:0">
 
             </div>
 
@@ -75,21 +75,22 @@
             $('.main').storymap({
                 markers: markers,
                 selector: '[data-place]', //jquery for selectors to trigger an event
-                breakpointPos: '-5%', //position of the breakpoint
+                breakpointPos: '10%', //position of the breakpoint
                 createMap: function () { //function that creates a map
                     // create a map in the "map" div, set the view to a given place and zoom
-                    var map = L.map('map').setView([43.655699, -79.346583], 5);
+                    var map = L.map('map').setView({{ initial_marker }}, 5);
 
                     let group = new L.FeatureGroup().addTo(map);
                     {% for coord in coordinates %}
                         var line = L.polyline({{ coord }}, {color: '#f68d5d', weight: '5'});
 
                         line.addTo(group);
-                        {#map.fitBounds(line.getBounds());#}
+                        map.fitBounds(line.getBounds());
                     {% endfor %}
+
                     L.tileLayer.grayscale('http://tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
                     // zoom the map to the polygon
-                    //map.fitBounds(group.getBounds());
+                    map.fitBounds(group.getBounds());
 
 
                     // add an OpenStreetMap tile layer
