@@ -19,24 +19,27 @@ class MapView(TemplateView):
         segment_popups = []
         segment_dict = {}
         for segment in segments:
+            try:
+                if "coordinates" in segment.geom:
+                    count = 0
+                    for member in segment.geom['coordinates']:
+                        new_segment = []
+                        for item in member:
+                            new_segment.append(item[::-1])
 
-            if "coordinates" in segment.geom:
-                count = 0
-                for member in segment.geom['coordinates']:
-                    new_segment = []
-                    for item in member:
-                        new_segment.append(item[::-1])
+                        segment_popups.append(segment.description)
+                        lat = new_segment[(len(new_segment) - 1) / 2][0]
+                        lon = new_segment[(len(new_segment) - 1) / 2][1]
+                        if count == 0:
+                            context["initial_marker"] = [lat, lon]
 
-                    segment_popups.append(segment.description)
-                    lat = new_segment[(len(new_segment) - 1) / 2][0]
-                    lon = new_segment[(len(new_segment) - 1) / 2][1]
-                    if count == 0:
-                        context["initial_marker"] = [lat, lon]
-
-                    word = ''.join(ch for ch in segment.title if ch.isalnum())
-                    segment_dict[word.replace(" ", "").strip().lower()] = {'lat':lat, 'lon':lon,'zoom':11}
-                    coords.append(new_segment)
-                    count += 1
+                        word = ''.join(ch for ch in segment.title if ch.isalnum())
+                        segment_dict[word.replace(" ", "").strip().lower()] = {'lat':lat, 'lon':lon,'zoom':11}
+                        coords.append(new_segment)
+                        count += 1
+            except TypeError:
+                # No geometry added to map
+                pass
         # pprint(coords)
         context["segments"] = segments
         context["coordinates"] = coords
