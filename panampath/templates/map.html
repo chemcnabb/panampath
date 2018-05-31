@@ -13,7 +13,7 @@
     <div class="row">
         <div class="col-sm-5 main" style="padding-bottom:25px">
             <section  data-place="{{ segments.0.title|clean }}" style="background:none">
-            <h1 class="page-header">Pan Am Path Map</h1>
+            <h2 class="page-header">PAN AM PATH MAP</h2>
                 </section>
         </div>
     </div>
@@ -26,7 +26,7 @@
 
                 {% for segment in segments %}
                     <section data-place="{{ segment.title|clean }}">
-                        <h2>{{ segment.title }}</h2>
+                        <p><strong>{{ segment.title }}</strong></p>
                         <p>{% autoescape off %}{{ segment.description }}{% endautoescape %}</p>
                     </section>
                 {% endfor %}
