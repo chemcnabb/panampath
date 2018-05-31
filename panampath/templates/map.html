@@ -69,7 +69,7 @@
             $('.main').storymap({
                 markers: markers,
                 selector: '[data-place]', //jquery for selectors to trigger an event
-                breakpointPos: '10%', //position of the breakpoint
+                breakpointPos: '20%', //position of the breakpoint
                 createMap: function () { //function that creates a map
                     // create a map in the "map" div, set the view to a given place and zoom
                     var map = L.map('map').setView({{ initial_marker }}, 10);
