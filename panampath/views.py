@@ -45,5 +45,5 @@ class MapView(TemplateView):
         context["coordinates"] = coords
         context["popups"] = segment_popups
         context["markers"] = json.dumps(segment_dict)
-        print coords
+
         return context

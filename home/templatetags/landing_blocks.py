@@ -31,16 +31,22 @@ def home_block(context, category, class_style=""):
     # pprint(coords)
     return_dict["coordinates"] = coords
     return_dict["popups"] = segment_popups
+
+
+
+
     events = None
     if category.lower() == "events":
         events = Category.published.filter(slug__in=['events'])
         if events:
             events = events[0].entries_published()
         return_dict["events"] = events
-    news = None
-    if category.lower() == "news":
-        news = Category.published.filter(slug__in=['news'])
-        if news:
-            news = news[0].entries_published()
-        return_dict["news"] = news
+
+
+    stories = None
+    if category.lower() == "stories":
+        stories = Category.published.filter(slug__in=['stories'])
+        if stories:
+            stories = stories[0].entries_published()
+        return_dict["stories"] = stories
     return return_dict
