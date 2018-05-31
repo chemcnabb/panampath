@@ -6531,6 +6531,9 @@ footer, header, hgroup, menu, nav, section {
 .map-content #homeblock {
   height: 75vh; }
 
+small, input, input::placeholder {
+  font-size: 10px; }
+
 .inline-flex {
   display: flex;
   flex-wrap: wrap; }

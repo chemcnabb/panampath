@@ -12,7 +12,7 @@
 
         <div class="row">
             {% for object in object_list %}
-                {% if 'Events' in object.categories.first.title %}
+                {% if 'events' in object.categories.first.slug %}
 
                     <div class="col-sm-6"
                          style="margin-bottom:25px">
