@@ -32,7 +32,9 @@ class MapView(TemplateView):
                     lon = new_segment[(len(new_segment) - 1) / 2][1]
                     if count == 0:
                         context["initial_marker"] = [lat, lon]
-                    segment_dict[segment.title.replace(" ", "").strip().lower()] = {'lat':lat, 'lon':lon,'zoom':11}
+
+                    word = ''.join(ch for ch in segment.title if ch.isalnum())
+                    segment_dict[word.replace(" ", "").strip().lower()] = {'lat':lat, 'lon':lon,'zoom':11}
                     coords.append(new_segment)
                     count += 1
         # pprint(coords)
