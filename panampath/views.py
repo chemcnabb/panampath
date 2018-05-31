@@ -5,23 +5,37 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 from panampath.models import PathSegment
 from pprint import pprint
+import json
 # Create your views here.
 class MapView(TemplateView):
     template_name = 'map.html'
 
-
-
-
     def get_context_data(self, **kwargs):
         context = super(MapView, self).get_context_data(**kwargs)
         segments = PathSegment.objects.all()
+
+
         coords = []
+        segment_popups = []
+        segment_dict = {}
         for segment in segments:
-            for member in segment.geom['coordinates']:
-                for item in member:
-                    coords.append(item[::-1])
-        #pprint(coords)
+
+            if "coordinates" in segment.geom:
+
+                for member in segment.geom['coordinates']:
+                    new_segment = []
+                    for item in member:
+                        new_segment.append(item[::-1])
+
+                    segment_popups.append(segment.description)
+                    lat = new_segment[(len(new_segment) - 1) / 2][0]
+                    lon = new_segment[(len(new_segment) - 1) / 2][1]
+                    segment_dict[segment.title.replace(" ", "").strip().lower()] = {'lat':lat, 'lon':lon,'zoom':11}
+                    coords.append(new_segment)
+        # pprint(coords)
         context["segments"] = segments
         context["coordinates"] = coords
-
+        context["popups"] = segment_popups
+        context["markers"] = json.dumps(segment_dict)
+        print coords
         return context

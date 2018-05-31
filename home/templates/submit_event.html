@@ -3,18 +3,25 @@
 {% block stylesheet %}{% endblock %}
 {% block bodyclass %}dashboard{% endblock %}
 {% block coltype %}colMS{% endblock %}
-{% block is-main-content %}nav-offset-120 h-100{% endblock %}
+{% block is-main-content %}nav-offset h-100{% endblock %}
 
 {#{% if not is_popup %}{% block breadcrumbs %}<div class="breadcrumbs"><a href="../">Home</a> &rsaquo; Send Email</div>{% endblock %}{% endif %}#}
 
 {% block content %}
-
+    <div class="container-fluid bg-white">
+        <div class="row no-gutter">
+            <div class="col-12" style="background-color: #f15e2a;">
+                <div class="col text-center" style="padding: 25px;"><h1 style="  font-weight: 700;
+  font-size: 24px;">SUBMIT EVENT</h1></div>
+            </div>
+        </div>
+    </div>
     <div class="container entry-base">
         <div class="col-sm-auto">
             <div class="row align-items-center justify-content-center ">
 
                 <div class="col-sm-6 event-submit-form">
-                <h1 class="text-center mt-4">Submit Event</h1>
+
                     <span style="display:block;text-align: center">{{ message }}</span>
                     {% if email_form %}
 
@@ -24,33 +31,33 @@
 
 
                             <div class="form-group">
-                                <label for="id_email">From</label>
+
                                 <input type="email" class="form-control" id="email" name="email"
                                        aria-describedby="emailHelp" placeholder="Enter your email">
-                                <small id="emailHelp" class="form-text text-muted">We'll never share your email with
-                                    anyone else.
-                                </small>
+
                             </div>
                             <div class="form-group">
-                                <label for="id_subject">Subject</label>
+
                                 <input type="text" class="form-control" name="subject" id="subject"
                                        placeholder="Event name">
                             </div>
                             <div class="form-group">
-                                <label for="id_attach">Attach</label>
+
                                 <input type="file" class="form-control-file" name="attach" id="attach"
-                                       aria-describedby="fileHelp">
-                                <small id="fileHelp" class="form-text text-muted">Submit an image or pdf of your event.
+                                       aria-describedby="fileHelp" multiple accept='image/*'>
+                                <small id="fileHelp" class="form-text text-muted">Submit an image of your event.
                                 </small>
                             </div>
 
                             <div class="form-group">
-                                <label for="id_message">Message</label>
+
                                 <textarea class="form-control" name="message" id="message" rows="3"></textarea>
                             </div>
 
 
-                            <button type="submit" style="background-color:#f15e2a; float:right" class="btn btn-secondary">Submit</button>
+                            <button type="submit" style="background-color:#f15e2a; float:right"
+                                    class="btn btn-secondary">Submit
+                            </button>
 
 
                         </form>

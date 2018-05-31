@@ -53,6 +53,8 @@
     <!-- Color Sheme CSS -->
     <link rel="stylesheet" href="/media/panam/site/css/panampath.css">
 
+    <link rel="stylesheet" href="/media/panam/site/js/leaflet-extra-markers/css/leaflet.extra-markers.min.css">
+
     <!-- Google Font -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
 
@@ -60,9 +62,12 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
+<script type="text/javascript" src="/media/panam/site/assets/js/jquery.js"></script>
     {% leaflet_js %}
     {% leaflet_css %}
+    <script src="/media/panam/site/js/underscore-min.js"></script>
+    <script src="/media/panam/site/js/leaflet-extra-markers/js/leaflet.extra-markers.min.js"></script>
+
     <script src="/media/panam/site/js/TileLayer.Grayscale.js"></script>
 
     <link rel="shortcut icon" href="/media/zinnia/theme/img/favicon.ico"/>
@@ -158,7 +163,7 @@
 
 
         <div class="container entry-base newsletter-content" style="margin-bottom:50px;">
-            <div class="row">
+            <div class="row no-gutter">
                 <div class="col-12">
 
 
@@ -210,7 +215,7 @@
         </div>
     </div>
 </footer>
-<script type="text/javascript" src="/media/panam/site/assets/js/jquery.js"></script>
+
 <script type="text/javascript" src="/media/panam/site/js/bootstrap.min.js"></script>
 {#<script type="text/javascript" src="{% static "panam/site/js/owl.carousel.min.js" %}"></script>#}
 {#<script type="text/javascript" src="{% static "panam/site/js/jquery.fitvids.js" %}"></script>#}
@@ -220,6 +225,6 @@
 {#<script type="text/javascript" src="{% static "panam/site/js/jquery.nav.js" %}"></script>#}
 {#<script type="text/javascript" src="{% static "panam/site/js/wow.min.js" %}"></script>#}
 <script type="text/javascript" src="/media/panam/site/js/main.js"></script>
-
+{% block footer-script %}{% endblock footer-script %}
 </body>
 </html>

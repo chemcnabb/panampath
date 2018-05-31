@@ -29,7 +29,7 @@ urlpatterns = [
     url(r'^$', IndexView.as_view(), name="home"),
     url(r'^submit-event/$', send_email, name="submit_event"),
     url(r'^map/', MapView.as_view(), name="map"),
-    url(r'^story/', TemplateView.as_view(template_name='story.html')),
+    # url(r'^story/', TemplateView.as_view(template_name='story.html')),
     url(r'^blog/', include('zinnia.urls')),
     url(r'^comments/', include('django_comments.urls')),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),

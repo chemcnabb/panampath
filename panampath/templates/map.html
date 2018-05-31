@@ -1,35 +1,106 @@
-{% load leaflet_tags %}
-<html>
-<head>
-    {% leaflet_js %}
-    {% leaflet_css %}
-    <style>
-        .leaflet-container {
-            height: 100%;
-        }
-    </style>
+{% extends "base.html" %}
+{% load utilities  %}
+
+{% block is-main-content %}nav-offset-120 h-100{% endblock %}
+{% block script %}
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css"/>
+    {#    <link type="text/css" rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">#}
+    <link rel="stylesheet" type="text/css" href="/media/panam/site/js/story-map.css">
+{% endblock script %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-sm-9 col-md-7 main">
+
+                <h1 class="page-header">Pan Am Path Map</h1>
+
+                <section>
+                    <p>Introduction...</p>
+                </section>
+                {% for segment in segments %}
+                    <section data-place="{{ segment.title|clean }}">
+                        <h2>{{ segment.title }}</h2>
+                        <p>{% autoescape off %}{{ segment.description }}{% endautoescape %}</p>
+                    </section>
+                {% endfor %}
+
+
+            </div>
+
+            <div id="map" class="col-sm-3 col-md-5 sidebar">
+
+            </div>
+
+        </div>
+    </div>
+
+{% endblock content %}
+{% block footer-script %}
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
+    <script src="/media/panam/site/js/TileLayer.Grayscale.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="/media/panam/site/js/storymap.js"></script>
     <script type="text/javascript">
-        window.addEventListener("map:init", function (e) {
-            let detail = e.detail;
-            let latlngs = [];
-            {% for segment in segments %}
-                {% if "coordinates" in segment.geo %}
-                    latlngs.push({{ segment.geom.coordinates }});
-                {% endif %}
-            {% endfor %}
-            let polygon = L.polyline(latlngs, {color: 'red'}).addTo(detail.map);
-// zoom the map to the polygon
-            detail.map.fitBounds(polygon.getBounds());
+        (function () {
+            'use strict';
 
-        }, false);
+            // additional layers
+            var layers = {
+                'test': L.tileLayer.wms('http://limes.grid.unep.ch/geoserver/wms?', {
+                    layers: 'limes:Balkash_173_20140830_LC8_NDVI',
+                    tiled: true,
+                    format: 'image/png',
+                    transparent: true,
+                    maxZoom: 14,
+                    minZoom: 0,
+                    continuousWorld: true
+                })
+            };
+
+            var markers = {% autoescape off %}{{ markers }}{% endautoescape %};
+            var original_markers = {
+                balkash: {lat: 44.9117998, lon: 74.1202449, zoom: 12, layer: layers['test']},
+                oslo: {lat: 59.92173, lon: 10.75719, zoom: 7},
+                trondheim: {lat: 63.4319, lon: 10.3988, zoom: 7},
+                bergen: {lat: 60.3992, lon: 5.3227, zoom: 7},
+                tromso: {lat: 69.632, lon: 18.9197, zoom: 7},
+                kristiansand: {lat: 58.17993, lon: 8.12952, zoom: 7},
+                stavanger: {lat: 58.9694, lon: 5.73, zoom: 7},
+                bodo: {lat: 67.28319, lon: 14.38565, zoom: 7}
+            };
+
+            $('.main').storymap({
+                markers: markers,
+                selector: '[data-place]', //jquery for selectors to trigger an event
+                breakpointPos: '-5%', //position of the breakpoint
+                createMap: function () { //function that creates a map
+                    // create a map in the "map" div, set the view to a given place and zoom
+                    var map = L.map('map').setView([43.655699, -79.346583], 5);
+
+                    let group = new L.FeatureGroup().addTo(map);
+                    {% for coord in coordinates %}
+                        var line = L.polyline({{ coord }}, {color: '#f68d5d', weight: '5'});
+
+                        line.addTo(group);
+                        {#map.fitBounds(line.getBounds());#}
+                    {% endfor %}
+                    L.tileLayer.grayscale('http://tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+                    // zoom the map to the polygon
+                    //map.fitBounds(group.getBounds());
+
+
+                    // add an OpenStreetMap tile layer
+                    {#L.tileLayer(#}
+                    {#    'http://{s}.tile.osm.org/{z}/{x}/{y}.png',#}
+                    {#    {attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'}#}
+                    {#).addTo(map);#}
+                    return map;
+                }
+            });
+
+        }());
     </script>
-</head>
-<body>
-<h1>PanAm Path</h1>
-
-{% leaflet_map "main" %}
-</body>
-<script type="text/javascript">
-
-</script>
-</html>
+{% endblock footer-script %}
