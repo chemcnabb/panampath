@@ -28,7 +28,11 @@ body {
   padding-bottom: 25px;
 }
 
-
+.btn-primary:hover {
+  color: #fff;
+  background-color: $accent-color;
+  border-color: $main-color;
+}
 
 .event-submit-form{
   width:70%;

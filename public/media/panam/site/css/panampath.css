@@ -7383,6 +7383,11 @@ body {
 .main-content {
   padding-bottom: 25px; }
 
+.btn-primary:hover {
+  color: #fff;
+  background-color: #f68d5d;
+  border-color: #f15e2a; }
+
 .event-submit-form {
   width: 70%; }
 
