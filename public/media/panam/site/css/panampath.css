@@ -6703,6 +6703,9 @@ h1 {
 h2 {
   font-size: 24px; }
 
+.event-list-date h2 {
+  font-size: 18px; }
+
 h3 {
   font-size: 24px; }
 
@@ -7307,7 +7310,7 @@ ul.extra-features i {
   position: relative;
   white-space: nowrap;
   font-weight: 700;
-  font-size: 35px;
+  font-size: 28px;
   line-height: 0.8;
   color: #f15d29;
   text-align: right;
