@@ -142,7 +142,12 @@ pre {
   min-height: 150px;
   height:100%;
 }
-
+@include media-breakpoint-down(md) {
+  .event-list-date{
+  min-height: initial;
+  height:auto;
+}
+}
 .carousel {
   margin-top: 80px;
   background-color: #80808061;

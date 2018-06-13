@@ -7306,7 +7306,7 @@ ul.extra-features i {
 .bottom-border {
   border-bottom: 1px solid #f68d5d; }
 
-.event-list-date .col-sm-3 {
+.event-list-date .event-post-date {
   padding-top: 4px; }
 
 ._301 {
@@ -7324,6 +7324,21 @@ ul.extra-features i {
   left: 3px;
   height: 38px; }
 
+@media (max-width: 991.98px) {
+  ._301 {
+    position: relative;
+    white-space: nowrap;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 0.8;
+    color: #f15d29;
+    text-align: left;
+    direction: ltr;
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+    left: 3px;
+    height: initial; } }
 .event-name--title {
   position: relative;
   text-align: left;
@@ -7480,6 +7495,10 @@ pre {
   min-height: 150px;
   height: 100%; }
 
+@media (max-width: 991.98px) {
+  .event-list-date {
+    min-height: initial;
+    height: auto; } }
 .carousel {
   margin-top: 80px;
   background-color: #80808061;
