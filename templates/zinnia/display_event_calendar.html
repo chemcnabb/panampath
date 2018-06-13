@@ -11,28 +11,10 @@
 
 
         <div class="row">
-            {% for object in object_list %}
-                {% if 'events' in object.categories.first.slug %}
+            {% for entry in object_list %}
+                {% if 'events' in entry.categories.first.slug %}
 
-                    <div class="col-sm-6"
-                         style="margin-bottom:25px">
-
-                        <div class="event-list-date bottom-border">
-                            {#            <div class="col-sm-3">#}
-                            {#                #}
-                            {#            </div>#}
-
-                            {#                {{ entry.publication_date|date:"m/d" }}#}
-                            <h2 class="text29"><a href="{{ object.get_absolute_url }}">{{ object.title }} </a><br>
-                            </h2>
-
-                            <span class="text32" style="font-size:14px;">{% autoescape off %}
-                                {{ object.lead }}{% endautoescape %}</span>
-
-
-                        </div>
-
-                    </div>
+                    {% include "./tags/event_featured.html" %}
 
 
 

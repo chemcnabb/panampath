@@ -1,17 +1,36 @@
+{#<div class="col-sm-6"#}
+{#     style="margin-bottom:25px">#}
+{##}
+{#    <div class="event-list-date bottom-border">#}
+{#            <div class="col-sm-3">#}
+{#                #}
+{#            </div>#}
+{##}
+{#                {{ entry.publication_date|date:"m/d" }}#}
+{#        <h2 class="text29"><a href="{{ entry.get_absolute_url }}">{{ entry.title }} </a><br></h2>#}
+{##}
+{#        <span class="text32" style="font-size:14px;">{% autoescape off %}{{ entry.lead }}{% endautoescape %}</span>#}
+{##}
+{##}
+{#    </div>#}
+{##}
+{#</div>#}
+
+
 <div class="col-sm-6"
-     style="margin-bottom:25px">
+             style="margin-bottom:25px">
 
-    <div class="event-list-date bottom-border">
-        {#            <div class="col-sm-3">#}
-        {#                #}
-        {#            </div>#}
+        <div class="row event-list-date">
+            <div class="col-sm-3">
+                <p class="_301">{{ entry.publication_date|date:"m/d" }}</p>
+            </div>
+            <div class="col bottom-border">
 
-        {#                {{ entry.publication_date|date:"m/d" }}#}
-        <h2 class="text29"><a href="{{ entry.get_absolute_url }}">{{ entry.title }} </a><br></h2>
+                <h2 class="text29"><a href="{{ entry.get_absolute_url }}">{{ entry.title }}</a><br></h2>
 
-        <span class="text32" style="font-size:14px;">{% autoescape off %}{{ entry.lead }}{% endautoescape %}</span>
+                <span class="text32">{% autoescape off %}{{ entry.lead }}{% endautoescape %}</span>
 
+            </div>
+        </div>
 
     </div>
-
-</div>
