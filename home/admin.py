@@ -54,4 +54,4 @@ class FileBrowserAdmin(admin.ModelAdmin):
 
 
 
-admin.site.register(FileBrowser, FileBrowserAdmin)
+#admin.site.register(FileBrowser, FileBrowserAdmin)
