@@ -183,6 +183,12 @@ pre {
   display: none;
 }
 
+
+
+.footer-social-icons {
+  display:none;
+}
+
 @include media-breakpoint-down(sm) {
   .social-icons {
     display: none;
@@ -190,8 +196,12 @@ pre {
   }
   .footer-social-icons {
     display: block;
-width: 15%;
-  white-space: nowrap;
+    width: 15%;
+    white-space: nowrap;
+
+    a.social-icon{
+      float:initial;
+    }
   }
 }
 

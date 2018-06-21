@@ -7526,6 +7526,9 @@ pre {
 .leaflet-bottom.leaflet-right {
   display: none; }
 
+.footer-social-icons {
+  display: none; }
+
 @media (max-width: 767.98px) {
   .social-icons {
     display: none; }
@@ -7533,7 +7536,9 @@ pre {
   .footer-social-icons {
     display: block;
     width: 15%;
-    white-space: nowrap; } }
+    white-space: nowrap; }
+    .footer-social-icons a.social-icon {
+      float: initial; } }
 .social-icons {
   width: 15%;
   white-space: nowrap; }
