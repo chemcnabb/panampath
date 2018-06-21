@@ -29,6 +29,7 @@
 
 
 
+
             {% block meta-description %}{% trans "Just another Zinnia weblog." %}{% endblock meta-description %}{% block meta-description-page %}{% endblock meta-description-page %}"/>
     <meta name="keywords" content="{% block meta-keywords %}django, blog, weblog, zinnia{% endblock meta-keywords %}"/>
 
@@ -110,12 +111,13 @@
     </a>
 
     <div class="social-icons">
-        <a href="/" title="Pan Am Path" class="social-icon" rel="home">
-        <img src="/media/panam/IG.svg" class="pull-right" alt="Pan Am Path"/>
-    </a>
-        <a href="/" title="Pan Am Path" class="social-icon" rel="home">
-        <img src="/media/panam/tw.svg" class="pull-right" alt="Pan Am Path"/>
-    </a>
+        <a href="http://instagram.com/panampath" title="Pan Am Path" class="social-icon" rel="instagram"
+           target="_blank">
+            <img src="/media/panam/IG.svg" class="pull-right" alt="Pan Am Path"/>
+        </a>
+        <a href="http://twitter.com/panampath" title="Pan Am Path" class="social-icon" rel="twitter" target="_blank">
+            <img src="/media/panam/tw.svg" class="pull-right" alt="Pan Am Path"/>
+        </a>
 
     </div>
 
@@ -158,9 +160,6 @@
             </div>
 
 
-
-
-
             <div class="container entry-base newsletter-content bg-white" style="margin-bottom:25px;">
                 <div class="row no-gutter  justify-content-center">
                     <div class="col-auto">
@@ -187,11 +186,9 @@
                 <div class="row align-items-center justify-content-center">
 
 
-
                     <div class="col-xs-2 col-md-12">
                         {% include "zinnia/newsletter.html" %}
                     </div>
-
 
 
                 </div>
@@ -204,15 +201,13 @@
                 <div class="row">
 
 
-
                     <div class="col-sm-12">
-                        <p>Our mission is to enhance and bring awareness to the Pan Am Path through arts, culture and recreation</p>
+                        <p>Our mission is to enhance and bring awareness to the Pan Am Path through arts, culture and
+                            recreation</p>
                     </div>
 
 
-
                 </div>
-
 
 
                 <div class="row">
@@ -221,7 +216,6 @@
                             contact 311 for trail inquiries.</p>
                     </div>
                 </div>
-
 
 
             </div>
@@ -239,9 +233,10 @@
                             <div class="col-md-6 col-lg-6  align-items-center"><img
                                     src="/media/panam/site/img/toronto-foundation-logo.svg"
                                     class="align-middle img-fluid" alt="Responsive image"/></div>
-                            <div class="col-md-6 col-lg-6  align-items-center"><img src="/media/panam/site/img/trillium.logo.svg"
-                                                                        class="align-middle img-fluid"
-                                                                        alt="Responsive image"/></div>
+                            <div class="col-md-6 col-lg-6  align-items-center"><img
+                                    src="/media/panam/site/img/trillium.logo.svg"
+                                    class="align-middle img-fluid"
+                                    alt="Responsive image"/></div>
                         </div>
                     </div>
                 </div>
