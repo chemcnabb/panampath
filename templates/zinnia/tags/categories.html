@@ -1,24 +1,62 @@
 {% load i18n %}
 {% load flatpages %}
-
+{% get_flatpages as flatpages %}
 <ul class="category-root">
+
+{#    # MAP#}
+{#    # WHAT'S#}
+{#    # HAPPENING#}
+{#    # PROJECTS#}
+{#    # PARTNERSHIPS#}
+{#    # IN#}
+{#    # THE#}
+{#    # NEWS#}
+{#    # STORIES#}
+{#    # ABOUT#}
+
+    {% for page in flatpages %}
+        {% if '/map/' in page.url %}
+        <li><a href="{{ page.url }}">{{ page.title }}</a></li>
+        {% endif %}
+    {% endfor %}
+
     {% for category in categories %}
-        {% if 'mission' != context_category.slug %}
+        {% if 'events' in category.slug %}
             <li class="{% if category.slug == context_category.slug %} current{% endif %}">
                 <a href="{{ category.get_absolute_url }}"
                    title="{% blocktrans %}Show all entries in {{ category }}{% endblocktrans %}">{{ category }}</a>
             </li>
         {% endif %}
+{% if 'stories' in category.slug %}
+            <li class="{% if category.slug == context_category.slug %} current{% endif %}">
+                <a href="{{ category.get_absolute_url }}"
+                   title="{% blocktrans %}Show all entries in {{ category }}{% endblocktrans %}">{{ category }}</a>
+            </li>
+        {% endif %}
+
+    {% endfor %}
+
+
+{% for page in flatpages %}
+        {% if '/about/' in page.url %}
+        <li><a href="{{ page.url }}">{{ page.title }}</a></li>
+        {% endif %}
+    {% endfor %}
+
+
+
+
+
+
+
+    {% for category in categories %}
+
     {% empty %}
         <li class="">
             <a href="#">{% trans "No categories yet." %}</a>
         </li>
 
     {% endfor %}
-    {% get_flatpages as flatpages %}
-    {% for page in flatpages %}
-        {% if 'mission' not in page.url %}
-        <li><a href="{{ page.url }}">{{ page.title }}</a></li>
-        {% endif %}
-    {% endfor %}
+
+
 </ul>
