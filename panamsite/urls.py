@@ -23,8 +23,10 @@ from django.conf.urls.static import static
 from djgeojson.views import GeoJSONLayerView
 
 from panampath.models import PathSegment
-
+from filebrowser.sites import site
 urlpatterns = [
+    url('admin/filebrowser/', site.urls),
+    url(r'grappelli/', include('grappelli.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^$', IndexView.as_view(), name="home"),
     url(r'^submit-event/$', send_email, name="submit_event"),

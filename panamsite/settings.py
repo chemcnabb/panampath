@@ -37,6 +37,8 @@ except ImportError:
 
 
 INSTALLED_APPS = [
+    'grappelli',
+'filebrowser',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.sites',
