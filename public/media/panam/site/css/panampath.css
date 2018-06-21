@@ -7531,17 +7531,20 @@ pre {
     display: none; }
 
   .footer-social-icons {
-    display: block; } }
+    display: block;
+    width: 15%;
+    white-space: nowrap; } }
 .social-icons {
   width: 15%;
   white-space: nowrap; }
 
 a.social-icon {
-  height: 80px;
+  height: 60px;
   width: auto;
   padding: 15px 5px;
-  overflow: hidden;
-  display: inline-block; }
+  /* overflow: hidden; */
+  display: inline-block;
+  float: right; }
 
 a.social-icon img {
   height: 100%;

@@ -201,11 +201,12 @@ width: 15%;
 }
 
 a.social-icon {
-  height: 80px;
+  height: 60px;
   width: auto;
   padding: 15px 5px;
-  overflow: hidden;
+  /* overflow: hidden; */
   display: inline-block;
+  float: right;
 }
 
 a.social-icon img {
