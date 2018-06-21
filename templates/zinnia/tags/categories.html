@@ -27,18 +27,29 @@
                    title="{% blocktrans %}Show all entries in {{ category }}{% endblocktrans %}">{{ category }}</a>
             </li>
         {% endif %}
-{% if 'stories' in category.slug %}
+        {% if 'projects' in category.slug %}
             <li class="{% if category.slug == context_category.slug %} current{% endif %}">
                 <a href="{{ category.get_absolute_url }}"
                    title="{% blocktrans %}Show all entries in {{ category }}{% endblocktrans %}">{{ category }}</a>
             </li>
         {% endif %}
 
+
     {% endfor %}
 
 
 {% for page in flatpages %}
         {% if '/about/' in page.url %}
+        <li><a href="{{ page.url }}">{{ page.title }}</a></li>
+        {% endif %}
+    {% endfor %}
+{% for page in flatpages %}
+        {% if '/partners/' in page.url %}
+        <li><a href="{{ page.url }}">{{ page.title }}</a></li>
+        {% endif %}
+    {% endfor %}
+{% for page in flatpages %}
+        {% if '/news/' in page.url %}
         <li><a href="{{ page.url }}">{{ page.title }}</a></li>
         {% endif %}
     {% endfor %}
@@ -50,13 +61,22 @@
 
 
     {% for category in categories %}
-
+{% if 'stories' in category.slug %}
+            <li class="{% if category.slug == context_category.slug %} current{% endif %}">
+                <a href="{{ category.get_absolute_url }}"
+                   title="{% blocktrans %}Show all entries in {{ category }}{% endblocktrans %}">{{ category }}</a>
+            </li>
+        {% endif %}
     {% empty %}
         <li class="">
             <a href="#">{% trans "No categories yet." %}</a>
         </li>
 
     {% endfor %}
-
+{% for page in flatpages %}
+        {% if '/about/' in page.url %}
+        <li><a href="{{ page.url }}">{{ page.title }}</a></li>
+        {% endif %}
+    {% endfor %}
 
 </ul>
