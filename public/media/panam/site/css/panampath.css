@@ -7526,4 +7526,25 @@ pre {
 .leaflet-bottom.leaflet-right {
   display: none; }
 
+@media (max-width: 767.98px) {
+  .social-icons {
+    display: none; }
+
+  .footer-social-icons {
+    display: block; } }
+.social-icons {
+  width: 15%;
+  white-space: nowrap; }
+
+a.social-icon {
+  height: 80px;
+  width: auto;
+  padding: 15px 5px;
+  overflow: hidden;
+  display: inline-block; }
+
+a.social-icon img {
+  height: 100%;
+  display: block; }
+
 /*# sourceMappingURL=panampath.css.map */
