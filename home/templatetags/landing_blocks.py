@@ -20,11 +20,11 @@ def get_curmonth_first(current):
     return next_month
 
 @register.inclusion_tag('tags/home_block.html', takes_context=True)
-def home_block(context, category, class_style=""):
+def home_block(context, category, class_style="", url=None):
     """
     Return the featured entries.
     """
-    return_dict = {'category': category, "class_style": class_style}
+    return_dict = {'category': category, "class_style": class_style, 'url':url}
     segments = PathSegment.objects.all()
     coords = []
     segment_popups = []
