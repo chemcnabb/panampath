@@ -206,7 +206,7 @@ pre {
 }
 
 .social-icons {
-  width: 15%;
+  width: 17%;
   white-space: nowrap;
 }
 
@@ -214,6 +214,7 @@ a.social-icon {
   height: 60px;
   width: auto;
   padding: 15px 5px;
+  white-space: nowrap;
   /* overflow: hidden; */
   display: inline-block;
   float: right;
