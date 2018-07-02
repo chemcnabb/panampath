@@ -1,8 +1,11 @@
 from django import template
 from zinnia.models import Category
+from django.utils import timezone
+
 register = template.Library()
 from panampath.models import PathSegment
 import datetime
+from django.db.models import Q
 
 @register.filter(name='get_value_at')
 def get_value_at(_list, index):
@@ -39,9 +42,11 @@ def home_block(context, category, class_style=""):
 
     events = None
     if category.lower() == "events":
-        events = Category.published.filter(slug__in=['events']).filter(entries__publication_date__gte=datetime.datetime.now())
+        events = Category.published.filter(slug__in=['events'])
+        print events
         if events:
-            events = events[0].entries_published()
+            events = events[0].entries_published().filter(Q(publication_date__gte=timezone.now()), Q(start_publication__lte=timezone.now()), Q(end_publication__isnull=True) | Q(end_publication__gte=timezone.now()))
+            print events
         return_dict["events"] = events
 
 
