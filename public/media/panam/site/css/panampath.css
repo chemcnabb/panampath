@@ -7399,7 +7399,7 @@ html {
 
 body {
   /* Margin bottom by footer height */
-  margin-bottom: 250px; }
+  margin-bottom: 331px; }
 
 .main-content {
   padding-bottom: 25px; }
@@ -7418,7 +7418,7 @@ footer {
   bottom: 0;
   width: 100%;
   /* Set the fixed height of the footer here */
-  height: 250px;
+  height: 331px;
   background-color: #2d3844; }
   footer a {
     font-size: 12px; }
