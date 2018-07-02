@@ -45,7 +45,7 @@ def home_block(context, category, class_style=""):
         events = Category.published.filter(slug__in=['events'])
         print events
         if events:
-            events = events[0].entries_published().filter(Q(publication_date__gte=timezone.now()), Q(start_publication__lte=timezone.now()), Q(end_publication__isnull=True) | Q(end_publication__gte=timezone.now()))
+            events = events[0].entries_published().filter(Q(publication_date__gte=datetime.datetime.now()), Q(end_publication__isnull=True) | Q(end_publication__gte=timezone.now()))
             print events
         return_dict["events"] = events
 
