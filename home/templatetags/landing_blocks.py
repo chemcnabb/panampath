@@ -15,9 +15,9 @@ def get_value_at(_list, index):
 from pprint import pprint
 
 def get_curmonth_first(current):
-    # _first_day = current.replace(day=1)
-    prev_month_lastday = current - datetime.timedelta(days=1)
-    return prev_month_lastday.replace(day=1)
+    next_month = datetime.datetime(current.year + (datetime.datetime.now().month / 12), ((datetime.datetime.now().month % 12)), 1)
+
+    return next_month
 
 @register.inclusion_tag('tags/home_block.html', takes_context=True)
 def home_block(context, category, class_style=""):
@@ -56,11 +56,11 @@ def home_block(context, category, class_style=""):
             #last_day = get_curmonth_first(datetime.datetime.now())
             #print last_day
             events = events[0].entries_published().filter(Q(end_publication__isnull=True) | Q(end_publication__gte=timezone.now()))
-            # for event in events:
-            #     if event.end_publication == None:
-            #         # event.publication_date = get_curmonth_first(datetime.datetime.now())
-            #         # print "saving model"
-            #         # event.save()
+            for event in events:
+                if event.end_publication == None and event.start_publication == None:
+                    event.publication_date = get_curmonth_first(event.publication_date)
+                    # print "saving model"
+                    event.save()
         return_dict["published_events"] = events
 
 

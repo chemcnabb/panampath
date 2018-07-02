@@ -20,8 +20,7 @@ def clean_word(word):
 @register.filter(name='dateToday')
 def dateToday(date):
     #if date >= datetime.datetime.today():
-    print date
-    if date >= datetime.datetime.now():
+    if date.month >= datetime.datetime.now().month:
         return date
 
 @register.inclusion_tag('zinnia/tags/dummy.html', takes_context=True)

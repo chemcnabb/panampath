@@ -1,7 +1,7 @@
 {% load calendar_override zinnia utilities %}
 
 {% now "F Y" as today %}
-{% regroup object_list by publication_date|date:"F Y" as events_by_date %}
+{% regroup object_list by publication_date|dateToday as events_by_date %}
 
 
 
