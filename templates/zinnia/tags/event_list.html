@@ -1,7 +1,7 @@
 {% load calendar_override zinnia %}
 
 {% now "F Y" as today %}
-{% regroup object_list by publication_date|date:"F Y" as events_by_date %}
+{% regroup object_list by publication_date as events_by_date %}
 
 
 
@@ -10,11 +10,11 @@
 
 
 
-{% for date in events_by_date %}
+{% for date in events_by_date|date:"F Y" %}
 
 
 
-    {% if date.grouper >= today %}
+    {% if date.grouper >= now %}
 
     <div class="col-12"
          style="background-color: #f15e2a;margin-bottom:50px;">
