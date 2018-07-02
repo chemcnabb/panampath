@@ -65,7 +65,7 @@
 {% block body-class %}entry-list{% if page_obj %} paginated page-{{ page_obj.number }}{% endif %}{% if category %}
     category category-{{ category.slug }}{% endif %}{% if tag %} tag tag-{{ tag|slugify }}{% endif %}{% if author %}
     author author-{{ author|slugify }}{% endif %}{% endblock body-class %}
-{% block is-main-content %}{% if 'events' == object_list.0.categories.first.slug %}nav-offset-120{% else %}nav-offset{% endif %} h-100{% endblock %}
+{% block is-main-content %}{% if 'events' == object_list.0.categories.first.slug %}nav-offset{% else %}nav-offset{% endif %} h-100{% endblock %}
 {% block content %}
 
     {#{% block content-title %}#}

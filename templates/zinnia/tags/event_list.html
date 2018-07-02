@@ -1,13 +1,51 @@
-{% load calendar_override %}
+{% load calendar_override zinnia %}
 
-<div class="container entry-base">
-    <div class="col-12">
-        <div class="row">
-            {#{% get_calendar_entries %}#}
-            {% for entry in object_list %}
 
-                {% include "./event_featured.html" %}
-            {% endfor %}
+{% regroup object_list by publication_date|date:"F Y" as events_by_date %}
+
+
+
+
+
+
+
+
+{% for date in events_by_date %}
+
+
+
+
+
+    <div class="col-12"
+         style="background-color: #f15e2a;margin-bottom:50px;">
+        <div class="col text-center" style="padding: 25px;"><h1 style="  font-weight: 700;
+  font-size: 24px;">{{ date.grouper }}</h1></div>
+    </div>
+
+
+    <div class="container entry-base">
+        <div class="col-12">
+            <div class="row">
+                {% for entry in date.list %}
+
+
+                    {% include "./event_featured.html" %}
+
+                {% endfor %}
+            </div>
         </div>
     </div>
-</div>
+{% endfor %}
+
+{##}
+{#<div class="container entry-base">#}
+{#    <div class="col-12">#}
+{#        <div class="row">#}
+{##}
+{#            {% for entry in object_list|sort(attribute='rating') %}#}
+{##}
+{#                {% include "./event_featured.html" %}#}
+{#            {% endfor %}#}
+{#        </div>#}
+{#    </div>#}
+{#</div>#}
