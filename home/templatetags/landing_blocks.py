@@ -11,6 +11,14 @@ from django.db.models import Q
 def get_value_at(_list, index):
     return _list[index]
 
+
+
+
+def get_lastday(current):
+    # _first_day = current.replace(day=1)
+    prev_month_lastday = current - datetime.timedelta(days=1)
+    return prev_month_lastday.replace(day=1)
+
 @register.inclusion_tag('tags/home_block.html', takes_context=True)
 def home_block(context, category, class_style=""):
     """
@@ -45,7 +53,9 @@ def home_block(context, category, class_style=""):
         events = Category.published.filter(slug__in=['events'])
         print events
         if events:
-            events = events[0].entries_published().filter(Q(publication_date__gte=datetime.datetime.now()), Q(end_publication__isnull=True) | Q(end_publication__gte=timezone.now()))
+            last_day = get_lastday(datetime.datetime.now())
+            print last_day
+            events = events[0].entries_published().filter(Q(publication_date__gte=last_day), Q(end_publication__isnull=True) | Q(end_publication__gte=timezone.now()))
             print events
         return_dict["events"] = events
 
