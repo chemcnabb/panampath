@@ -158,7 +158,7 @@ LEAFLET_CONFIG = {
 
     },
 }
-ZINNIA_PAGINATION = 0
+ZINNIA_PAGINATION = None
 ZINNIA_ENTRY_BASE_MODEL = 'zinnia_extend.models.EntryExtend'
 MIGRATION_MODULES = {'zinnia': 'zinnia_extend.migrations_zinnia'}
 
