@@ -42,12 +42,13 @@ class EntryAdminCKEditorForm(EntryAdminForm):
 
 class EntryExtendAdmin(EntryAdminCKEditor):
     form=EntryAdminCKEditorForm
-    # fieldsets = (
-    #     (_('Content'), {
-    #         'fields': (('title', 'status'), 'lead', 'content',)}),
-    #     (_('Illustration'), {
-    #         'fields': ('image', 'gallery'),
-    #         'classes': ('collapse', 'collapse-closed')}),)
+    fieldsets = (
+        (_('Content'), {
+            'fields': (('title', 'status'), 'lead', 'content',)}),
+        (_('Illustration'), {
+            'fields': ('image', 'gallery'),
+            'classes': ('collapse', 'collapse-closed')}),) + \
+    EntryAdminCKEditor.fieldsets[0:]
 
 
 admin.site.register(Entry, EntryExtendAdmin)
