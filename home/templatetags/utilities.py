@@ -4,7 +4,7 @@ from django.utils import timezone
 from zinnia.models import Entry
 from _calendar import Calendar
 
-from datetime import date
+import datetime
 from zinnia.models.category import Category
 from django.db.models import Count
 
@@ -17,7 +17,11 @@ def clean_word(word):
     word = ''.join(ch for ch in word if ch.isalnum())
     return word.replace(" ", "").strip().lower()
 
-
+@register.filter(name='dateToday')
+def dateToday(date):
+    #if date >= datetime.datetime.today():
+    if date >= datetime.datetime.now():
+        return date.strftime('F Y')
 
 @register.inclusion_tag('zinnia/tags/dummy.html', takes_context=True)
 def get_categories_override(context, template='zinnia/tags/categories.html'):
