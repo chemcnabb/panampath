@@ -110,7 +110,7 @@
             {% for object in object_list %}
                 {% if object.categories.first.slug != "events" %}
                     {% zinnia_loop_template object.content_template as template %}
-                    {% include template with object_content=object.html_preview %}
+                    {% include template with object_content=object.html_preview continue_reading=0 %}
                 {% endif %}
             {% empty %}
                 <p class="info">
