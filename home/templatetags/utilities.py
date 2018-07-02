@@ -21,7 +21,7 @@ def clean_word(word):
 def dateToday(date):
     #if date >= datetime.datetime.today():
     if date >= datetime.datetime.now():
-        return date.strftime('F Y')
+        return date.strftime('%F %Y')
 
 @register.inclusion_tag('zinnia/tags/dummy.html', takes_context=True)
 def get_categories_override(context, template='zinnia/tags/categories.html'):
