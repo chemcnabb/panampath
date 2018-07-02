@@ -11,11 +11,12 @@ register = template.Library()
 
 @register.inclusion_tag('zinnia/tags/event_widget_list.html', takes_context=True)
 def get_event_entries(context, number=5):
+    print "getting calendar entries"
     """
     Return the featured entries.
     """
     entries = Entry.published.all()
-    entries = [entry for entry in entries if entry.categories.first().title == "Events"]
+    entries = [entry for entry in entries if entry.categories.slug == "events"]
     return {'events':entries[:number]}
 
 
@@ -23,6 +24,7 @@ def get_event_entries(context, number=5):
 @register.inclusion_tag('zinnia/tags/dummy.html', takes_context=True)
 def get_calendar_entries(context, year=None, month=None,
                          template='zinnia/tags/entries_calendar.html'):
+    print "getting calendar entries"
     """
     Return an HTML calendar of entries.
     """
