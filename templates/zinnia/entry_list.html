@@ -65,7 +65,8 @@
 {% block body-class %}entry-list{% if page_obj %} paginated page-{{ page_obj.number }}{% endif %}{% if category %}
     category category-{{ category.slug }}{% endif %}{% if tag %} tag tag-{{ tag|slugify }}{% endif %}{% if author %}
     author author-{{ author|slugify }}{% endif %}{% endblock body-class %}
-{% block is-main-content %}{% if 'events' == object_list.0.categories.first.slug %}nav-offset{% else %}nav-offset{% endif %} h-100{% endblock %}
+{% block is-main-content %}{% if 'events' == object_list.0.categories.first.slug %}nav-offset{% else %}nav-offset
+{% endif %} h-100{% endblock %}
 {% block content %}
 
     {#{% block content-title %}#}
@@ -104,6 +105,7 @@
 
         {% if 'events' == object_list.0.categories.first.slug %}
             {% include "zinnia/tags/event_list.html" %}
+
         {% else %}
             {% for object in object_list %}
                 {% if object.categories.first.slug != "events" %}
@@ -128,6 +130,7 @@
     {% endblock content-related %}
 
 {% endblock content %}
+
 
 {% block admin-tools %}
     {% if category and perms.zinnia.change_category %}

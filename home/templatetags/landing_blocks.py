@@ -2,7 +2,7 @@ from django import template
 from zinnia.models import Category
 register = template.Library()
 from panampath.models import PathSegment
-
+import datetime
 
 @register.filter(name='get_value_at')
 def get_value_at(_list, index):
@@ -39,7 +39,7 @@ def home_block(context, category, class_style=""):
 
     events = None
     if category.lower() == "events":
-        events = Category.published.filter(slug__in=['events'])
+        events = Category.published.filter(slug__in=['events']).filter(entries__publication_date__gte=datetime.datetime.now())
         if events:
             events = events[0].entries_published()
         return_dict["events"] = events

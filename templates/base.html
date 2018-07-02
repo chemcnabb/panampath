@@ -32,6 +32,9 @@
 
 
 
+
+
+
             {% block meta-description %}{% trans "Just another Zinnia weblog." %}{% endblock meta-description %}{% block meta-description-page %}{% endblock meta-description-page %}"/>
     <meta name="keywords" content="{% block meta-keywords %}django, blog, weblog, zinnia{% endblock meta-keywords %}"/>
 
@@ -151,7 +154,7 @@
             {% home_block "mission" "entry-base container no-inline" %}
             {% home_block "projects" "container-fluid no-margin" %}
 
-            {% home_block "events" "entry-base container" %}
+            {% if events %}{% home_block "events" "entry-base container" %}{% endif %}
             {% home_block "stories" "container-fluid no-margin" %}
 
 
@@ -159,29 +162,9 @@
 
 
         {% endblock content %}
+        {% block submit-event %}{% endblock submit-event %}
 
-        <div class="container-fluid bg-white" style="z-index:1;padding:0">
-            <div class="col-12" style="background-color: #f15e2a;padding:3px;">
-
-            </div>
-
-
-            <div class="container entry-base newsletter-content bg-white" style="margin-bottom:25px;">
-                <div class="row no-gutter  justify-content-center">
-                    <div class="col-auto">
-
-
-                        <div class="col text-center"
-                             style="padding: 50px 25px 25px 25px;">{% include "zinnia/submit-event-footer.html" %}</div>
-
-
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
-
-
 </div>
 <footer>
     <div class="container-fluid h-110" style="background-color: #2d3844;">
