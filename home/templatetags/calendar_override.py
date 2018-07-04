@@ -16,7 +16,7 @@ def get_event_entries(context, number=5):
     Return the featured entries.
     """
     entries = Entry.published.all()
-    entries = [entry for entry in entries if entry.categories.slug == "events"]
+    entries = [entry for entry in entries if entry.categories.first().title == "Events"]
     return {'events':entries[:number]}
 
 
