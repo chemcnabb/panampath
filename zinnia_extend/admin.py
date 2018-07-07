@@ -48,7 +48,7 @@ class EntryExtendAdmin(EntryAdminCKEditor):
         (_('Illustration'), {
             'fields': ('image', 'gallery'),
             'classes': ('collapse', 'collapse-closed')}),) + \
-    EntryAdminCKEditor.fieldsets[0:]
+    EntryAdminCKEditor.fieldsets[2:]
 
 
 admin.site.register(Entry, EntryExtendAdmin)
