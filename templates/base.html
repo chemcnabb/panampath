@@ -182,7 +182,11 @@
 
                 <!-- Content -->
                 <h5 class="text-uppercase font-weight-bold">&nbsp;</h5>
-                <p>{% include "zinnia/newsletter.html" %}</p>
+                <p>Our mission is to enhance and bring awareness to the Pan Am Path through arts, culture and
+                    recreation</p>
+                <p>City of Toronto is the sole owner of the Physical Pan Am Path trail infrastructure, please
+                    contact 311 for trail inquiries.</p>
+
 
             </div>
             <!-- Grid column -->
@@ -193,12 +197,16 @@
             <div class="col-md-6 mb-md-0 mb-3">
 
                 <!-- Content -->
-                <h5 class="text-uppercase font-weight-bold">&nbsp;</h5>
+                <h5 class="text-uppercase text-center font-weight-bold"><p  >Supported by:</p></h5>
+<div class="row text-center flex-row" style="justify-content: center;">
 
-                <p>Our mission is to enhance and bring awareness to the Pan Am Path through arts, culture and
-                    recreation</p>
-                <p>City of Toronto is the sole owner of the Physical Pan Am Path trail infrastructure, please
-                    contact 311 for trail inquiries.</p>
+                <img style="justify-content: center;max-height:80px;" class="img-responsive" src="/media/panam/site/img/toronto-foundation-logo.svg">
+
+                <img style="justify-content: center;max-height:80px;" class="img-responsive" src="/media/panam/site/img/trillium.logo.svg">
+
+
+        </div>
+
             </div>
             <!-- Grid column -->
 
@@ -209,17 +217,17 @@
     <!-- Footer Text -->
 
     <!-- Copyright -->
-    <div class="footer-copyright text-center py-3"><p>Supported by:</p>
+{#    <div class="footer-copyright text-center py-3"><p>Supported by:</p>#}
+{#        #}
+{#    </div>#}
+<div class="footer-copyright text-center py-3">
         <div style="justify-content:center;" class="row text-center flex-row">
 
-                <img class="img-responsive" style="max-height:80px;" src="/media/panam/site/img/toronto-foundation-logo.svg">
-
-                <img class="img-responsive" style="max-height:80px;" src="/media/panam/site/img/trillium.logo.svg">
+                {% include "zinnia/newsletter.html" %}
 
 
         </div>
     </div>
-
 
     <!-- Copyright -->
 
