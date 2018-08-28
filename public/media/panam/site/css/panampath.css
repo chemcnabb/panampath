@@ -7395,13 +7395,16 @@ ul.extra-features i {
 
 html {
   position: relative;
-  min-height: 100%;
-  background-color: #2d3844; }
+  min-height: 100%; }
 
 body {
   /* Margin bottom by footer height */
   margin-bottom: 331px; }
 
+@media (max-width: 767.98px) {
+  body {
+    /* Margin bottom by footer height */
+    margin-bottom: 655px; } }
 .main-content {
   padding-bottom: 25px; }
 
@@ -7429,6 +7432,9 @@ footer {
   footer .footer-container {
     width: 70%; }
 
+@media (max-width: 767.98px) {
+  footer {
+    height: 655px; } }
 a:link {
   color: #f15e2a; }
 
