@@ -7395,7 +7395,8 @@ ul.extra-features i {
 
 html {
   position: relative;
-  min-height: 100%; }
+  min-height: 100%;
+  background-color: #2d3844; }
 
 body {
   /* Margin bottom by footer height */
@@ -7413,7 +7414,7 @@ body {
   width: 70%; }
 
 footer {
-  padding-top: 15px;
+  padding: 15px 25px 0 25px;
   position: absolute;
   bottom: 0;
   width: 100%;

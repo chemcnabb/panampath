@@ -35,6 +35,7 @@
 
 
 
+
             {% block meta-description %}{% trans "Just another Zinnia weblog." %}{% endblock meta-description %}{% block meta-description-page %}{% endblock meta-description-page %}"/>
     <meta name="keywords" content="{% block meta-keywords %}django, blog, weblog, zinnia{% endblock meta-keywords %}"/>
 
@@ -153,7 +154,7 @@
             {% home_block "map" "container-fluid no-inline no-margin" "/map/" %}
             {% home_block "mission" "entry-base container no-inline" "/about/" %}
             {% home_block "projects" "container-fluid no-margin" %}
-{% home_block "stories" "container-fluid no-margin" %}
+            {% home_block "stories" "container-fluid no-margin" %}
             {% home_block "events" "entry-base container" %}
 
 
@@ -166,97 +167,157 @@
 
     </div>
 </div>
-<footer>
-    <div class="container-fluid h-110" style="background-color: #2d3844;">
-        <p>&nbsp;</p>
-        <div class="row d-flex h-110">
-            <div class="col-sm order-0 order-sm-0 col-sm-push-1" style="background-color:#2d3844">
 
-                <div class="row align-items-center justify-content-center">
+<!-- Footer -->
+<footer class="page-footer font-small teal pt-4">
 
+    <!-- Footer Text -->
+    <div class="container-fluid text-center text-md-left">
 
-                    <div class="col-xs-2 col-md-12">
-                        {% include "zinnia/newsletter.html" %}
-                    </div>
+        <!-- Grid row -->
+        <div class="row">
 
+            <!-- Grid column -->
+            <div class="col-md-6 mt-md-0 mt-3">
 
-                </div>
-                <div class="row align-items-center justify-content-center">
-
-
-                    <div class="col-xs-2 col-md-12">
-                        <div class="footer-social-icons">
-                            <a href="http://instagram.com/panampath" title="Pan Am Path" class="social-icon"
-                               rel="instagram"
-                               target="_blank">
-                                <img src="/media/panam/IG.svg" class="pull-right" alt="Pan Am Path"/>
-                            </a>
-                            <a href="http://twitter.com/panampath" title="Pan Am Path" class="social-icon" rel="twitter"
-                               target="_blank">
-                                <img src="/media/panam/tw.svg" class="pull-right" alt="Pan Am Path"/>
-                            </a>
-                            <a href="http://facebook.com/panampath" title="Pan Am Path" class="social-icon"
-                               rel="facebook" target="_blank">
-                                <img src="/media/panam/fb.svg" class="pull-right" alt="Pan Am Path"/>
-                            </a>
-
-                        </div>
-                    </div>
-
-
-                </div>
-
+                <!-- Content -->
+                <h5 class="text-uppercase font-weight-bold">&nbsp;</h5>
+                <p>{% include "zinnia/newsletter.html" %}</p>
 
             </div>
-            <div class="col-sm order-1 order-sm-1 col-sm-pull-1" 1style="background-color:#2d3844">
+            <!-- Grid column -->
 
+            <hr class="clearfix w-100 d-md-none pb-3">
 
-                <div class="row">
+            <!-- Grid column -->
+            <div class="col-md-6 mb-md-0 mb-3">
 
+                <!-- Content -->
+                <h5 class="text-uppercase font-weight-bold">&nbsp;</h5>
 
-                    <div class="col-sm-12">
-                        <p>Our mission is to enhance and bring awareness to the Pan Am Path through arts, culture and
-                            recreation</p>
-                    </div>
-
-
-                </div>
-
-
-                <div class="row">
-                    <div class="col-sm-12">
-                        <p>City of Toronto is the sole owner of the Physical Pan Am Path trail infrastructure, please
-                            contact 311 for trail inquiries.</p>
-                    </div>
-                </div>
-
-
+                <p>Our mission is to enhance and bring awareness to the Pan Am Path through arts, culture and
+                    recreation</p>
+                <p>City of Toronto is the sole owner of the Physical Pan Am Path trail infrastructure, please
+                    contact 311 for trail inquiries.</p>
             </div>
-            <div class="col-sm order-2" style="background-color:#2d3844">
-                <div class="row text-center">
-                    <div class="col-sm-12 align-self-center">
-                        <p>Supported by:</p>
-                    </div>
-                </div>
-                <div class="row text-center justify-content-center">
-                    <div class="col-sm-12 align-self-center  align-items-center justify-content-center">
-                        <div class="row text-center  align-items-center justify-content-center flex-xs-nowrap flex-sm-wrap">
-                            {#                            <div class="col-4  align-items-center"><img src="/media/panam/site/img/Q-eOne.png" class="align-middle img-fluid"#}
-                            {#                                                    alt="Responsive image"/></div>#}
-                            <div class="col-md-6 col-lg-6  align-items-center"><img
-                                    src="/media/panam/site/img/toronto-foundation-logo.svg"
-                                    class="align-middle img-fluid" alt="Responsive image"/></div>
-                            <div class="col-md-6 col-lg-6  align-items-center"><img
-                                    src="/media/panam/site/img/trillium.logo.svg"
-                                    class="align-middle img-fluid"
-                                    alt="Responsive image"/></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <!-- Grid column -->
+
+        </div>
+        <!-- Grid row -->
+
+    </div>
+    <!-- Footer Text -->
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3"><p>Supported by:</p>
+        <div style="justify-content:center;" class="row text-center flex-row">
+
+                <img class="img-responsive" style="max-height:80px;" src="/media/panam/site/img/toronto-foundation-logo.svg">
+
+                <img class="img-responsive" style="max-height:80px;" src="/media/panam/site/img/trillium.logo.svg">
+
+
         </div>
     </div>
+
+
+    <!-- Copyright -->
+
 </footer>
+<!-- Footer -->
+
+
+{#<footer>#}
+{#    <div class="container-fluid h-110" style="background-color: #2d3844;">#}
+{#        <p>&nbsp;</p>#}
+{#        <div class="row d-flex h-110">#}
+{#            <div class="col-sm order-0 order-sm-0 col-sm-push-1" style="background-color:#2d3844">#}
+{##}
+{#                <div class="row align-items-center justify-content-center">#}
+{##}
+{##}
+{#                    <div class="col-xs-2 col-md-12">#}
+{#                        {% include "zinnia/newsletter.html" %}#}
+{#                    </div>#}
+{##}
+{##}
+{#                </div>#}
+{#                <div class="row align-items-center justify-content-center">#}
+{##}
+{##}
+{#                    <div class="col-xs-2 col-md-12">#}
+{#                        <div class="footer-social-icons">#}
+{#                            <a href="http://instagram.com/panampath" title="Pan Am Path" class="social-icon"#}
+{#                               rel="instagram"#}
+{#                               target="_blank">#}
+{#                                <img src="/media/panam/IG.svg" class="pull-right" alt="Pan Am Path"/>#}
+{#                            </a>#}
+{#                            <a href="http://twitter.com/panampath" title="Pan Am Path" class="social-icon" rel="twitter"#}
+{#                               target="_blank">#}
+{#                                <img src="/media/panam/tw.svg" class="pull-right" alt="Pan Am Path"/>#}
+{#                            </a>#}
+{#                            <a href="http://facebook.com/panampath" title="Pan Am Path" class="social-icon"#}
+{#                               rel="facebook" target="_blank">#}
+{#                                <img src="/media/panam/fb.svg" class="pull-right" alt="Pan Am Path"/>#}
+{#                            </a>#}
+{##}
+{#                        </div>#}
+{#                    </div>#}
+{##}
+{##}
+{#                </div>#}
+{##}
+{##}
+{#            </div>#}
+{#            <div class="col-sm order-1 order-sm-1 col-sm-pull-1" 1style="background-color:#2d3844">#}
+{##}
+{##}
+{#                <div class="row">#}
+{##}
+{##}
+{#                    <div class="col-sm-12">#}
+{#                        <p>Our mission is to enhance and bring awareness to the Pan Am Path through arts, culture and#}
+{#                            recreation</p>#}
+{#                    </div>#}
+{##}
+{##}
+{#                </div>#}
+{##}
+{##}
+{#                <div class="row">#}
+{#                    <div class="col-sm-12">#}
+{#                        <p>City of Toronto is the sole owner of the Physical Pan Am Path trail infrastructure, please#}
+{#                            contact 311 for trail inquiries.</p>#}
+{#                    </div>#}
+{#                </div>#}
+{##}
+{##}
+{#            </div>#}
+{#            <div class="col-sm order-2" style="background-color:#2d3844">#}
+{#                <div class="row text-center">#}
+{#                    <div class="col-sm-12 align-self-center">#}
+{#                        <p>Supported by:</p>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="row text-center justify-content-center">#}
+{#                    <div class="col-sm-12 align-self-center  align-items-center justify-content-center">#}
+{#                        <div class="row text-center  align-items-center justify-content-center flex-xs-nowrap flex-sm-wrap">#}
+{#                            <div class="col-4  align-items-center"><img src="/media/panam/site/img/Q-eOne.png" class="align-middle img-fluid"#}
+{#                                                    alt="Responsive image"/></div>#}
+{#                            <div class="col-md-6 col-lg-6  align-items-center"><img#}
+{#                                    src="/media/panam/site/img/toronto-foundation-logo.svg"#}
+{#                                    class="align-middle img-fluid" alt="Responsive image"/></div>#}
+{#                            <div class="col-md-6 col-lg-6  align-items-center"><img#}
+{#                                    src="/media/panam/site/img/trillium.logo.svg"#}
+{#                                    class="align-middle img-fluid"#}
+{#                                    alt="Responsive image"/></div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#</footer>#}
 
 <script type="text/javascript" src="/media/panam/site/js/bootstrap.min.js"></script>
 {#<script type="text/javascript" src="{% static "panam/site/js/owl.carousel.min.js" %}"></script>#}
